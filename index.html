@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infinity Smart Home Systems | Luxury Home Automation | Pontypridd, Cardiff, Bristol</title>
     <meta name="description" content="Discreet smart home systems for luxury homes in South Wales and the South West. Expert automation, lighting design, cinema rooms, and multi-room audio that actually works.">
+    <link rel="icon" type="image/png" href="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -305,161 +306,147 @@
             line-height: 1.5;
             margin: 0;
         }
+
+        /* Consistent Luxury Button Styles */
+        .luxury-cta-button {
+            position: relative;
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #d4af37 0%, #b87333 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .luxury-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, #b87333 0%, #d4af37 100%);
+        }
+
+        .luxury-secondary-button {
+            position: relative;
+            display: inline-block;
+            padding: 18px 40px;
+            background: transparent;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .luxury-secondary-button:hover {
+            transform: translateY(-2px);
+            border-color: #d4af37;
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Scrolling Header */
+        .header-scrolled {
+            background: rgba(0, 0, 0, 0.95) !important;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <body class="antialiased bg-warm-white text-charcoal-soft">
 
     <!-- Navigation -->
-    <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-7xl">
-        <div class="glass-effect rounded-full shadow-2xl px-8 py-4">
-            <div class="flex justify-between items-center">
+    <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
                 <div class="flex items-center gap-4">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Logo" class="h-10 w-10 object-contain">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Logo" class="h-12 w-12 object-contain">
                     <div class="flex flex-col">
-                        <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-gold-accent via-copper to-rose-gold bg-clip-text text-transparent leading-tight">INFINITY</span>
-                        <span class="text-xs text-charcoal-soft/60 font-light italic leading-tight">Smart Home Systems</span>
+                        <span class="text-2xl font-bold tracking-tight bg-gradient-to-r from-gold-accent via-copper to-rose-gold bg-clip-text text-transparent leading-tight">INFINITY</span>
+                        <span class="text-xs text-white/80 font-light italic leading-tight">Smart Home Systems</span>
                     </div>
                 </div>
                 <div class="hidden lg:flex items-center space-x-10">
-                    <a href="#process" class="text-charcoal-soft/70 hover:text-gold-accent text-sm smooth-transition font-medium relative group">
+                    <a href="#process" class="text-white/80 hover:text-gold-accent text-sm smooth-transition font-medium relative group">
                         How We Work
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-gold-accent to-copper group-hover:w-full transition-all duration-500"></span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-gold-accent to-copper group-hover:w-full transition-all duration-300"></span>
                     </a>
-                    <a href="#projects" class="text-charcoal-soft/70 hover:text-gold-accent text-sm smooth-transition font-medium relative group">
+                    <a href="#projects" class="text-white/80 hover:text-gold-accent text-sm smooth-transition font-medium relative group">
                         Projects
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-gold-accent to-copper group-hover:w-full transition-all duration-500"></span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-gold-accent to-copper group-hover:w-full transition-all duration-300"></span>
                     </a>
-                    <a href="#trade" class="text-charcoal-soft/70 hover:text-gold-accent text-sm smooth-transition font-medium relative group">
-                        Trade Partners
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-gold-accent to-copper group-hover:w-full transition-all duration-500"></span>
+                    <a href="#services" class="text-white/80 hover:text-gold-accent text-sm smooth-transition font-medium relative group">
+                        Services
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-gold-accent to-copper group-hover:w-full transition-all duration-300"></span>
                     </a>
-                    <a href="#contact" class="text-charcoal-soft/70 hover:text-gold-accent text-sm smooth-transition font-medium relative group">
+                    <a href="#contact" class="text-white/80 hover:text-gold-accent text-sm smooth-transition font-medium relative group">
                         Contact
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-gold-accent to-copper group-hover:w-full transition-all duration-500"></span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-gold-accent to-copper group-hover:w-full transition-all duration-300"></span>
                     </a>
                 </div>
-                <a href="#contact" class="bg-gradient-to-r from-gold-accent to-copper hover:from-copper hover:to-gold-accent text-white px-8 py-3 text-sm font-semibold smooth-transition rounded-full shadow-lg hover:shadow-xl shimmer">
-                    Request Consultation
+                <a href="#contact" class="luxury-cta-button text-sm px-8 py-3">
+                    Book Private Consultation
                 </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center overflow-hidden pt-32 pb-20">
-        <!-- Animated gradient background -->
-        <div class="absolute inset-0 gradient-luxury"></div>
+    <header class="relative min-h-screen flex items-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOfptHX2vNdOBRLJpEY5lM9mQiDnF6PqVH1ohZ" alt="Luxury Smart Home" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+        </div>
 
-        <!-- Decorative circles -->
-        <div class="absolute top-20 right-10 w-96 h-96 rounded-full bg-gradient-to-br from-rose-gold/20 to-transparent blur-3xl floating"></div>
-        <div class="absolute bottom-20 left-10 w-80 h-80 rounded-full bg-gradient-to-tr from-soft-blue/20 to-transparent blur-3xl floating" style="animation-delay: -3s;"></div>
-        <div class="absolute top-1/2 left-1/2 w-72 h-72 rounded-full bg-gradient-to-br from-lavender/15 to-transparent blur-3xl floating" style="animation-delay: -1.5s;"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-32">
+            <div class="text-center max-w-5xl mx-auto">
+                <!-- Slogan -->
+                <h1 class="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight mb-10 leading-[1.1] text-shadow-luxury fade-in-up">
+                    <span class="block text-4xl md:text-5xl lg:text-6xl mb-4 bg-gradient-to-r from-gold-accent via-copper to-rose-gold bg-clip-text text-transparent">
+                        Your Home.
+                    </span>
+                    <span class="block bg-gradient-to-r from-white via-champagne to-white bg-clip-text text-transparent font-light tracking-wider">
+                        INFINITE CONTROL.
+                    </span>
+                </h1>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                <!-- Left content - Asymmetric -->
-                <div class="lg:col-span-7 fade-in-up">
-                    <div class="inline-block mb-6 px-6 py-2 rounded-full glass-effect">
-                        <span class="text-sm font-medium bg-gradient-to-r from-gold-accent to-copper bg-clip-text text-transparent">
-                            ✦ Where Luxury Meets Intelligence
-                        </span>
-                    </div>
+                <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto font-light leading-relaxed fade-in-up stagger-1">
+                    Discreet smart home systems for homes where everything must work —
+                    <span class="italic font-normal">and nothing looks like 'tech'</span>
+                </p>
 
-                    <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-[1.1] text-shadow-luxury">
-                        <span class="bg-gradient-to-r from-charcoal-soft via-slate to-charcoal-soft bg-clip-text text-transparent">
-                            Architecture
-                        </span>
-                        <br>
-                        <span class="bg-gradient-to-r from-gold-accent via-copper to-rose-gold bg-clip-text text-transparent">
-                            of Light
-                        </span>
-                        <br>
-                        <span class="bg-gradient-to-r from-charcoal-soft via-slate to-charcoal-soft bg-clip-text text-transparent">
-                            & Intelligence
-                        </span>
-                    </h1>
-
-                    <p class="text-xl md:text-2xl text-charcoal-soft/70 mb-10 max-w-2xl font-light leading-relaxed fade-in-up stagger-1">
-                        Discreet smart home systems for homes where everything must work —
-                        <span class="italic font-normal text-charcoal-soft">and nothing looks like 'tech'</span>.
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row gap-5 mb-8 fade-in-up stagger-2">
-                        <a href="#contact" class="group relative bg-gradient-to-r from-gold-accent via-copper to-rose-gold text-white px-10 py-5 text-base font-semibold smooth-transition rounded-full inline-block overflow-hidden shadow-2xl hover:shadow-gold-accent/30">
-                            <span class="relative z-10">Request Private Consultation</span>
-                            <div class="absolute inset-0 bg-gradient-to-r from-rose-gold via-copper to-gold-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        </a>
-                        <a href="#projects" class="luxury-border text-charcoal-soft px-10 py-5 text-base font-semibold smooth-transition rounded-full inline-block hover-lift hover:shadow-2xl">
-                            Explore Our Projects
-                        </a>
-                    </div>
-
-                    <div class="flex items-center gap-8 fade-in-up stagger-3">
-                        <div>
-                            <div class="text-3xl font-bold bg-gradient-to-r from-gold-accent to-copper bg-clip-text text-transparent">50+</div>
-                            <div class="text-sm text-charcoal-soft/60">Luxury Homes</div>
-                        </div>
-                        <div class="h-12 w-px bg-gradient-to-b from-transparent via-gold-accent/30 to-transparent"></div>
-                        <div>
-                            <div class="text-3xl font-bold bg-gradient-to-r from-gold-accent to-copper bg-clip-text text-transparent">£50k+</div>
-                            <div class="text-sm text-charcoal-soft/60">Typical Projects</div>
-                        </div>
-                        <div class="h-12 w-px bg-gradient-to-b from-transparent via-gold-accent/30 to-transparent"></div>
-                        <div>
-                            <div class="text-3xl font-bold bg-gradient-to-r from-gold-accent to-copper bg-clip-text text-transparent">100%</div>
-                            <div class="text-sm text-charcoal-soft/60">Client Satisfaction</div>
-                        </div>
-                    </div>
+                <div class="flex flex-col sm:flex-row gap-5 justify-center mb-16 fade-in-up stagger-2">
+                    <a href="#contact" class="luxury-cta-button">
+                        <span class="relative z-10">Book Private Consultation</span>
+                    </a>
+                    <a href="#projects" class="luxury-secondary-button">
+                        Explore Our Projects
+                    </a>
                 </div>
 
-                <!-- Right decorative element - Asymmetric -->
-                <div class="lg:col-span-5 relative fade-in-up stagger-2">
-                    <div class="relative">
-                        <!-- Large decorative card -->
-                        <div class="glass-effect rounded-3xl p-8 shadow-2xl card-hover">
-                            <div class="aspect-[4/3] bg-gradient-rose rounded-2xl mb-6 flex items-center justify-center shimmer overflow-hidden">
-                                <div class="text-center p-8">
-                                    <div class="text-gold-accent text-6xl mb-4">✦</div>
-                                    <p class="text-sm text-charcoal-soft/60 italic">Luxury living room with hidden speakers,<br>layered lighting, evening mood</p>
-                                </div>
-                            </div>
-                            <div class="space-y-3">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold-accent to-copper flex items-center justify-center text-white text-sm font-bold">1</div>
-                                    <p class="text-sm text-charcoal-soft/80">One-touch scene control</p>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-copper to-rose-gold flex items-center justify-center text-white text-sm font-bold">2</div>
-                                    <p class="text-sm text-charcoal-soft/80">Invisible integration</p>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-rose-gold to-dusty-rose flex items-center justify-center text-white text-sm font-bold">3</div>
-                                    <p class="text-sm text-charcoal-soft/80">Lifetime support</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Small floating card -->
-                        <div class="absolute -bottom-6 -left-6 glass-effect rounded-2xl p-6 shadow-xl floating">
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-sage to-soft-blue flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div class="text-xs text-charcoal-soft/60">Serving</div>
-                                    <div class="text-sm font-semibold text-charcoal-soft">Cardiff • Bristol • Newport</div>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Stats -->
+                <div class="flex flex-wrap justify-center items-center gap-12 fade-in-up stagger-3">
+                    <div class="glass-effect px-8 py-4 rounded-2xl">
+                        <div class="text-4xl font-bold bg-gradient-to-r from-gold-accent to-copper bg-clip-text text-transparent">50+</div>
+                        <div class="text-sm text-white/80 mt-1">Luxury Homes</div>
+                    </div>
+                    <div class="glass-effect px-8 py-4 rounded-2xl">
+                        <div class="text-4xl font-bold bg-gradient-to-r from-gold-accent to-copper bg-clip-text text-transparent">£50k+</div>
+                        <div class="text-sm text-white/80 mt-1">Typical Projects</div>
+                    </div>
+                    <div class="glass-effect px-8 py-4 rounded-2xl">
+                        <div class="text-4xl font-bold bg-gradient-to-r from-gold-accent to-copper bg-clip-text text-transparent">100%</div>
+                        <div class="text-sm text-white/80 mt-1">Client Satisfaction</div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 floating">
-            <svg class="w-8 h-8 text-gold-accent/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
         </div>
@@ -1557,6 +1544,16 @@
     </footer>
 
     <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 100) {
+                nav.classList.add('header-scrolled');
+            } else {
+                nav.classList.remove('header-scrolled');
+            }
+        });
+
         // Smooth scroll behavior
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
