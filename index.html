@@ -206,6 +206,105 @@
         @keyframes shimmer {
             100% { left: 100%; }
         }
+
+        /* Interactive Hotspot Styles */
+        .hotspot {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .hotspot-dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background: white;
+            border: 3px solid rgba(59, 130, 246, 0.8);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .hotspot:hover .hotspot-dot {
+            background: rgba(59, 130, 246, 1);
+            border-color: white;
+            box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.3),
+                        0 0 0 16px rgba(59, 130, 246, 0.2);
+        }
+
+        .hotspot-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .hotspot-tooltip {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            background: white;
+            padding: 16px 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            min-width: 250px;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .hotspot:hover .hotspot-tooltip {
+            transform: translateX(-50%) scale(1);
+            opacity: 1;
+        }
+
+        .hotspot-tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid white;
+        }
+
+        .hotspot-tooltip h4 {
+            color: #d4af37;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .hotspot-tooltip p {
+            color: #5a5a5a;
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 0;
+        }
     </style>
 </head>
 <body class="antialiased bg-warm-white text-charcoal-soft">
@@ -214,9 +313,12 @@
     <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-7xl">
         <div class="glass-effect rounded-full shadow-2xl px-8 py-4">
             <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <span class="text-2xl font-bold tracking-tight bg-gradient-to-r from-gold-accent via-copper to-rose-gold bg-clip-text text-transparent">INFINITY</span>
-                    <span class="ml-4 text-sm text-charcoal-soft/60 hidden md:block font-light italic">Smart Home Systems</span>
+                <div class="flex items-center gap-4">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Logo" class="h-10 w-10 object-contain">
+                    <div class="flex flex-col">
+                        <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-gold-accent via-copper to-rose-gold bg-clip-text text-transparent leading-tight">INFINITY</span>
+                        <span class="text-xs text-charcoal-soft/60 font-light italic leading-tight">Smart Home Systems</span>
+                    </div>
                 </div>
                 <div class="hidden lg:flex items-center space-x-10">
                     <a href="#process" class="text-charcoal-soft/70 hover:text-gold-accent text-sm smooth-transition font-medium relative group">
@@ -1059,94 +1161,181 @@
         </div>
     </section>
 
-    <!-- Services Grid (from image) -->
-    <section class="section-spacing bg-ivory">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <p class="text-gold font-medium tracking-wide uppercase text-sm mb-4">Our Expertise</p>
-                <h2 class="text-4xl md:text-5xl font-bold text-charcoal mb-6 leading-tight">
+    <!-- Services Grid -->
+    <section class="section-spacing bg-warm-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Background Logo" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] object-contain opacity-30">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20">
+                <div class="inline-block mb-4 px-6 py-2 rounded-full glass-effect">
+                    <span class="text-sm font-medium bg-gradient-to-r from-gold-accent to-copper bg-clip-text text-transparent">
+                        ✦ Our Expertise
+                    </span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold text-charcoal-soft mb-6 leading-tight">
                     Complete Smart Home Solutions
                 </h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Service 1 -->
-                <div class="group relative aspect-[4/3] overflow-hidden smooth-transition hover-lift">
-                    <div class="absolute inset-0 bg-charcoal"></div>
-                    <!-- IMAGE PLACEHOLDER: Smart Home Design - modern tablet showing home automation interface -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
+                <div class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition hover-lift shadow-xl">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO57ZoFiRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI" alt="Smart Home Design" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 smooth-transition">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
-                        <h3 class="text-2xl font-semibold text-ivory">Smart Home Design</h3>
+                        <h3 class="text-2xl font-bold text-white">Smart Home Design</h3>
                     </div>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="group relative aspect-[4/3] overflow-hidden smooth-transition hover-lift">
-                    <div class="absolute inset-0 bg-charcoal"></div>
-                    <!-- IMAGE PLACEHOLDER: Home Theatre - luxury cinema room with seating -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
+                <div class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition hover-lift shadow-xl">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOWg8MqbLoUVjTPE7vmgGZYzHuLeFX3C180b5A" alt="Home Theatre" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 smooth-transition">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
-                        <h3 class="text-2xl font-semibold text-ivory">Home Theatre</h3>
+                        <h3 class="text-2xl font-bold text-white">Home Theatre</h3>
                     </div>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="group relative aspect-[4/3] overflow-hidden smooth-transition hover-lift">
-                    <div class="absolute inset-0 bg-charcoal"></div>
-                    <!-- IMAGE PLACEHOLDER: Wi-Fi & Networking - modern router or network equipment -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
+                <div class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition hover-lift shadow-xl">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOm3wlNf3cbUnfSVystplRTLejEYHdJP5hW7K1" alt="Wi-Fi & Networking" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 smooth-transition">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
-                        <h3 class="text-2xl font-semibold text-ivory">Wi-Fi & Networking</h3>
+                        <h3 class="text-2xl font-bold text-white">Wi-Fi & Networking</h3>
                     </div>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="group relative aspect-[4/3] overflow-hidden smooth-transition hover-lift">
-                    <div class="absolute inset-0 bg-charcoal"></div>
-                    <!-- IMAGE PLACEHOLDER: Multi Room Audio - speakers or audio system -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
+                <div class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition hover-lift shadow-xl">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVONi0jyf8Ui4vTXKykYwDQ2O7lojLsA6mqgIJS" alt="Multi Room Audio" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 smooth-transition">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
-                        <h3 class="text-2xl font-semibold text-ivory">Multi Room Audio</h3>
+                        <h3 class="text-2xl font-bold text-white">Multi Room Audio</h3>
                     </div>
                 </div>
 
                 <!-- Service 5 -->
-                <div class="group relative aspect-[4/3] overflow-hidden smooth-transition hover-lift">
-                    <div class="absolute inset-0 bg-charcoal"></div>
-                    <!-- IMAGE PLACEHOLDER: Video Distribution - TV or display system -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
+                <div class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition hover-lift shadow-xl">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO40mRShT5RXgOlVJBKwzq6UIdiCyAD8Yxv7k1" alt="Video Distribution" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 smooth-transition">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
-                        <h3 class="text-2xl font-semibold text-ivory">Video Distribution</h3>
+                        <h3 class="text-2xl font-bold text-white">Video Distribution</h3>
                     </div>
                 </div>
 
                 <!-- Service 6 -->
-                <div class="group relative aspect-[4/3] overflow-hidden smooth-transition hover-lift">
-                    <div class="absolute inset-0 bg-charcoal"></div>
-                    <!-- IMAGE PLACEHOLDER: Smart Shading - motorized blinds or shades in modern room -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
+                <div class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition hover-lift shadow-xl">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO8H0lOEwYdeX4IsazOUk3VwrD1b5hQxAHRfvM" alt="Smart Shading" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 smooth-transition">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
-                        <h3 class="text-2xl font-semibold text-ivory">Smart Shading</h3>
+                        <h3 class="text-2xl font-bold text-white">Smart Shading</h3>
                     </div>
                 </div>
 
                 <!-- Service 7 -->
-                <div class="group relative aspect-[4/3] overflow-hidden smooth-transition hover-fit">
-                    <div class="absolute inset-0 bg-charcoal"></div>
-                    <!-- IMAGE PLACEHOLDER: Security & CCTV - security camera or system -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
+                <div class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition hover-lift shadow-xl">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOZC2omWQiMGjfvdY9e0A24S6KOVarukmUowQ5" alt="Security & CCTV" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 smooth-transition">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
-                        <h3 class="text-2xl font-semibold text-ivory">Security & CCTV</h3>
+                        <h3 class="text-2xl font-bold text-white">Security & CCTV</h3>
                     </div>
                 </div>
 
                 <!-- Service 8 -->
-                <div class="group relative aspect-[4/3] overflow-hidden smooth-transition hover-lift">
-                    <div class="absolute inset-0 bg-charcoal"></div>
-                    <!-- IMAGE PLACEHOLDER: Electrical Installation - elegant light fixture or installation -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
+                <div class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition hover-lift shadow-xl">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOsfl9HcIKL5iR7svA0akPBhoUGYFSIrMmngfe" alt="Electrical Installation" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 smooth-transition">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
-                        <h3 class="text-2xl font-semibold text-ivory">Electrical Installation</h3>
+                        <h3 class="text-2xl font-bold text-white">Electrical Installation</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Smart Home Showcase -->
+    <section class="section-spacing gradient-lavender relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-block mb-4 px-6 py-2 rounded-full glass-effect">
+                    <span class="text-sm font-medium bg-gradient-to-r from-lavender to-soft-blue bg-clip-text text-transparent">
+                        ✦ Experience The Difference
+                    </span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold text-charcoal-soft mb-6 leading-tight">
+                    Seamless Integration, Invisible Technology
+                </h2>
+                <p class="text-xl text-charcoal-soft/70 max-w-3xl mx-auto">
+                    Hover over the hotspots to see how we integrate smart technology beautifully into your living space
+                </p>
+            </div>
+
+            <div class="relative max-w-5xl mx-auto">
+                <div class="glass-effect rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="relative">
+                        <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOLgfkdYOXdi03bFNVhYyUPOr1lJ7kIvMAEKHt" alt="Smart Home Showcase" class="w-full h-auto">
+
+                        <!-- Hotspot 1 - Top Left -->
+                        <div class="hotspot" style="top: 8%; left: 10%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="hotspot-dot"></div>
+                            <div class="hotspot-tooltip">
+                                <h4>Architectural Lighting</h4>
+                                <p>Hidden LED strips create ambiance while highlighting architectural features</p>
+                            </div>
+                        </div>
+
+                        <!-- Hotspot 2 - Center Top -->
+                        <div class="hotspot" style="top: 14%; left: 50%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="hotspot-dot"></div>
+                            <div class="hotspot-tooltip">
+                                <h4>Smart Climate Control</h4>
+                                <p>Control heating, ventilation, and extraction fans from anywhere using smart app control</p>
+                            </div>
+                        </div>
+
+                        <!-- Hotspot 3 - Top Right -->
+                        <div class="hotspot" style="top: 10%; right: 8%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="hotspot-dot"></div>
+                            <div class="hotspot-tooltip">
+                                <h4>Recessed Speakers</h4>
+                                <p>Invisible in-ceiling speakers deliver crystal clear audio throughout your home</p>
+                            </div>
+                        </div>
+
+                        <!-- Hotspot 4 - Middle Left -->
+                        <div class="hotspot" style="top: 32%; left: 15%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="hotspot-dot"></div>
+                            <div class="hotspot-tooltip">
+                                <h4>Motorized LED Features</h4>
+                                <p>Color-changing LED strips integrated seamlessly into your interior design</p>
+                            </div>
+                        </div>
+
+                        <!-- Hotspot 5 - Center -->
+                        <div class="hotspot" style="top: 45%; left: 48%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="hotspot-dot"></div>
+                            <div class="hotspot-tooltip">
+                                <h4>Central Control Display</h4>
+                                <p>Elegant touchscreen to control all systems from lighting to entertainment</p>
+                            </div>
+                        </div>
+
+                        <!-- Hotspot 6 - Bottom Center -->
+                        <div class="hotspot" style="bottom: 22%; left: 50%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="hotspot-dot"></div>
+                            <div class="hotspot-tooltip">
+                                <h4>Under-Cabinet Lighting</h4>
+                                <p>Task lighting that activates automatically when you enter the space</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
