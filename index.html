@@ -39,6 +39,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- AOS Library for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -115,11 +120,18 @@
                 #c8d8e4 100%);
         }
 
-        .gradient-lavender {
+        .gradient-sophisticated {
             background: linear-gradient(135deg,
-                #fefdfb 0%,
-                #f4ece3 50%,
-                #d8cfdc 100%);
+                #2a2a2a 0%,
+                #1a1a1a 50%,
+                #0f0f0f 100%);
+        }
+
+        .gradient-elegant {
+            background: linear-gradient(135deg,
+                #f8f6f3 0%,
+                #e8e6e3 50%,
+                #d4c4b0 100%);
         }
 
         .gradient-overlay {
@@ -269,10 +281,37 @@
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             min-width: 250px;
+            max-width: 280px;
             opacity: 0;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
             z-index: 100;
+            white-space: normal;
+        }
+
+        /* Smart positioning for edge tooltips */
+        .hotspot-tooltip.tooltip-left {
+            left: auto;
+            right: 0;
+            transform: translateX(0) scale(0);
+        }
+
+        .hotspot:hover .hotspot-tooltip.tooltip-left {
+            transform: translateX(0) scale(1);
+        }
+
+        .hotspot-tooltip.tooltip-right {
+            left: 0;
+            transform: translateX(0) scale(0);
+        }
+
+        .hotspot:hover .hotspot-tooltip.tooltip-right {
+            transform: translateX(0) scale(1);
+        }
+
+        .hotspot-tooltip.tooltip-top {
+            bottom: auto;
+            top: 50px;
         }
 
         .hotspot:hover .hotspot-tooltip {
@@ -293,6 +332,22 @@
             border-top: 8px solid white;
         }
 
+        .hotspot-tooltip.tooltip-top::after {
+            bottom: auto;
+            top: -8px;
+            border-top: none;
+            border-bottom: 8px solid white;
+        }
+
+        .hotspot-tooltip.tooltip-left::after {
+            left: auto;
+            right: 10px;
+        }
+
+        .hotspot-tooltip.tooltip-right::after {
+            left: 10px;
+        }
+
         .hotspot-tooltip h4 {
             color: #d4af37;
             font-size: 14px;
@@ -307,7 +362,7 @@
             margin: 0;
         }
 
-        /* Consistent Luxury Button Styles */
+        /* Consistent Luxury Button Styles with Smooth Animations */
         .luxury-cta-button {
             position: relative;
             display: inline-block;
@@ -317,14 +372,14 @@
             font-weight: 600;
             font-size: 16px;
             border-radius: 50px;
-            transition: all 0.3s ease;
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
         }
 
         .luxury-cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
-            background: linear-gradient(135deg, #b87333 0%, #d4af37 100%);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, #e8c046 0%, #c98643 100%);
         }
 
         .luxury-secondary-button {
@@ -337,13 +392,14 @@
             font-size: 16px;
             border-radius: 50px;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .luxury-secondary-button:hover {
             transform: translateY(-2px);
             border-color: #d4af37;
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(212, 175, 55, 0.15);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
         }
 
         /* Scrolling Header */
@@ -351,6 +407,84 @@
             background: rgba(0, 0, 0, 0.95) !important;
             backdrop-filter: blur(20px);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Parallax Effect */
+        .hero-parallax {
+            transform: translateY(var(--scroll-offset, 0));
+            transition: transform 0.1s linear;
+        }
+
+        /* Scroll Indicator Animation */
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-15px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-8px) translateX(-50%);
+            }
+        }
+
+        /* Decorative Elements */
+        .decorative-frame {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .decorative-line-top-left {
+            top: 10%;
+            left: 5%;
+            width: 100px;
+            height: 100px;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+            border-left: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .decorative-line-bottom-right {
+            bottom: 10%;
+            right: 5%;
+            width: 100px;
+            height: 100px;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+            border-right: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Hero Depth Layers */
+        .hero-layer-1 {
+            z-index: 1;
+        }
+
+        .hero-layer-2 {
+            z-index: 2;
+        }
+
+        .hero-layer-3 {
+            z-index: 3;
+        }
+
+        /* Edge-to-edge cards */
+        .services-grid-edge {
+            margin-left: -1.5rem;
+            margin-right: -1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid-edge {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
+        /* Smooth all transitions */
+        button, a, .card-hover, .hover-lift {
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
         }
     </style>
 </head>
@@ -394,17 +528,21 @@
 
     <!-- Hero Section -->
     <header class="relative min-h-screen flex items-center overflow-hidden">
-        <!-- Background Image -->
-        <div class="absolute inset-0">
+        <!-- Decorative Frame Elements -->
+        <div class="decorative-frame decorative-line-top-left hero-layer-2"></div>
+        <div class="decorative-frame decorative-line-bottom-right hero-layer-2"></div>
+
+        <!-- Background Image with Parallax -->
+        <div id="heroBackground" class="absolute inset-0 hero-layer-1">
             <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOfptHX2vNdOBRLJpEY5lM9mQiDnF6PqVH1ohZ" alt="Luxury Smart Home" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
             <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
         </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-32">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-32 hero-layer-3">
             <div class="text-center max-w-5xl mx-auto">
                 <!-- Slogan -->
-                <h1 class="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight mb-10 leading-[1.1] text-shadow-luxury fade-in-up">
+                <h1 data-aos="fade-up" data-aos-duration="1000" class="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight mb-10 leading-[1.1] text-shadow-luxury">
                     <span class="block text-4xl md:text-5xl lg:text-6xl mb-4 bg-gradient-to-r from-gold-accent via-copper to-rose-gold bg-clip-text text-transparent">
                         Your Home.
                     </span>
@@ -413,12 +551,12 @@
                     </span>
                 </h1>
 
-                <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto font-light leading-relaxed fade-in-up stagger-1">
+                <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" class="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
                     Discreet smart home systems for homes where everything must work —
                     <span class="italic font-normal">and nothing looks like 'tech'</span>
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-5 justify-center mb-16 fade-in-up stagger-2">
+                <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000" class="flex flex-col sm:flex-row gap-5 justify-center mb-16">
                     <a href="#contact" class="luxury-cta-button">
                         <span class="relative z-10">Book Private Consultation</span>
                     </a>
@@ -428,7 +566,7 @@
                 </div>
 
                 <!-- Stats -->
-                <div class="flex flex-wrap justify-center items-center gap-12 fade-in-up stagger-3">
+                <div data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000" class="flex flex-wrap justify-center items-center gap-12">
                     <div class="glass-effect px-8 py-4 rounded-2xl">
                         <div class="text-4xl font-bold bg-gradient-to-r from-gold-accent to-copper bg-clip-text text-transparent">50+</div>
                         <div class="text-sm text-white/80 mt-1">Luxury Homes</div>
@@ -445,35 +583,38 @@
             </div>
         </div>
 
-        <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 floating">
-            <svg class="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 scroll-indicator hero-layer-3">
+            <a href="#certifications" class="block">
+                <svg class="w-8 h-8 text-white/60 hover:text-gold-accent transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </a>
         </div>
     </header>
 
     <!-- Certifications & Accreditations -->
-    <section class="py-20 bg-white relative overflow-hidden">
+    <section id="certifications" class="py-20 bg-white relative overflow-hidden">
         <div class="absolute inset-0 opacity-5">
             <div class="absolute top-0 left-1/4 w-64 h-64 bg-gold-accent/20 rounded-full blur-3xl"></div>
             <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-copper/20 rounded-full blur-3xl"></div>
         </div>
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-            <p class="text-center text-charcoal-soft/60 text-sm mb-12 tracking-wide uppercase font-medium">
-                ✦ Accreditations & Certifications ✦
+            <p data-aos="fade-down" class="text-center text-charcoal-soft/60 text-sm mb-12 tracking-wide uppercase font-medium">
+                ✦ Trusted Industry Partnerships ✦
             </p>
 
             <!-- Certifications Row -->
-            <div class="flex flex-wrap justify-center items-center gap-16 mb-12">
+            <div data-aos="fade-up" data-aos-delay="100" class="flex flex-wrap justify-center items-center gap-16 mb-12">
                 <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO55mI8GRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI" alt="Control4 Certified" class="h-16 object-contain grayscale hover:grayscale-0 smooth-transition opacity-70 hover:opacity-100">
                 <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO04rcswACxibhy3ODoNmvdupE9fqX1KjZrlz5" alt="CEDIA Member" class="h-16 object-contain grayscale hover:grayscale-0 smooth-transition opacity-70 hover:opacity-100">
                 <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOwfbK19ADUuYGKtylPcsHkJ8CX39vWRB5Egez" alt="KNX Partner" class="h-16 object-contain grayscale hover:grayscale-0 smooth-transition opacity-70 hover:opacity-100">
             </div>
 
-            <div class="h-px bg-gradient-to-r from-transparent via-gold-accent/30 to-transparent mb-12"></div>
+            <div data-aos="fade" class="h-px bg-gradient-to-r from-transparent via-gold-accent/30 to-transparent mb-12"></div>
 
             <!-- Accreditations Row -->
-            <div class="flex flex-wrap justify-center items-center gap-16">
+            <div data-aos="fade-up" data-aos-delay="200" class="flex flex-wrap justify-center items-center gap-16">
                 <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOwKdvA4DUuYGKtylPcsHkJ8CX39vWRB5Egez6" alt="NICEIC Approved" class="h-16 object-contain grayscale hover:grayscale-0 smooth-transition opacity-70 hover:opacity-100">
                 <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOV7MB6iK8NU0LR5OdfTqGQ3p2ZFHcnSC7IKJl" alt="Gas Safe Registered" class="h-16 object-contain grayscale hover:grayscale-0 smooth-transition opacity-70 hover:opacity-100">
                 <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOiw0IEQrk4MaBZsg7zTQWeXdtmvUc36hVOpFy" alt="CHAS Accredited" class="h-16 object-contain grayscale hover:grayscale-0 smooth-transition opacity-70 hover:opacity-100">
@@ -487,20 +628,20 @@
         <div class="absolute bottom-0 left-0 w-96 h-96 bg-lavender/10 rounded-full blur-3xl"></div>
 
         <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-20">
+            <div data-aos="fade-up" class="text-center mb-20">
                 <div class="inline-block mb-4 px-6 py-2 rounded-full glass-effect">
                     <span class="text-sm font-medium bg-gradient-to-r from-dusty-rose to-copper bg-clip-text text-transparent">
-                        ✦ You're Not Crazy
+                        ✦ The Truth About Smart Homes
                     </span>
                 </div>
                 <h2 class="text-4xl md:text-6xl font-bold text-charcoal-soft mb-6 leading-tight max-w-4xl mx-auto">
-                    If you've been burned by smart home promises before,
-                    <span class="bg-gradient-to-r from-gold-accent to-copper bg-clip-text text-transparent italic">you're not the only one</span>
+                    Previous installer left you with tech that glitches and
+                    <span class="bg-gradient-to-r from-gold-accent to-copper bg-clip-text text-transparent italic">no support?</span>
                 </h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6 mb-16">
-                <div class="glass-effect rounded-3xl p-8 card-hover group">
+                <div data-aos="fade-up" data-aos-delay="100" class="glass-effect rounded-3xl p-8 card-hover group">
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-dusty-rose to-rose-gold flex items-center justify-center mb-6 group-hover:scale-110 smooth-transition">
                         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
@@ -511,7 +652,7 @@
                     </p>
                 </div>
 
-                <div class="glass-effect rounded-3xl p-8 card-hover group">
+                <div data-aos="fade-up" data-aos-delay="200" class="glass-effect rounded-3xl p-8 card-hover group">
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-copper to-gold-accent flex items-center justify-center mb-6 group-hover:scale-110 smooth-transition">
                         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -522,7 +663,7 @@
                     </p>
                 </div>
 
-                <div class="glass-effect rounded-3xl p-8 card-hover group">
+                <div data-aos="fade-up" data-aos-delay="300" class="glass-effect rounded-3xl p-8 card-hover group">
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-lavender to-soft-blue flex items-center justify-center mb-6 group-hover:scale-110 smooth-transition">
                         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
@@ -533,7 +674,7 @@
                     </p>
                 </div>
 
-                <div class="glass-effect rounded-3xl p-8 card-hover group">
+                <div data-aos="fade-up" data-aos-delay="100" class="glass-effect rounded-3xl p-8 card-hover group">
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-sage to-warm-taupe flex items-center justify-center mb-6 group-hover:scale-110 smooth-transition">
                         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
@@ -544,7 +685,7 @@
                     </p>
                 </div>
 
-                <div class="glass-effect rounded-3xl p-8 card-hover group">
+                <div data-aos="fade-up" data-aos-delay="200" class="glass-effect rounded-3xl p-8 card-hover group">
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-gold to-dusty-rose flex items-center justify-center mb-6 group-hover:scale-110 smooth-transition">
                         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
@@ -555,7 +696,7 @@
                     </p>
                 </div>
 
-                <div class="glass-effect rounded-3xl p-8 card-hover group">
+                <div data-aos="fade-up" data-aos-delay="300" class="glass-effect rounded-3xl p-8 card-hover group">
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-soft-blue to-lavender flex items-center justify-center mb-6 group-hover:scale-110 smooth-transition">
                         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
@@ -587,7 +728,7 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-24">
+            <div data-aos="fade-up" class="text-center mb-24">
                 <div class="inline-block mb-4 px-6 py-2 rounded-full glass-effect">
                     <span class="text-sm font-medium bg-gradient-to-r from-soft-blue to-lavender bg-clip-text text-transparent">
                         ✦ Our Process
@@ -608,7 +749,7 @@
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
                     <!-- Step 1 -->
-                    <div class="group card-hover">
+                    <div data-aos="fade-up" data-aos-delay="100" class="group card-hover">
                         <div class="glass-effect rounded-3xl p-10 h-full relative overflow-hidden">
                             <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gold-accent/10 to-transparent rounded-full blur-2xl"></div>
                             <div class="relative">
@@ -840,19 +981,19 @@
     </section>
 
     <!-- Experience / Demo Callout -->
-    <section class="section-spacing gradient-lavender relative overflow-hidden">
+    <section class="section-spacing gradient-sophisticated relative overflow-hidden">
         <div class="absolute inset-0 opacity-20">
             <div class="absolute top-1/3 left-1/4 w-96 h-96 bg-rose-gold/40 rounded-full blur-3xl floating"></div>
             <div class="absolute bottom-1/3 right-1/4 w-96 h-96 bg-soft-blue/40 rounded-full blur-3xl floating" style="animation-delay: -2s;"></div>
         </div>
         <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center relative z-10">
-            <div class="glass-effect rounded-3xl p-16 shadow-2xl">
+            <div data-aos="zoom-in" class="glass-effect rounded-3xl p-16 shadow-2xl">
                 <div class="text-gold-accent text-5xl mb-8">✦</div>
-                <h2 class="text-4xl md:text-6xl font-bold text-charcoal-soft mb-8 leading-tight">
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
                     See how your home could feel —
                     <span class="bg-gradient-to-r from-gold-accent to-copper bg-clip-text text-transparent italic">before you commit</span>
                 </h2>
-                <p class="text-xl text-charcoal-soft/70 mb-12 leading-relaxed font-light max-w-3xl mx-auto">
+                <p class="text-xl text-white/80 mb-12 leading-relaxed font-light max-w-3xl mx-auto">
                     We offer private demonstrations and system design consultations. Walk through scenes, ask questions, and understand exactly what you're getting.
                 </p>
                 <a href="#contact" class="group inline-block relative bg-gradient-to-r from-gold-accent via-copper to-rose-gold text-white px-12 py-5 text-lg font-semibold smooth-transition rounded-full shadow-2xl overflow-hidden">
@@ -1158,28 +1299,28 @@
     </section>
 
     <!-- Services Grid -->
-    <section class="section-spacing bg-warm-white relative overflow-hidden">
+    <section id="services" class="section-spacing bg-charcoal-soft relative overflow-hidden">
         <div class="absolute inset-0 opacity-5">
             <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Background Logo" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] object-contain opacity-30">
         </div>
 
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-20">
+            <div data-aos="fade-up" class="text-center mb-20">
                 <div class="inline-block mb-4 px-6 py-2 rounded-full glass-effect">
                     <span class="text-sm font-medium bg-gradient-to-r from-gold-accent to-copper bg-clip-text text-transparent">
                         ✦ Our Expertise
                     </span>
                 </div>
-                <h2 class="text-4xl md:text-6xl font-bold text-charcoal-soft mb-6 leading-tight">
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
                     Complete Smart Home Solutions
                 </h2>
             </div>
 
-            <div id="services" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 md:gap-6">
                 <!-- Service 1 -->
-                <a href="smart-home-design.html" class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition shadow-xl block">
+                <a href="smart-home-design.html" data-aos="zoom-in" data-aos-delay="100" class="group relative aspect-[4/3] overflow-hidden md:rounded-3xl smooth-transition shadow-xl block">
                     <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO57ZoFiRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI" alt="Smart Home Design" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 smooth-transition">
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent group-hover:from-charcoal-soft group-hover:via-charcoal-soft/80 smooth-transition"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 group-hover:via-black/60 smooth-transition"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
                         <h3 class="text-2xl font-bold text-white mb-2">Smart Home Design</h3>
                         <p class="text-white/80 text-sm opacity-0 group-hover:opacity-100 smooth-transition mb-2">Tailored automation systems designed around your lifestyle and home architecture</p>
@@ -1188,9 +1329,9 @@
                 </a>
 
                 <!-- Service 2 -->
-                <a href="home-theatre.html" class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition shadow-xl block">
+                <a href="home-theatre.html" data-aos="zoom-in" data-aos-delay="200" class="group relative aspect-[4/3] overflow-hidden md:rounded-3xl smooth-transition shadow-xl block">
                     <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOWg8MqbLoUVjTPE7vmgGZYzHuLeFX3C180b5A" alt="Home Theatre" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 smooth-transition">
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent group-hover:from-charcoal-soft group-hover:via-charcoal-soft/80 smooth-transition"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 group-hover:via-black/60 smooth-transition"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
                         <h3 class="text-2xl font-bold text-white mb-2">Home Theatre</h3>
                         <p class="text-white/80 text-sm opacity-0 group-hover:opacity-100 smooth-transition mb-2">Cinema-quality experiences with Dolby Atmos, 4K projection, and acoustic perfection</p>
@@ -1199,9 +1340,9 @@
                 </a>
 
                 <!-- Service 3 -->
-                <a href="wifi-networking.html" class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition shadow-xl block">
+                <a href="wifi-networking.html" data-aos="zoom-in" data-aos-delay="300" class="group relative aspect-[4/3] overflow-hidden md:rounded-3xl smooth-transition shadow-xl block">
                     <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOm3wlNf3cbUnfSVystplRTLejEYHdJP5hW7K1" alt="Wi-Fi & Networking" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 smooth-transition">
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent group-hover:from-charcoal-soft group-hover:via-charcoal-soft/80 smooth-transition"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 group-hover:via-black/60 smooth-transition"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
                         <h3 class="text-2xl font-bold text-white mb-2">Wi-Fi & Networking</h3>
                         <p class="text-white/80 text-sm opacity-0 group-hover:opacity-100 smooth-transition mb-2">Enterprise-grade Wi-Fi coverage and rock-solid network infrastructure</p>
@@ -1210,9 +1351,9 @@
                 </a>
 
                 <!-- Service 4 -->
-                <a href="multi-room-audio.html" class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition shadow-xl block">
+                <a href="multi-room-audio.html" data-aos="zoom-in" data-aos-delay="400" class="group relative aspect-[4/3] overflow-hidden md:rounded-3xl smooth-transition shadow-xl block">
                     <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVONi0jyf8Ui4vTXKykYwDQ2O7lojLsA6mqgIJS" alt="Multi Room Audio" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 smooth-transition">
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent group-hover:from-charcoal-soft group-hover:via-charcoal-soft/80 smooth-transition"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 group-hover:via-black/60 smooth-transition"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
                         <h3 class="text-2xl font-bold text-white mb-2">Multi Room Audio</h3>
                         <p class="text-white/80 text-sm opacity-0 group-hover:opacity-100 smooth-transition mb-2">Invisible speakers delivering crystal-clear audio throughout your home</p>
@@ -1221,9 +1362,9 @@
                 </a>
 
                 <!-- Service 5 -->
-                <a href="video-distribution.html" class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition shadow-xl block">
+                <a href="video-distribution.html" data-aos="zoom-in" data-aos-delay="100" class="group relative aspect-[4/3] overflow-hidden md:rounded-3xl smooth-transition shadow-xl block">
                     <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO40mRShT5RXgOlVJBKwzq6UIdiCyAD8Yxv7k1" alt="Video Distribution" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 smooth-transition">
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent group-hover:from-charcoal-soft group-hover:via-charcoal-soft/80 smooth-transition"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 group-hover:via-black/60 smooth-transition"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
                         <h3 class="text-2xl font-bold text-white mb-2">Video Distribution</h3>
                         <p class="text-white/80 text-sm opacity-0 group-hover:opacity-100 smooth-transition mb-2">Watch any source on any screen throughout your home</p>
@@ -1232,9 +1373,9 @@
                 </a>
 
                 <!-- Service 6 -->
-                <a href="smart-shading.html" class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition shadow-xl block">
+                <a href="smart-shading.html" data-aos="zoom-in" data-aos-delay="200" class="group relative aspect-[4/3] overflow-hidden md:rounded-3xl smooth-transition shadow-xl block">
                     <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO8H0lOEwYdeX4IsazOUk3VwrD1b5hQxAHRfvM" alt="Smart Shading" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 smooth-transition">
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent group-hover:from-charcoal-soft group-hover:via-charcoal-soft/80 smooth-transition"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 group-hover:via-black/60 smooth-transition"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
                         <h3 class="text-2xl font-bold text-white mb-2">Smart Shading</h3>
                         <p class="text-white/80 text-sm opacity-0 group-hover:opacity-100 smooth-transition mb-2">Motorized blinds and curtains that respond to sunlight and your schedule</p>
@@ -1243,9 +1384,9 @@
                 </a>
 
                 <!-- Service 7 -->
-                <a href="security-cctv.html" class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition shadow-xl block">
+                <a href="security-cctv.html" data-aos="zoom-in" data-aos-delay="300" class="group relative aspect-[4/3] overflow-hidden md:rounded-3xl smooth-transition shadow-xl block">
                     <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOZC2omWQiMGjfvdY9e0A24S6KOVarukmUowQ5" alt="Security & CCTV" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 smooth-transition">
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent group-hover:from-charcoal-soft group-hover:via-charcoal-soft/80 smooth-transition"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 group-hover:via-black/60 smooth-transition"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
                         <h3 class="text-2xl font-bold text-white mb-2">Security & CCTV</h3>
                         <p class="text-white/80 text-sm opacity-0 group-hover:opacity-100 smooth-transition mb-2">Discreet surveillance and integrated security systems for total peace of mind</p>
@@ -1254,9 +1395,9 @@
                 </a>
 
                 <!-- Service 8 -->
-                <a href="electrical-installation.html" class="group relative aspect-[4/3] overflow-hidden rounded-3xl smooth-transition shadow-xl block">
+                <a href="electrical-installation.html" data-aos="zoom-in" data-aos-delay="400" class="group relative aspect-[4/3] overflow-hidden md:rounded-3xl smooth-transition shadow-xl block">
                     <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOsfl9HcIKL5iR7svA0akPBhoUGYFSIrMmngfe" alt="Electrical Installation" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 smooth-transition">
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-soft via-charcoal-soft/50 to-transparent group-hover:from-charcoal-soft group-hover:via-charcoal-soft/80 smooth-transition"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 group-hover:via-black/60 smooth-transition"></div>
                     <div class="absolute inset-0 p-6 flex flex-col justify-end">
                         <h3 class="text-2xl font-bold text-white mb-2">Electrical Installation</h3>
                         <p class="text-white/80 text-sm opacity-0 group-hover:opacity-100 smooth-transition mb-2">Professional electrical work and power infrastructure for your smart home</p>
@@ -1268,7 +1409,7 @@
     </section>
 
     <!-- Interactive Smart Home Showcase -->
-    <section class="section-spacing gradient-lavender relative overflow-hidden">
+    <section class="section-spacing gradient-elegant relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-16">
                 <div class="inline-block mb-4 px-6 py-2 rounded-full glass-effect">
@@ -1293,7 +1434,7 @@
                         <div class="hotspot" style="top: 8%; left: 10%;">
                             <div class="hotspot-pulse"></div>
                             <div class="hotspot-dot"></div>
-                            <div class="hotspot-tooltip">
+                            <div class="hotspot-tooltip tooltip-right">
                                 <h4>Architectural Lighting</h4>
                                 <p>Hidden LED strips create ambiance while highlighting architectural features</p>
                             </div>
@@ -1313,7 +1454,7 @@
                         <div class="hotspot" style="top: 10%; right: 8%;">
                             <div class="hotspot-pulse"></div>
                             <div class="hotspot-dot"></div>
-                            <div class="hotspot-tooltip">
+                            <div class="hotspot-tooltip tooltip-left">
                                 <h4>Recessed Speakers</h4>
                                 <p>Invisible in-ceiling speakers deliver crystal clear audio throughout your home</p>
                             </div>
@@ -1323,7 +1464,7 @@
                         <div class="hotspot" style="top: 32%; left: 15%;">
                             <div class="hotspot-pulse"></div>
                             <div class="hotspot-dot"></div>
-                            <div class="hotspot-tooltip">
+                            <div class="hotspot-tooltip tooltip-right">
                                 <h4>Motorized LED Features</h4>
                                 <p>Color-changing LED strips integrated seamlessly into your interior design</p>
                             </div>
@@ -1333,7 +1474,7 @@
                         <div class="hotspot" style="top: 45%; left: 48%;">
                             <div class="hotspot-pulse"></div>
                             <div class="hotspot-dot"></div>
-                            <div class="hotspot-tooltip">
+                            <div class="hotspot-tooltip tooltip-top">
                                 <h4>Central Control Display</h4>
                                 <p>Elegant touchscreen to control all systems from lighting to entertainment</p>
                             </div>
@@ -1569,6 +1710,15 @@
     </footer>
 
     <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100,
+            delay: 0,
+        });
+
         // Navigation scroll effect
         window.addEventListener('scroll', function() {
             const nav = document.getElementById('mainNav');
@@ -1576,6 +1726,13 @@
                 nav.classList.add('header-scrolled');
             } else {
                 nav.classList.remove('header-scrolled');
+            }
+
+            // Hero parallax effect
+            const heroBackground = document.getElementById('heroBackground');
+            if (heroBackground && window.scrollY < window.innerHeight) {
+                const scrolled = window.scrollY;
+                heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
             }
         });
 
@@ -1598,6 +1755,11 @@
             e.preventDefault();
             alert('Thank you for your enquiry. We will be in touch shortly.');
             this.reset();
+        });
+
+        // Refresh AOS on window resize
+        window.addEventListener('resize', function() {
+            AOS.refresh();
         });
     </script>
 
