@@ -1,0 +1,89 @@
+# INFINITY SMART HOME SYSTEMS - IMAGE URL REFERENCE
+# All UploadThing image URLs for future use
+# Created: 2025-11-18
+
+## LOGO & BRANDING
+Logo / Favicon:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ
+
+## HERO SECTION
+Hero Background Image:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOfptHX2vNdOBRLJpEY5lM9mQiDnF6PqVH1ohZ
+
+## CERTIFICATION BADGES
+Control4 Certified:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO55mI8GRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI
+
+CEDIA Member:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO04rcswACxibhy3ODoNmvdupE9fqX1KjZrlz5
+
+KNX Partner:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOwfbK19ADUuYGKtylPcsHkJ8CX39vWRB5Egez
+
+NICEIC Approved:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOwKdvA4DUuYGKtylPcsHkJ8CX39vWRB5Egez6
+
+Gas Safe Registered:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOV7MB6iK8NU0LR5OdfTqGQ3p2ZFHcnSC7IKJl
+
+CHAS Accredited:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOiw0IEQrk4MaBZsg7zTQWeXdtmvUc36hVOpFy
+
+## SERVICE CATEGORY IMAGES
+
+Smart Home Design:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO57ZoFiRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI
+
+Home Theatre:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOWg8MqbLoUVjTPE7vmgGZYzHuLeFX3C180b5A
+
+Wi-Fi & Networking:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOm3wlNf3cbUnfSVystplRTLejEYHdJP5hW7K1
+
+Multi Room Audio:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVONi0jyf8Ui4vTXKykYwDQ2O7lojLsA6mqgIJS
+
+Video Distribution:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO40mRShT5RXgOlVJBKwzq6UIdiCyAD8Yxv7k1
+
+Smart Shading:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO8H0lOEwYdeX4IsazOUk3VwrD1b5hQxAHRfvM
+
+Security & CCTV:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOZC2omWQiMGjfvdY9e0A24S6KOVarukmUowQ5
+
+Electrical Installation:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOsfl9HcIKL5iR7svA0akPBhoUGYFSIrMmngfe
+
+## SERVICE PAGE HERO IMAGES
+
+WiFi & Networking Page Hero:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOeJXrqK60c2PW1Y3lSUjCQX7b6sE8rZLHqfFJ
+
+Security & CCTV Page Hero:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO7LNADQODc0Kp37utaZSm5wfTgyF9qe1WCHhr
+
+Electrical Installation Page Hero:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO3xD7GRqPMrCOl0XS3pu5hjcLJE9VqWnxYwRy
+
+Home Theatre Page Hero:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOi6gRAIrk4MaBZsg7zTQWeXdtmvUc36hVOpFy
+
+Smart Home Design Page Hero:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO57ZoFiRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI
+
+Smart Shading Page Hero:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOmfYBXFcbUnfSVystplRTLejEYHdJP5hW7K1
+
+Multi Room Audio Page Hero:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOucGpM7KL5iR7svA0akPBhoUGYFSIrMmngfeZ
+
+Video Distribution Page Hero:
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOA5WQrXCvLMxPuzw0UrnksoAQDtBdae1ipZXY
+
+## SHOWCASE/DEMO SECTION
+Smart Home Showcase Image (Interactive Hotspots):
+https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOLgfkdYOXdi03bFNVhYyUPOr1lJ7kIvMAEKHt
+
+---
+END OF IMAGE REFERENCE
