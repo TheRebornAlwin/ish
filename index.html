@@ -16,7 +16,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -26,9 +26,16 @@
             --warm-beige: #E8E3DA;
         }
 
+        /* Page load fade-in effect */
         body {
             font-family: 'Inter', sans-serif;
             color: var(--charcoal);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        body.page-loaded {
+            opacity: 1;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -39,13 +46,64 @@
             background: linear-gradient(135deg, rgba(44, 44, 44, 0.7) 0%, rgba(44, 44, 44, 0.4) 100%);
         }
 
+        /* Consistent button styles */
         .btn-primary {
             transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1rem 2rem;
+            border-radius: 9999px;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-gold {
+            background-color: #C8A882;
+            color: white;
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-gold:hover {
+            background-color: #B8956F;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(200, 168, 130, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Header scroll states */
+        .header-transparent {
+            background: transparent;
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-scrolled {
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-scrolled .nav-link {
+            color: white;
+        }
+
+        .header-scrolled .nav-link:hover {
+            color: #C8A882;
+        }
+
+        .header-scrolled .mobile-menu-btn {
+            color: white;
         }
 
         .mode-tab {
@@ -61,6 +119,11 @@
             right: 0;
             height: 2px;
             background: var(--warm-gold);
+        }
+
+        /* Mode image transition */
+        .mode-image-transition {
+            transition: opacity 400ms ease-in-out;
         }
 
         .hotspot {
@@ -110,6 +173,7 @@
             background: white;
             cursor: ew-resize;
             z-index: 10;
+            transition: left 0.05s ease-out;
         }
 
         .slider-button {
@@ -134,6 +198,7 @@
             width: 100%;
             height: 100%;
             clip-path: inset(0 50% 0 0);
+            transition: clip-path 0.05s ease-out;
         }
 
         .process-step {
@@ -149,7 +214,7 @@
 
         .flip-card {
             perspective: 1000px;
-            height: 400px;
+            height: 200px;
         }
 
         .flip-card-inner {
@@ -170,6 +235,12 @@
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
+        }
+
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .badge-img {
@@ -204,9 +275,81 @@
             width: 100%;
         }
 
+        /* Experience section parallax */
+        .parallax-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: -20%;
+            left: 0;
+            width: 100%;
+            height: 140%;
+            object-fit: cover;
+            will-change: transform;
+        }
+
+        /* 3-Column Services luxury styling */
+        .luxury-service-card {
+            padding: 3rem 2rem;
+        }
+
+        .luxury-service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, #C8A882 0%, #A88B6A 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(200, 168, 130, 0.3);
+        }
+
+        .luxury-service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .luxury-service-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
         @media (max-width: 768px) {
             .flip-card {
-                height: 300px;
+                height: 180px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .btn-primary {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .luxury-service-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .flip-card {
+                height: 160px;
             }
         }
     </style>
@@ -214,7 +357,7 @@
 <body class="bg-[#F5F3EF]">
 
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 header-transparent">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <a href="/" class="flex items-center">
@@ -222,14 +365,14 @@
                 </a>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="nav-link text-[#2C2C2C] hover:text-[#C8A882]">Explore Features</a>
-                    <a href="#process" class="nav-link text-[#2C2C2C] hover:text-[#C8A882]">Our Process</a>
-                    <a href="#services" class="nav-link text-[#2C2C2C] hover:text-[#C8A882]">Services</a>
-                    <a href="#contact" class="btn-primary bg-[#C8A882] text-white px-6 py-2 rounded-full">Get Started</a>
+                    <a href="#features" class="nav-link text-white hover:text-[#C8A882]">Explore Features</a>
+                    <a href="#process" class="nav-link text-white hover:text-[#C8A882]">Our Process</a>
+                    <a href="#services" class="nav-link text-white hover:text-[#C8A882]">Services</a>
+                    <a href="#contact" class="btn-gold px-6 py-2 rounded-full text-sm font-medium">Get Started</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-[#2C2C2C]">
+                <button id="mobile-menu-btn" class="mobile-menu-btn md:hidden text-white">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -238,35 +381,51 @@
 
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-4">
-                <a href="#features" class="block text-[#2C2C2C] hover:text-[#C8A882]">Explore Features</a>
-                <a href="#process" class="block text-[#2C2C2C] hover:text-[#C8A882]">Our Process</a>
-                <a href="#services" class="block text-[#2C2C2C] hover:text-[#C8A882]">Services</a>
-                <a href="#contact" class="block text-center bg-[#C8A882] text-white px-6 py-2 rounded-full">Get Started</a>
+                <a href="#features" class="block text-white hover:text-[#C8A882]">Explore Features</a>
+                <a href="#process" class="block text-white hover:text-[#C8A882]">Our Process</a>
+                <a href="#services" class="block text-white hover:text-[#C8A882]">Services</a>
+                <a href="#contact" class="block text-center btn-gold px-6 py-2 rounded-full">Get Started</a>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+    <section class="relative min-h-screen flex items-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOfptHX2vNdOBRLJpEY5lM9mQiDnF6PqVH1ohZ" alt="Luxury Smart Home" class="w-full h-full object-cover">
             <div class="hero-gradient absolute inset-0"></div>
         </div>
 
-        <div class="relative z-10 text-center text-white px-6 max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-light mb-6 leading-tight">
-                Your Home.<br>
-                <span class="font-semibold">Infinite Control.</span>
+        <div class="relative z-10 hero-content text-white px-6 md:px-12 lg:px-20 max-w-4xl" data-aos="fade-up" data-aos-duration="1000">
+            <!-- Logo and Company Name -->
+            <div class="mb-8">
+                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOX2Dzm5Ecj4YCVPDhvKNIneJbaFpWEylUf80m" alt="Infinity Logo" class="h-20 md:h-24 mb-4">
+                <div class="mb-2">
+                    <span class="text-3xl md:text-4xl font-semibold tracking-wider">INFINITY</span>
+                </div>
+                <div>
+                    <span class="text-lg md:text-xl font-light tracking-wide opacity-90">Smart Home Systems</span>
+                </div>
+            </div>
+
+            <!-- Main Tagline -->
+            <h1 class="text-4xl md:text-6xl lg:text-7xl mb-6 leading-tight">
+                <span class="font-normal italic text-[#C8A882]">Your Home.</span><br>
+                <span class="font-bold uppercase tracking-wide">INFINITE CONTROL.</span>
             </h1>
-            <p class="text-xl md:text-2xl mb-12 font-light opacity-90">
-                Where luxury meets innovation
+
+            <!-- Subtitle -->
+            <p class="subtitle text-base md:text-lg lg:text-xl mb-10 font-light opacity-90 max-w-2xl leading-relaxed">
+                Discreet smart home systems for homes where everything must work — and nothing looks like 'tech'
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#features" class="btn-primary bg-white text-[#2C2C2C] px-8 py-4 rounded-full text-lg font-medium">
-                    Explore Features
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#contact" class="btn-primary btn-gold text-center text-base md:text-lg font-medium">
+                    Book Private Consultation
                 </a>
-                <a href="#process" class="btn-primary bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-medium">
-                    Our Process
+                <a href="#services" class="btn-primary btn-outline text-center text-base md:text-lg font-medium">
+                    Explore Our Projects
                 </a>
             </div>
         </div>
@@ -289,16 +448,18 @@
                 </h2>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="200">
-                <button class="mode-tab active px-8 py-3 text-lg" data-mode="living">Living Room</button>
-                <button class="mode-tab px-8 py-3 text-lg" data-mode="kitchen">Kitchen</button>
-                <button class="mode-tab px-8 py-3 text-lg" data-mode="bedroom">Bedroom</button>
-                <button class="mode-tab px-8 py-3 text-lg" data-mode="bathroom">Bathroom</button>
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-12" data-aos="fade-up" data-aos-delay="200">
+                <button class="mode-tab active px-6 md:px-8 py-3 text-sm md:text-lg" data-mode="living">Living Room</button>
+                <button class="mode-tab px-6 md:px-8 py-3 text-sm md:text-lg" data-mode="kitchen">Kitchen</button>
+                <button class="mode-tab px-6 md:px-8 py-3 text-sm md:text-lg" data-mode="bedroom">Bedroom</button>
+                <button class="mode-tab px-6 md:px-8 py-3 text-sm md:text-lg" data-mode="bathroom">Bathroom</button>
+                <button class="mode-tab px-6 md:px-8 py-3 text-sm md:text-lg" data-mode="cinema">Cinema Room</button>
+                <button class="mode-tab px-6 md:px-8 py-3 text-sm md:text-lg" data-mode="office">Home Office</button>
             </div>
 
             <div class="relative max-w-6xl mx-auto" data-aos="zoom-in" data-aos-delay="400">
                 <div id="mode-image-container" class="relative">
-                    <img id="mode-image" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOLgfkdYOXdi03bFNVhYyUPOr1lJ7kIvMAEKHt" alt="Smart Home Showcase" class="w-full rounded-lg shadow-2xl">
+                    <img id="mode-image" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOLgfkdYOXdi03bFNVhYyUPOr1lJ7kIvMAEKHt" alt="Smart Home Showcase" class="w-full rounded-lg shadow-2xl mode-image-transition">
 
                     <!-- Hotspots -->
                     <div class="hotspot" style="top: 35%; left: 25%;"></div>
@@ -325,7 +486,7 @@
             </div>
 
             <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                <div class="before-after-container relative aspect-video rounded-lg overflow-hidden shadow-2xl">
+                <div class="before-after-container relative aspect-video rounded-lg overflow-hidden shadow-2xl" id="slider-container">
                     <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200" alt="Before Installation" class="w-full h-full object-cover">
 
                     <div class="after-image" id="after-image">
@@ -417,7 +578,7 @@
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto items-center">
-                <div class="space-y-6" data-aos="fade-right">
+                <div class="space-y-6" data-aos="fade-right" id="process-steps-container">
                     <div class="process-step active" data-step="1">
                         <h3 class="text-2xl mb-2">1. Introductory Call</h3>
                         <p class="text-gray-600">We discuss your vision, lifestyle, and smart home aspirations</p>
@@ -461,56 +622,38 @@
         </div>
     </section>
 
-    <!-- Video CTA Section -->
-    <section class="relative h-[70vh] flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1600" alt="Luxury Smart Home" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/50"></div>
-        </div>
-
-        <div class="relative z-10 text-center text-white px-6" data-aos="zoom-in">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-light mb-8">
-                Experience a new height<br>
-                <span class="font-semibold">in home living.</span>
-            </h2>
-            <a href="#contact" class="btn-primary inline-block bg-white text-[#2C2C2C] px-10 py-4 rounded-full text-lg font-medium">
-                Get in Touch
-            </a>
-        </div>
-    </section>
-
-    <!-- 3-Column Services Section -->
-    <section class="py-24 bg-[#2C2C2C] text-white">
+    <!-- 3-Column Services Section (Luxury Upgrade) -->
+    <section class="py-32 bg-[#2C2C2C] text-white">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-20 h-20 mx-auto mb-6 bg-[#C8A882] rounded-full flex items-center justify-center">
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-16 max-w-6xl mx-auto">
+                <div class="luxury-service-card text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="luxury-service-icon">
                         <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Smart Home Technology</h3>
-                    <p class="text-gray-300">Cutting-edge automation systems that bring your entire home under intelligent, intuitive control.</p>
+                    <h3 class="font-semibold mb-4">Smart Home Technology</h3>
+                    <p>Cutting-edge automation systems that bring your entire home under intelligent, intuitive control.</p>
                 </div>
 
-                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-20 h-20 mx-auto mb-6 bg-[#C8A882] rounded-full flex items-center justify-center">
+                <div class="luxury-service-card text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="luxury-service-icon">
                         <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Integrated Systems</h3>
-                    <p class="text-gray-300">Seamlessly connect lighting, climate, security, and entertainment into one unified ecosystem.</p>
+                    <h3 class="font-semibold mb-4">Integrated Systems</h3>
+                    <p>Seamlessly connect lighting, climate, security, and entertainment into one unified ecosystem.</p>
                 </div>
 
-                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-20 h-20 mx-auto mb-6 bg-[#C8A882] rounded-full flex items-center justify-center">
+                <div class="luxury-service-card text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="luxury-service-icon">
                         <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Total Room Control</h3>
-                    <p class="text-gray-300">Control every aspect of each room from a single elegant interface or voice command.</p>
+                    <h3 class="font-semibold mb-4">Total Room Control</h3>
+                    <p>Control every aspect of each room from a single elegant interface or voice command.</p>
                 </div>
             </div>
         </div>
@@ -520,7 +663,7 @@
     <section class="py-24 bg-white" id="services">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-semibold mb-4">Our Services</h2>
+                <h2 class="text-4xl md:text-5xl font-semibold mb-4">What We Do</h2>
                 <p class="text-xl text-gray-600">Comprehensive smart home solutions tailored to your lifestyle</p>
             </div>
 
@@ -529,8 +672,8 @@
                 <div class="flip-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
-                            <a href="/smart-home-design.html" class="block">
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO57ZoFiRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI" alt="Smart Home Design" class="w-full h-full object-cover">
+                            <a href="/smart-home-design.html" class="block h-full">
+                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO57ZoFiRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI" alt="Smart Home Design">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Smart Home Design</h3>
@@ -546,8 +689,8 @@
                 <div class="flip-card" data-aos="fade-up" data-aos-delay="150">
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
-                            <a href="/home-theatre.html" class="block">
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOWg8MqbLoUVjTPE7vmgGZYzHuLeFX3C180b5A" alt="Home Theatre" class="w-full h-full object-cover">
+                            <a href="/home-theatre.html" class="block h-full">
+                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOWg8MqbLoUVjTPE7vmgGZYzHuLeFX3C180b5A" alt="Home Theatre">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Home Theatre</h3>
@@ -563,8 +706,8 @@
                 <div class="flip-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
-                            <a href="/wifi-networking.html" class="block">
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOm3wlNf3cbUnfSVystplRTLejEYHdJP5hW7K1" alt="Wi-Fi & Networking" class="w-full h-full object-cover">
+                            <a href="/wifi-networking.html" class="block h-full">
+                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOm3wlNf3cbUnfSVystplRTLejEYHdJP5hW7K1" alt="Wi-Fi & Networking">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Wi-Fi & Networking</h3>
@@ -580,8 +723,8 @@
                 <div class="flip-card" data-aos="fade-up" data-aos-delay="250">
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
-                            <a href="/multi-room-audio.html" class="block">
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVONi0jyf8Ui4vTXKykYwDQ2O7lojLsA6mqgIJS" alt="Multi Room Audio" class="w-full h-full object-cover">
+                            <a href="/multi-room-audio.html" class="block h-full">
+                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVONi0jyf8Ui4vTXKykYwDQ2O7lojLsA6mqgIJS" alt="Multi Room Audio">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Multi Room Audio</h3>
@@ -597,8 +740,8 @@
                 <div class="flip-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
-                            <a href="/video-distribution.html" class="block">
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO40mRShT5RXgOlVJBKwzq6UIdiCyAD8Yxv7k1" alt="Video Distribution" class="w-full h-full object-cover">
+                            <a href="/video-distribution.html" class="block h-full">
+                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO40mRShT5RXgOlVJBKwzq6UIdiCyAD8Yxv7k1" alt="Video Distribution">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Video Distribution</h3>
@@ -614,8 +757,8 @@
                 <div class="flip-card" data-aos="fade-up" data-aos-delay="350">
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
-                            <a href="/smart-shading.html" class="block">
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO8H0lOEwYdeX4IsazOUk3VwrD1b5hQxAHRfvM" alt="Smart Shading" class="w-full h-full object-cover">
+                            <a href="/smart-shading.html" class="block h-full">
+                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO8H0lOEwYdeX4IsazOUk3VwrD1b5hQxAHRfvM" alt="Smart Shading">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Smart Shading</h3>
@@ -631,8 +774,8 @@
                 <div class="flip-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
-                            <a href="/security-cctv.html" class="block">
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOZC2omWQiMGjfvdY9e0A24S6KOVarukmUowQ5" alt="Security & CCTV" class="w-full h-full object-cover">
+                            <a href="/security-cctv.html" class="block h-full">
+                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOZC2omWQiMGjfvdY9e0A24S6KOVarukmUowQ5" alt="Security & CCTV">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Security & CCTV</h3>
@@ -648,8 +791,8 @@
                 <div class="flip-card" data-aos="fade-up" data-aos-delay="450">
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
-                            <a href="/electrical-installation.html" class="block">
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOsfl9HcIKL5iR7svA0akPBhoUGYFSIrMmngfe" alt="Electrical Installation" class="w-full h-full object-cover">
+                            <a href="/electrical-installation.html" class="block h-full">
+                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOsfl9HcIKL5iR7svA0akPBhoUGYFSIrMmngfe" alt="Electrical Installation">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Electrical Installation</h3>
@@ -665,50 +808,56 @@
     </section>
 
     <!-- Trust Badges Section -->
-    <section class="py-16 bg-[#F5F3EF]">
+    <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-2">Trusted Industry Partnerships</h2>
-                <p class="text-gray-600">Certified excellence in smart home installation</p>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-semibold mb-4">Trusted Industry Partnerships</h2>
+                <p class="text-gray-600 text-lg">Certified excellence in smart home installation</p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center max-w-6xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                <div class="flex justify-center">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO55mI8GRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI" alt="Control4 Certified" class="badge-img h-20 object-contain">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 items-center max-w-6xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex justify-center p-4">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO55mI8GRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI" alt="Control4 Certified" class="badge-img h-16 md:h-20 object-contain">
                 </div>
-                <div class="flex justify-center">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO04rcswACxibhy3ODoNmvdupE9fqX1KjZrlz5" alt="CEDIA Member" class="badge-img h-20 object-contain">
+                <div class="flex justify-center p-4">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO04rcswACxibhy3ODoNmvdupE9fqX1KjZrlz5" alt="CEDIA Member" class="badge-img h-16 md:h-20 object-contain">
                 </div>
-                <div class="flex justify-center">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOwfbK19ADUuYGKtylPcsHkJ8CX39vWRB5Egez" alt="KNX Partner" class="badge-img h-20 object-contain">
+                <div class="flex justify-center p-4">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOwfbK19ADUuYGKtylPcsHkJ8CX39vWRB5Egez" alt="KNX Partner" class="badge-img h-16 md:h-20 object-contain">
                 </div>
-                <div class="flex justify-center">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOwKdvA4DUuYGKtylPcsHkJ8CX39vWRB5Egez6" alt="NICEIC Approved" class="badge-img h-20 object-contain">
+                <div class="flex justify-center p-4">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOwKdvA4DUuYGKtylPcsHkJ8CX39vWRB5Egez6" alt="NICEIC Approved" class="badge-img h-16 md:h-20 object-contain">
                 </div>
-                <div class="flex justify-center">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOV7MB6iK8NU0LR5OdfTqGQ3p2ZFHcnSC7IKJl" alt="Gas Safe Registered" class="badge-img h-20 object-contain">
+                <div class="flex justify-center p-4">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOV7MB6iK8NU0LR5OdfTqGQ3p2ZFHcnSC7IKJl" alt="Gas Safe Registered" class="badge-img h-16 md:h-20 object-contain">
                 </div>
-                <div class="flex justify-center">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOiw0IEQrk4MaBZsg7zTQWeXdtmvUc36hVOpFy" alt="CHAS Accredited" class="badge-img h-20 object-contain">
+                <div class="flex justify-center p-4">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOiw0IEQrk4MaBZsg7zTQWeXdtmvUc36hVOpFy" alt="CHAS Accredited" class="badge-img h-16 md:h-20 object-contain">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact CTA Section -->
-    <section class="py-24 bg-white" id="contact">
-        <div class="container mx-auto px-6">
-            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-semibold mb-6">Ready to transform your home?</h2>
-                <p class="text-xl text-gray-600 mb-8">Let's discuss how we can create the perfect smart home system for you.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="tel:+441234567890" class="btn-primary bg-[#C8A882] text-white px-8 py-4 rounded-full text-lg font-medium">
-                        Call Us Today
-                    </a>
-                    <a href="mailto:info@infinitysmarthome.com" class="btn-primary bg-[#2C2C2C] text-white px-8 py-4 rounded-full text-lg font-medium">
-                        Email Us
-                    </a>
-                </div>
+    <!-- Experience Section (Video CTA) - Moved to bottom before footer -->
+    <section class="parallax-section relative min-h-[80vh] flex items-center justify-center overflow-hidden" id="contact">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1600" alt="Luxury Smart Home" class="parallax-bg">
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <div class="relative z-10 text-center text-white px-6 max-w-3xl" data-aos="zoom-in">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-light mb-6 leading-tight">
+                Experience a new height<br>
+                <span class="font-semibold">in home living.</span>
+            </h2>
+            <p class="text-xl md:text-2xl mb-10 opacity-90 font-light">
+                Let's discuss how we can create the perfect smart home system for you.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:+441234567890" class="btn-primary btn-gold text-center text-lg font-medium">
+                    Call Us Today
+                </a>
+                <a href="mailto:info@infinitysmarthome.com" class="btn-primary btn-outline text-center text-lg font-medium">
+                    Email Us
+                </a>
             </div>
         </div>
     </section>
@@ -762,11 +911,43 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
+        // Scroll to top on page reload
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        };
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        // Page load fade-in effect
+        window.addEventListener('load', () => {
+            document.body.classList.add('page-loaded');
+        });
+
         // Initialize AOS
         AOS.init({
             duration: 800,
             once: true,
             offset: 100
+        });
+
+        // Header scroll behavior
+        const header = document.getElementById('main-header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 50) {
+                header.classList.add('header-scrolled');
+                header.classList.remove('header-transparent');
+            } else {
+                header.classList.remove('header-scrolled');
+                header.classList.add('header-transparent');
+            }
+
+            lastScroll = currentScroll;
         });
 
         // Mobile Menu Toggle
@@ -777,13 +958,15 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Mode Switching
+        // Mode Switching with 6 modes
         const modeTabs = document.querySelectorAll('.mode-tab');
         const modeImages = {
             living: 'https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOLgfkdYOXdi03bFNVhYyUPOr1lJ7kIvMAEKHt',
             kitchen: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=1200',
             bedroom: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=1200',
-            bathroom: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?q=80&w=1200'
+            bathroom: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?q=80&w=1200',
+            cinema: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1200',
+            office: 'https://images.unsplash.com/photo-1593062096033-9a26b09da705?q=80&w=1200'
         };
 
         modeTabs.forEach(tab => {
@@ -798,17 +981,40 @@
                 setTimeout(() => {
                     modeImage.src = modeImages[mode];
                     modeImage.style.opacity = '1';
-                }, 300);
+                }, 400);
             });
         });
 
-        // Before/After Slider
+        // Before/After Slider - Hover-based for desktop
         const slider = document.getElementById('slider');
         const afterImage = document.getElementById('after-image');
+        const sliderContainer = document.getElementById('slider-container');
         let isSliding = false;
+        let isMobile = window.matchMedia('(max-width: 768px)').matches;
 
+        // Desktop: Hover-based slider
+        if (!isMobile) {
+            sliderContainer.addEventListener('mousemove', (e) => {
+                const rect = sliderContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const percentage = (x / rect.width) * 100;
+
+                if (percentage >= 0 && percentage <= 100) {
+                    slider.style.left = percentage + '%';
+                    afterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+                }
+            });
+
+            sliderContainer.addEventListener('mouseleave', () => {
+                // Return to center position
+                slider.style.left = '50%';
+                afterImage.style.clipPath = 'inset(0 50% 0 0)';
+            });
+        }
+
+        // Mobile: Touch/drag-based slider
         slider.addEventListener('mousedown', () => {
-            isSliding = true;
+            if (isMobile) isSliding = true;
         });
 
         document.addEventListener('mouseup', () => {
@@ -816,7 +1022,7 @@
         });
 
         document.addEventListener('mousemove', (e) => {
-            if (!isSliding) return;
+            if (!isSliding || !isMobile) return;
 
             const container = document.querySelector('.before-after-container');
             const rect = container.getBoundingClientRect();
@@ -829,7 +1035,7 @@
             }
         });
 
-        // Touch support for slider
+        // Touch support for slider (mobile)
         slider.addEventListener('touchstart', () => {
             isSliding = true;
         });
@@ -852,7 +1058,7 @@
             }
         });
 
-        // Process Timeline
+        // Process Timeline - Click handler
         const processSteps = document.querySelectorAll('.process-step');
         const processImage = document.getElementById('process-image');
         const processImages = {
@@ -880,6 +1086,32 @@
             });
         });
 
+        // Process Timeline - IntersectionObserver for auto-scroll highlight
+        const processObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const step = entry.target;
+                    processSteps.forEach(s => s.classList.remove('active'));
+                    step.classList.add('active');
+
+                    const stepNum = step.dataset.step;
+                    processImage.style.opacity = '0';
+
+                    setTimeout(() => {
+                        processImage.src = processImages[stepNum];
+                        processImage.style.opacity = '1';
+                    }, 300);
+                }
+            });
+        }, {
+            threshold: 0.7,
+            rootMargin: '-20% 0px -20% 0px'
+        });
+
+        processSteps.forEach(step => {
+            processObserver.observe(step);
+        });
+
         // Flip Cards Animation on Scroll
         const flipCards = document.querySelectorAll('.flip-card');
 
@@ -897,6 +1129,22 @@
             flipObserver.observe(card);
         });
 
+        // Parallax effect for Experience section
+        const parallaxSection = document.querySelector('.parallax-section');
+        const parallaxBg = document.querySelector('.parallax-bg');
+
+        if (parallaxSection && parallaxBg) {
+            window.addEventListener('scroll', () => {
+                const rect = parallaxSection.getBoundingClientRect();
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * 0.3;
+
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    parallaxBg.style.transform = `translateY(${rate}px)`;
+                }
+            });
+        }
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -907,8 +1155,15 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
                 }
             });
+        });
+
+        // Update isMobile on resize
+        window.addEventListener('resize', () => {
+            isMobile = window.matchMedia('(max-width: 768px)').matches;
         });
     </script>
 </body>
