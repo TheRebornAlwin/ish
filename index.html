@@ -22,7 +22,7 @@
         :root {
             --cream: #F5F3EF;
             --charcoal: #2C2C2C;
-            --warm-gold: #C8A882;
+            --warm-gold: #D4AF37;
             --warm-beige: #E8E3DA;
         }
 
@@ -59,15 +59,16 @@
         }
 
         .btn-gold {
-            background-color: #C8A882;
-            color: white;
+            background-color: #D4AF37;
+            color: #1a1a1a;
             transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
         }
 
         .btn-gold:hover {
-            background-color: #B8956F;
+            background-color: #E5C158;
             transform: translateY(-2px);
-            box-shadow: 0 20px 40px rgba(200, 168, 130, 0.3);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
         }
 
         .btn-outline {
@@ -99,7 +100,7 @@
         }
 
         .header-scrolled .nav-link:hover {
-            color: #C8A882;
+            color: #D4AF37;
         }
 
         .header-scrolled .mobile-menu-btn {
@@ -130,7 +131,7 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            background: rgba(200, 168, 130, 0.9);
+            background: rgba(212, 175, 55, 0.95);
             border: 2px solid white;
             border-radius: 50%;
             cursor: pointer;
@@ -241,6 +242,32 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            filter: brightness(0.7);
+            transition: filter 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .flip-card:hover .flip-card-front img {
+            filter: brightness(1);
+        }
+
+        .flip-card-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .flip-card-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
         }
 
         .badge-img {
@@ -294,18 +321,26 @@
         /* 3-Column Services luxury styling */
         .luxury-service-card {
             padding: 3rem 2rem;
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .luxury-service-card:hover {
+            transform: translateY(-8px);
         }
 
         .luxury-service-icon {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             margin: 0 auto 2rem;
-            background: linear-gradient(135deg, #C8A882 0%, #A88B6A 100%);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(200, 168, 130, 0.3);
+        }
+
+        .luxury-service-icon svg {
+            color: #D4AF37;
+            width: 48px;
+            height: 48px;
         }
 
         .luxury-service-card h3 {
@@ -360,14 +395,18 @@
     <header id="main-header" class="fixed top-0 left-0 right-0 z-50 header-transparent">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="/" class="flex items-center">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-12">
+                <a href="/" class="flex items-center gap-3">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-10">
+                    <div class="hidden sm:block">
+                        <div class="text-white text-lg font-semibold tracking-wider leading-tight">INFINITY</div>
+                        <div class="text-white/80 text-xs tracking-wide">Smart Home Systems</div>
+                    </div>
                 </a>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="nav-link text-white hover:text-[#C8A882]">Explore Features</a>
-                    <a href="#process" class="nav-link text-white hover:text-[#C8A882]">Our Process</a>
-                    <a href="#services" class="nav-link text-white hover:text-[#C8A882]">Services</a>
+                    <a href="#features" class="nav-link text-white hover:text-[#D4AF37]">Explore Features</a>
+                    <a href="#process" class="nav-link text-white hover:text-[#D4AF37]">Our Process</a>
+                    <a href="#services" class="nav-link text-white hover:text-[#D4AF37]">Services</a>
                     <a href="#contact" class="btn-gold px-6 py-2 rounded-full text-sm font-medium">Get Started</a>
                 </div>
 
@@ -381,9 +420,9 @@
 
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-4">
-                <a href="#features" class="block text-white hover:text-[#C8A882]">Explore Features</a>
-                <a href="#process" class="block text-white hover:text-[#C8A882]">Our Process</a>
-                <a href="#services" class="block text-white hover:text-[#C8A882]">Services</a>
+                <a href="#features" class="block text-white hover:text-[#D4AF37]">Explore Features</a>
+                <a href="#process" class="block text-white hover:text-[#D4AF37]">Our Process</a>
+                <a href="#services" class="block text-white hover:text-[#D4AF37]">Services</a>
                 <a href="#contact" class="block text-center btn-gold px-6 py-2 rounded-full">Get Started</a>
             </div>
         </nav>
@@ -392,42 +431,16 @@
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOfptHX2vNdOBRLJpEY5lM9mQiDnF6PqVH1ohZ" alt="Luxury Smart Home" class="w-full h-full object-cover">
+            <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOX2Dzm5Ecj4YCVPDhvKNIneJbaFpWEylUf80m" alt="Luxury Smart Home" class="w-full h-full object-cover">
             <div class="hero-gradient absolute inset-0"></div>
         </div>
 
         <div class="relative z-10 hero-content text-white px-6 md:px-12 lg:px-20 max-w-4xl" data-aos="fade-up" data-aos-duration="1000">
-            <!-- Logo and Company Name -->
-            <div class="mb-8">
-                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOX2Dzm5Ecj4YCVPDhvKNIneJbaFpWEylUf80m" alt="Infinity Logo" class="h-20 md:h-24 mb-4">
-                <div class="mb-2">
-                    <span class="text-3xl md:text-4xl font-semibold tracking-wider">INFINITY</span>
-                </div>
-                <div>
-                    <span class="text-lg md:text-xl font-light tracking-wide opacity-90">Smart Home Systems</span>
-                </div>
-            </div>
-
             <!-- Main Tagline -->
-            <h1 class="text-4xl md:text-6xl lg:text-7xl mb-6 leading-tight">
-                <span class="font-normal italic text-[#C8A882]">Your Home.</span><br>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl mb-6 leading-tight">
+                <span class="font-light italic text-[#D4AF37]">Your Home.</span><br>
                 <span class="font-bold uppercase tracking-wide">INFINITE CONTROL.</span>
             </h1>
-
-            <!-- Subtitle -->
-            <p class="subtitle text-base md:text-lg lg:text-xl mb-10 font-light opacity-90 max-w-2xl leading-relaxed">
-                Discreet smart home systems for homes where everything must work — and nothing looks like 'tech'
-            </p>
-
-            <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="#contact" class="btn-primary btn-gold text-center text-base md:text-lg font-medium">
-                    Book Private Consultation
-                </a>
-                <a href="#services" class="btn-primary btn-outline text-center text-base md:text-lg font-medium">
-                    Explore Our Projects
-                </a>
-            </div>
         </div>
 
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -441,7 +454,7 @@
     <section class="py-24 bg-white" id="features">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-light mb-6">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-light mb-6">
                     We design custom, architect-grade<br>
                     <span class="font-semibold">smart home systems</span> and install them<br>
                     in weeks, not years.
@@ -461,15 +474,18 @@
                 <div id="mode-image-container" class="relative">
                     <img id="mode-image" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOLgfkdYOXdi03bFNVhYyUPOr1lJ7kIvMAEKHt" alt="Smart Home Showcase" class="w-full rounded-lg shadow-2xl mode-image-transition">
 
-                    <!-- Hotspots -->
-                    <div class="hotspot" style="top: 35%; left: 25%;"></div>
-                    <div class="hotspot-label" style="top: 32%; left: 28%;">Lighting Control</div>
+                    <!-- Dynamic Hotspots Container -->
+                    <div id="hotspots-container">
+                        <!-- Living Room Hotspots (default) -->
+                        <div class="hotspot" style="top: 35%; left: 25%;"></div>
+                        <div class="hotspot-label" style="top: 32%; left: 28%;">Ambient Lighting Scenes</div>
 
-                    <div class="hotspot" style="top: 50%; left: 60%;"></div>
-                    <div class="hotspot-label" style="top: 47%; left: 63%;">Climate Control</div>
+                        <div class="hotspot" style="top: 50%; left: 60%;"></div>
+                        <div class="hotspot-label" style="top: 47%; left: 63%;">Climate & Air Quality</div>
 
-                    <div class="hotspot" style="top: 65%; left: 40%;"></div>
-                    <div class="hotspot-label" style="top: 62%; left: 43%;">Smart Entertainment</div>
+                        <div class="hotspot" style="top: 65%; left: 40%;"></div>
+                        <div class="hotspot-label" style="top: 62%; left: 43%;">Surround Sound System</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -502,11 +518,11 @@
                     </div>
 
                     <div class="absolute bottom-8 left-8 bg-white/90 px-6 py-3 rounded-full">
-                        <span class="text-sm font-medium">Before Installation</span>
+                        <span class="text-sm font-medium">Living Room</span>
                     </div>
 
                     <div class="absolute bottom-8 right-8 bg-white/90 px-6 py-3 rounded-full">
-                        <span class="text-sm font-medium">After Installation</span>
+                        <span class="text-sm font-medium">Cinema Room</span>
                     </div>
                 </div>
             </div>
@@ -623,37 +639,37 @@
     </section>
 
     <!-- 3-Column Services Section (Luxury Upgrade) -->
-    <section class="py-32 bg-[#2C2C2C] text-white">
+    <section class="py-32 bg-[#1a1a1a] text-white">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-8 lg:gap-16 max-w-6xl mx-auto">
-                <div class="luxury-service-card text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="grid md:grid-cols-3 gap-12 lg:gap-20 max-w-6xl mx-auto">
+                <div class="luxury-service-card text-center group" data-aos="fade-up" data-aos-delay="100">
                     <div class="luxury-service-icon">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-semibold mb-4">Smart Home Technology</h3>
-                    <p>Cutting-edge automation systems that bring your entire home under intelligent, intuitive control.</p>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Smart Home Technology</h3>
+                    <p class="text-gray-400 leading-relaxed">Cutting-edge automation systems that bring your entire home under intelligent, intuitive control.</p>
                 </div>
 
-                <div class="luxury-service-card text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="luxury-service-card text-center group" data-aos="fade-up" data-aos-delay="200">
                     <div class="luxury-service-icon">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-semibold mb-4">Integrated Systems</h3>
-                    <p>Seamlessly connect lighting, climate, security, and entertainment into one unified ecosystem.</p>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Integrated Systems</h3>
+                    <p class="text-gray-400 leading-relaxed">Seamlessly connect lighting, climate, security, and entertainment into one unified ecosystem.</p>
                 </div>
 
-                <div class="luxury-service-card text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="luxury-service-card text-center group" data-aos="fade-up" data-aos-delay="300">
                     <div class="luxury-service-icon">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-semibold mb-4">Total Room Control</h3>
-                    <p>Control every aspect of each room from a single elegant interface or voice command.</p>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Total Room Control</h3>
+                    <p class="text-gray-400 leading-relaxed">Control every aspect of each room from a single elegant interface or voice command.</p>
                 </div>
             </div>
         </div>
@@ -673,6 +689,11 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
                             <a href="/smart-home-design.html" class="block h-full">
+                                <div class="flip-card-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                                    </svg>
+                                </div>
                                 <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO57ZoFiRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI" alt="Smart Home Design">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
@@ -690,6 +711,11 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
                             <a href="/home-theatre.html" class="block h-full">
+                                <div class="flip-card-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path>
+                                    </svg>
+                                </div>
                                 <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOWg8MqbLoUVjTPE7vmgGZYzHuLeFX3C180b5A" alt="Home Theatre">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
@@ -707,6 +733,11 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
                             <a href="/wifi-networking.html" class="block h-full">
+                                <div class="flip-card-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path>
+                                    </svg>
+                                </div>
                                 <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOm3wlNf3cbUnfSVystplRTLejEYHdJP5hW7K1" alt="Wi-Fi & Networking">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
@@ -724,6 +755,11 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
                             <a href="/multi-room-audio.html" class="block h-full">
+                                <div class="flip-card-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path>
+                                    </svg>
+                                </div>
                                 <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVONi0jyf8Ui4vTXKykYwDQ2O7lojLsA6mqgIJS" alt="Multi Room Audio">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
@@ -741,6 +777,11 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
                             <a href="/video-distribution.html" class="block h-full">
+                                <div class="flip-card-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
                                 <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO40mRShT5RXgOlVJBKwzq6UIdiCyAD8Yxv7k1" alt="Video Distribution">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
@@ -758,6 +799,11 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
                             <a href="/smart-shading.html" class="block h-full">
+                                <div class="flip-card-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                                    </svg>
+                                </div>
                                 <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO8H0lOEwYdeX4IsazOUk3VwrD1b5hQxAHRfvM" alt="Smart Shading">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
@@ -775,6 +821,11 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
                             <a href="/security-cctv.html" class="block h-full">
+                                <div class="flip-card-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                </div>
                                 <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOZC2omWQiMGjfvdY9e0A24S6KOVarukmUowQ5" alt="Security & CCTV">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
@@ -792,6 +843,11 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front relative overflow-hidden rounded-lg shadow-lg">
                             <a href="/electrical-installation.html" class="block h-full">
+                                <div class="flip-card-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
                                 <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOsfl9HcIKL5iR7svA0akPBhoUGYFSIrMmngfe" alt="Electrical Installation">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
@@ -839,26 +895,21 @@
     </section>
 
     <!-- Experience Section (Video CTA) - Moved to bottom before footer -->
-    <section class="parallax-section relative min-h-[80vh] flex items-center justify-center overflow-hidden" id="contact">
-        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1600" alt="Luxury Smart Home" class="parallax-bg">
-        <div class="absolute inset-0 bg-black/60"></div>
+    <section class="parallax-section relative min-h-screen flex items-center justify-center overflow-hidden" id="contact">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1920" alt="Luxury Smart Home" class="parallax-bg">
+        <div class="absolute inset-0 bg-black/50"></div>
 
         <div class="relative z-10 text-center text-white px-6 max-w-3xl" data-aos="zoom-in">
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-light mb-6 leading-tight">
                 Experience a new height<br>
                 <span class="font-semibold">in home living.</span>
             </h2>
-            <p class="text-xl md:text-2xl mb-10 opacity-90 font-light">
+            <p class="text-xl md:text-2xl mb-12 opacity-90 font-light">
                 Let's discuss how we can create the perfect smart home system for you.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:+441234567890" class="btn-primary btn-gold text-center text-lg font-medium">
-                    Call Us Today
-                </a>
-                <a href="mailto:info@infinitysmarthome.com" class="btn-primary btn-outline text-center text-lg font-medium">
-                    Email Us
-                </a>
-            </div>
+            <a href="#" class="inline-block border-2 border-[#D4AF37] text-[#D4AF37] px-10 py-4 rounded-full text-lg font-medium transition-all duration-300 hover:bg-[#D4AF37] hover:text-black">
+                Book Private Consultation
+            </a>
         </div>
     </section>
 
@@ -874,29 +925,29 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Services</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="/smart-home-design.html" class="hover:text-[#C8A882] transition">Smart Home Design</a></li>
-                        <li><a href="/home-theatre.html" class="hover:text-[#C8A882] transition">Home Theatre</a></li>
-                        <li><a href="/wifi-networking.html" class="hover:text-[#C8A882] transition">Wi-Fi & Networking</a></li>
-                        <li><a href="/multi-room-audio.html" class="hover:text-[#C8A882] transition">Multi Room Audio</a></li>
+                        <li><a href="/smart-home-design.html" class="hover:text-[#D4AF37] transition">Smart Home Design</a></li>
+                        <li><a href="/home-theatre.html" class="hover:text-[#D4AF37] transition">Home Theatre</a></li>
+                        <li><a href="/wifi-networking.html" class="hover:text-[#D4AF37] transition">Wi-Fi & Networking</a></li>
+                        <li><a href="/multi-room-audio.html" class="hover:text-[#D4AF37] transition">Multi Room Audio</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="text-lg font-semibold mb-4">More Services</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="/video-distribution.html" class="hover:text-[#C8A882] transition">Video Distribution</a></li>
-                        <li><a href="/smart-shading.html" class="hover:text-[#C8A882] transition">Smart Shading</a></li>
-                        <li><a href="/security-cctv.html" class="hover:text-[#C8A882] transition">Security & CCTV</a></li>
-                        <li><a href="/electrical-installation.html" class="hover:text-[#C8A882] transition">Electrical Installation</a></li>
+                        <li><a href="/video-distribution.html" class="hover:text-[#D4AF37] transition">Video Distribution</a></li>
+                        <li><a href="/smart-shading.html" class="hover:text-[#D4AF37] transition">Smart Shading</a></li>
+                        <li><a href="/security-cctv.html" class="hover:text-[#D4AF37] transition">Security & CCTV</a></li>
+                        <li><a href="/electrical-installation.html" class="hover:text-[#D4AF37] transition">Electrical Installation</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Legal</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="/terms.html" class="hover:text-[#C8A882] transition">Terms of Service</a></li>
-                        <li><a href="/privacy.html" class="hover:text-[#C8A882] transition">Privacy Policy</a></li>
-                        <li><a href="/cookies.html" class="hover:text-[#C8A882] transition">Cookie Policy</a></li>
+                        <li><a href="/terms.html" class="hover:text-[#D4AF37] transition">Terms of Service</a></li>
+                        <li><a href="/privacy.html" class="hover:text-[#D4AF37] transition">Privacy Policy</a></li>
+                        <li><a href="/cookies.html" class="hover:text-[#D4AF37] transition">Cookie Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -969,6 +1020,50 @@
             office: 'https://images.unsplash.com/photo-1593062096033-9a26b09da705?q=80&w=1200'
         };
 
+        // Hotspots configuration for each room mode
+        const modeHotspots = {
+            living: [
+                { top: '35%', left: '25%', label: 'Ambient Lighting Scenes', labelTop: '32%', labelLeft: '28%' },
+                { top: '50%', left: '60%', label: 'Climate & Air Quality', labelTop: '47%', labelLeft: '63%' },
+                { top: '65%', left: '40%', label: 'Surround Sound System', labelTop: '62%', labelLeft: '43%' }
+            ],
+            kitchen: [
+                { top: '30%', left: '20%', label: 'Smart Lighting Zones', labelTop: '27%', labelLeft: '23%' },
+                { top: '55%', left: '70%', label: 'Connected Appliances', labelTop: '52%', labelLeft: '48%' },
+                { top: '70%', left: '35%', label: 'Voice Assistant Hub', labelTop: '67%', labelLeft: '38%' }
+            ],
+            bedroom: [
+                { top: '25%', left: '30%', label: 'Circadian Lighting', labelTop: '22%', labelLeft: '33%' },
+                { top: '50%', left: '65%', label: 'Automated Blinds', labelTop: '47%', labelLeft: '48%' },
+                { top: '75%', left: '45%', label: 'Sleep Mode Controls', labelTop: '72%', labelLeft: '48%' }
+            ],
+            bathroom: [
+                { top: '30%', left: '55%', label: 'Mirror Display', labelTop: '27%', labelLeft: '58%' },
+                { top: '50%', left: '25%', label: 'Heated Floor Control', labelTop: '47%', labelLeft: '28%' },
+                { top: '65%', left: '60%', label: 'Ambient Music', labelTop: '62%', labelLeft: '43%' }
+            ],
+            cinema: [
+                { top: '35%', left: '50%', label: '4K Laser Projector', labelTop: '32%', labelLeft: '53%' },
+                { top: '55%', left: '20%', label: 'Dolby Atmos System', labelTop: '52%', labelLeft: '23%' },
+                { top: '70%', left: '70%', label: 'One-Touch Scene', labelTop: '67%', labelLeft: '53%' }
+            ],
+            office: [
+                { top: '25%', left: '40%', label: 'Video Conference Setup', labelTop: '22%', labelLeft: '43%' },
+                { top: '50%', left: '70%', label: 'Task Lighting', labelTop: '47%', labelLeft: '53%' },
+                { top: '65%', left: '25%', label: 'Privacy Mode', labelTop: '62%', labelLeft: '28%' }
+            ]
+        };
+
+        function updateHotspots(mode) {
+            const container = document.getElementById('hotspots-container');
+            const hotspots = modeHotspots[mode];
+
+            container.innerHTML = hotspots.map(h => `
+                <div class="hotspot" style="top: ${h.top}; left: ${h.left};"></div>
+                <div class="hotspot-label" style="top: ${h.labelTop}; left: ${h.labelLeft};">${h.label}</div>
+            `).join('');
+        }
+
         modeTabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 modeTabs.forEach(t => t.classList.remove('active'));
@@ -981,6 +1076,7 @@
                 setTimeout(() => {
                     modeImage.src = modeImages[mode];
                     modeImage.style.opacity = '1';
+                    updateHotspots(mode);
                 }, 400);
             });
         });
@@ -1058,9 +1154,10 @@
             }
         });
 
-        // Process Timeline - Click handler
+        // Process Timeline - Click handler and Scroll Hijacking
         const processSteps = document.querySelectorAll('.process-step');
         const processImage = document.getElementById('process-image');
+        const processSection = document.getElementById('process');
         const processImages = {
             1: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800',
             2: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800',
@@ -1071,46 +1168,86 @@
             7: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?q=80&w=800'
         };
 
-        processSteps.forEach(step => {
-            step.addEventListener('click', () => {
-                processSteps.forEach(s => s.classList.remove('active'));
-                step.classList.add('active');
+        let currentProcessStep = 1;
+        let isScrollHijacked = false;
+        let scrollAccumulator = 0;
+        const scrollThreshold = 100;
 
-                const stepNum = step.dataset.step;
+        function setActiveStep(stepNum) {
+            processSteps.forEach(s => s.classList.remove('active'));
+            const activeStep = document.querySelector(`[data-step="${stepNum}"]`);
+            if (activeStep) {
+                activeStep.classList.add('active');
                 processImage.style.opacity = '0';
-
                 setTimeout(() => {
                     processImage.src = processImages[stepNum];
                     processImage.style.opacity = '1';
                 }, 300);
+            }
+        }
+
+        processSteps.forEach(step => {
+            step.addEventListener('click', () => {
+                currentProcessStep = parseInt(step.dataset.step);
+                setActiveStep(currentProcessStep);
             });
         });
 
-        // Process Timeline - IntersectionObserver for auto-scroll highlight
-        const processObserver = new IntersectionObserver((entries) => {
+        // Scroll hijacking for process timeline
+        const processSectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const step = entry.target;
-                    processSteps.forEach(s => s.classList.remove('active'));
-                    step.classList.add('active');
-
-                    const stepNum = step.dataset.step;
-                    processImage.style.opacity = '0';
-
-                    setTimeout(() => {
-                        processImage.src = processImages[stepNum];
-                        processImage.style.opacity = '1';
-                    }, 300);
+                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                    isScrollHijacked = true;
+                } else {
+                    isScrollHijacked = false;
+                    scrollAccumulator = 0;
                 }
             });
         }, {
-            threshold: 0.7,
-            rootMargin: '-20% 0px -20% 0px'
+            threshold: [0.5]
         });
 
-        processSteps.forEach(step => {
-            processObserver.observe(step);
-        });
+        processSectionObserver.observe(processSection);
+
+        window.addEventListener('wheel', (e) => {
+            if (!isScrollHijacked) return;
+
+            const rect = processSection.getBoundingClientRect();
+            const sectionCenterY = rect.top + rect.height / 2;
+            const viewportCenterY = window.innerHeight / 2;
+            const distanceFromCenter = Math.abs(sectionCenterY - viewportCenterY);
+
+            // Only hijack if section is well centered
+            if (distanceFromCenter > window.innerHeight * 0.3) return;
+
+            scrollAccumulator += e.deltaY;
+
+            if (Math.abs(scrollAccumulator) >= scrollThreshold) {
+                if (scrollAccumulator > 0 && currentProcessStep < 7) {
+                    // Scrolling down
+                    e.preventDefault();
+                    currentProcessStep++;
+                    setActiveStep(currentProcessStep);
+                    scrollAccumulator = 0;
+                } else if (scrollAccumulator < 0 && currentProcessStep > 1) {
+                    // Scrolling up
+                    e.preventDefault();
+                    currentProcessStep--;
+                    setActiveStep(currentProcessStep);
+                    scrollAccumulator = 0;
+                } else if ((scrollAccumulator > 0 && currentProcessStep === 7) ||
+                           (scrollAccumulator < 0 && currentProcessStep === 1)) {
+                    // At boundary, release scroll
+                    isScrollHijacked = false;
+                    scrollAccumulator = 0;
+                }
+            } else {
+                // Still accumulating, prevent scroll
+                if ((e.deltaY > 0 && currentProcessStep < 7) || (e.deltaY < 0 && currentProcessStep > 1)) {
+                    e.preventDefault();
+                }
+            }
+        }, { passive: false });
 
         // Flip Cards Animation on Scroll
         const flipCards = document.querySelectorAll('.flip-card');
