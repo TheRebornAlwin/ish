@@ -22,6 +22,11 @@
         .feature-card { transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); }
         .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
         .stat-card { background: linear-gradient(135deg, #ffffff 0%, #f8f6f3 100%); border: 1px solid rgba(203, 175, 130, 0.2); }
+        .services-dropdown { position: relative; }
+        .services-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); width: 280px; background: rgba(20, 20, 20, 0.98); backdrop-filter: blur(10px); border-radius: 12px; padding: 1rem 0; opacity: 0; visibility: hidden; transition: all 200ms ease-in-out; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); margin-top: 0.5rem; }
+        .services-dropdown:hover .services-dropdown-menu { opacity: 1; visibility: visible; }
+        .services-dropdown-menu a { display: block; padding: 0.75rem 1.5rem; color: white; font-size: 0.875rem; transition: all 150ms ease; }
+        .services-dropdown-menu a:hover { background: rgba(212, 175, 55, 0.1); color: #D4AF37; }
     </style>
 </head>
 <body class="bg-[#F5F3EF]">
@@ -40,7 +45,22 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="/#features" class="text-white hover:text-[#D4AF37] transition">Explore Features</a>
                     <a href="/#process" class="text-white hover:text-[#D4AF37] transition">Our Process</a>
-                    <a href="/#services" class="text-white hover:text-[#D4AF37] transition">Services</a>
+                    <div class="services-dropdown">
+                        <a href="/#services" class="text-white hover:text-[#D4AF37] transition flex items-center gap-1">
+                            Services
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </a>
+                        <div class="services-dropdown-menu">
+                            <a href="/smart-home-design.html">Smart Home Design</a>
+                            <a href="/home-theatre.html">Home Theatre</a>
+                            <a href="/wifi-networking.html">Wi-Fi & Networking</a>
+                            <a href="/multi-room-audio.html">Multi Room Audio</a>
+                            <a href="/video-distribution.html">Video Distribution</a>
+                            <a href="/smart-shading.html">Smart Shading</a>
+                            <a href="/security-cctv.html">Security & CCTV</a>
+                            <a href="/electrical-installation.html">Electrical Installation</a>
+                        </div>
+                    </div>
                     <a href="/#contact" class="btn-gold px-6 py-2 rounded-full text-sm font-medium">Get Started</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden text-white">
@@ -50,7 +70,22 @@
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-4">
                 <a href="/#features" class="block text-white hover:text-[#D4AF37]">Explore Features</a>
                 <a href="/#process" class="block text-white hover:text-[#D4AF37]">Our Process</a>
-                <a href="/#services" class="block text-white hover:text-[#D4AF37]">Services</a>
+                <div>
+                    <button id="mobile-services-toggle" class="flex items-center justify-between w-full text-white hover:text-[#D4AF37]">
+                        <span>Services</span>
+                        <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="mobile-services-menu" class="hidden pl-4 mt-2 space-y-2">
+                        <a href="/smart-home-design.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Smart Home Design</a>
+                        <a href="/home-theatre.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Home Theatre</a>
+                        <a href="/wifi-networking.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Wi-Fi & Networking</a>
+                        <a href="/multi-room-audio.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Multi Room Audio</a>
+                        <a href="/video-distribution.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Video Distribution</a>
+                        <a href="/smart-shading.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Smart Shading</a>
+                        <a href="/security-cctv.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Security & CCTV</a>
+                        <a href="/electrical-installation.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Electrical Installation</a>
+                    </div>
+                </div>
                 <a href="/#contact" class="block text-center btn-gold px-6 py-2 rounded-full">Get Started</a>
             </div>
         </nav>
@@ -183,9 +218,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-white py-16">
+    <footer class="bg-black text-white py-12">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
+            <div class="grid md:grid-cols-4 gap-12 mb-8">
                 <div>
                     <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-12 mb-4">
                     <p class="text-gray-400">Luxury smart home automation designed for the way you live.</p>
@@ -217,10 +252,10 @@
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Infinity Smart Home Systems. All rights reserved.</p>
+            <div class="border-t border-gray-700 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 Infinity Smart Home Systems. All rights reserved.</p>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-6 text-center">
+            <div class="border-t border-gray-800 mt-6 pt-4 text-center">
                 <p class="text-sm text-gray-500">
                     <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=alwin@tripletendigits.com" target="_blank" class="luxury-gold-text hover:opacity-80 transition">Triple Ten Digits</a>
                     <span class="mx-2">|</span>
@@ -237,6 +272,16 @@
         document.getElementById('mobile-menu-btn').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
+
+        // Mobile services toggle
+        const mobileServicesToggle = document.getElementById('mobile-services-toggle');
+        const mobileServicesMenu = document.getElementById('mobile-services-menu');
+        if (mobileServicesToggle && mobileServicesMenu) {
+            mobileServicesToggle.addEventListener('click', () => {
+                mobileServicesMenu.classList.toggle('hidden');
+                mobileServicesToggle.querySelector('svg').classList.toggle('rotate-180');
+            });
+        }
     </script>
 </body>
 </html>

@@ -315,12 +315,92 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.7);
+            filter: brightness(0.85);
             transition: filter 300ms cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .flip-card:hover .flip-card-front img {
             filter: brightness(1);
+        }
+
+        /* Services dropdown */
+        .services-dropdown {
+            position: relative;
+        }
+
+        .services-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            background: rgba(20, 20, 20, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 200ms ease-in-out;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            margin-top: 0.5rem;
+        }
+
+        .services-dropdown:hover .services-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .services-dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: white;
+            font-size: 0.875rem;
+            transition: all 150ms ease;
+        }
+
+        .services-dropdown-menu a:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: #D4AF37;
+        }
+
+        /* Mode tabs overlay styling */
+        .mode-tabs-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+
+        .mode-tab-overlay {
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            color: white/80;
+            transition: all 200ms ease;
+            border-radius: 4px;
+        }
+
+        .mode-tab-overlay.active {
+            background: rgba(212, 175, 55, 0.3);
+            color: white;
+        }
+
+        .mode-tab-overlay:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .mode-tabs-overlay {
+                padding: 0.5rem;
+            }
+            .mode-tab-overlay {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.65rem;
+            }
         }
 
         .flip-card-icon {
@@ -473,7 +553,22 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#features" class="nav-link text-white hover:text-[#D4AF37]">Explore Features</a>
                     <a href="#process" class="nav-link text-white hover:text-[#D4AF37]">Our Process</a>
-                    <a href="#services" class="nav-link text-white hover:text-[#D4AF37]">Services</a>
+                    <div class="services-dropdown">
+                        <a href="#services" class="nav-link text-white hover:text-[#D4AF37] flex items-center gap-1">
+                            Services
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </a>
+                        <div class="services-dropdown-menu">
+                            <a href="/smart-home-design.html">Smart Home Design</a>
+                            <a href="/home-theatre.html">Home Theatre</a>
+                            <a href="/wifi-networking.html">Wi-Fi & Networking</a>
+                            <a href="/multi-room-audio.html">Multi Room Audio</a>
+                            <a href="/video-distribution.html">Video Distribution</a>
+                            <a href="/smart-shading.html">Smart Shading</a>
+                            <a href="/security-cctv.html">Security & CCTV</a>
+                            <a href="/electrical-installation.html">Electrical Installation</a>
+                        </div>
+                    </div>
                     <a href="#contact" class="btn-gold px-6 py-2 rounded-full text-sm font-medium">Get Started</a>
                 </div>
 
@@ -489,7 +584,22 @@
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-4">
                 <a href="#features" class="block text-white hover:text-[#D4AF37]">Explore Features</a>
                 <a href="#process" class="block text-white hover:text-[#D4AF37]">Our Process</a>
-                <a href="#services" class="block text-white hover:text-[#D4AF37]">Services</a>
+                <div>
+                    <button id="mobile-services-toggle" class="flex items-center justify-between w-full text-white hover:text-[#D4AF37]">
+                        <span>Services</span>
+                        <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="mobile-services-menu" class="hidden pl-4 mt-2 space-y-2">
+                        <a href="/smart-home-design.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Smart Home Design</a>
+                        <a href="/home-theatre.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Home Theatre</a>
+                        <a href="/wifi-networking.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Wi-Fi & Networking</a>
+                        <a href="/multi-room-audio.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Multi Room Audio</a>
+                        <a href="/video-distribution.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Video Distribution</a>
+                        <a href="/smart-shading.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Smart Shading</a>
+                        <a href="/security-cctv.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Security & CCTV</a>
+                        <a href="/electrical-installation.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Electrical Installation</a>
+                    </div>
+                </div>
                 <a href="#contact" class="block text-center btn-gold px-6 py-2 rounded-full">Get Started</a>
             </div>
         </nav>
@@ -522,30 +632,33 @@
                 </h2>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-12" data-aos="fade-up" data-aos-delay="200">
-                <button class="mode-tab active px-6 md:px-8 py-3 text-sm md:text-lg" data-mode="living">Living Room</button>
-                <button class="mode-tab px-6 md:px-8 py-3 text-sm md:text-lg" data-mode="kitchen">Kitchen</button>
-                <button class="mode-tab px-6 md:px-8 py-3 text-sm md:text-lg" data-mode="bedroom">Bedroom</button>
-                <button class="mode-tab px-6 md:px-8 py-3 text-sm md:text-lg" data-mode="bathroom">Bathroom</button>
-                <button class="mode-tab px-6 md:px-8 py-3 text-sm md:text-lg" data-mode="cinema">Cinema Room</button>
-                <button class="mode-tab px-6 md:px-8 py-3 text-sm md:text-lg" data-mode="office">Home Office</button>
-            </div>
+            <div class="relative max-w-6xl mx-auto" data-aos="zoom-in" data-aos-delay="200">
+                <div id="mode-image-container" class="relative rounded-lg overflow-hidden shadow-2xl">
+                    <!-- Mode tabs overlay on top of image -->
+                    <div class="mode-tabs-overlay">
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <button class="mode-tab-overlay active" data-mode="living">Living Room</button>
+                            <button class="mode-tab-overlay" data-mode="kitchen">Kitchen</button>
+                            <button class="mode-tab-overlay" data-mode="bedroom">Bedroom</button>
+                            <button class="mode-tab-overlay" data-mode="bathroom">Bathroom</button>
+                            <button class="mode-tab-overlay" data-mode="cinema">Cinema Room</button>
+                            <button class="mode-tab-overlay" data-mode="office">Home Office</button>
+                        </div>
+                    </div>
 
-            <div class="relative max-w-6xl mx-auto" data-aos="zoom-in" data-aos-delay="400">
-                <div id="mode-image-container" class="relative">
-                    <img id="mode-image" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO0R9Td9ACxibhy3ODoNmvdupE9fqX1KjZrlz5" alt="Smart Home Showcase" class="w-full rounded-lg shadow-2xl mode-image-transition">
+                    <img id="mode-image" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO0R9Td9ACxibhy3ODoNmvdupE9fqX1KjZrlz5" alt="Smart Home Showcase" class="w-full mode-image-transition">
 
                     <!-- Dynamic Hotspots Container -->
                     <div id="hotspots-container">
-                        <!-- Living Room Hotspots (default) -->
+                        <!-- Living Room Hotspots (default) - detailed descriptions -->
                         <div class="hotspot" style="top: 35%; left: 25%;"></div>
-                        <div class="hotspot-label" style="top: 32%; left: 28%;">Ambient Lighting Scenes</div>
+                        <div class="hotspot-label" style="top: 32%; left: 28%;">Intelligent lighting scenes that adapt to time of day and activity, creating the perfect ambiance for any moment.</div>
 
                         <div class="hotspot" style="top: 50%; left: 60%;"></div>
-                        <div class="hotspot-label" style="top: 47%; left: 63%;">Climate & Air Quality</div>
+                        <div class="hotspot-label" style="top: 47%; left: 40%;">Advanced climate control with air quality monitoring, maintaining optimal temperature and freshness throughout your home.</div>
 
                         <div class="hotspot" style="top: 65%; left: 40%;"></div>
-                        <div class="hotspot-label" style="top: 62%; left: 43%;">Surround Sound System</div>
+                        <div class="hotspot-label" style="top: 62%; left: 43%;">Immersive multi-zone audio system delivering crystal-clear sound, controlled from a single interface.</div>
                     </div>
                 </div>
             </div>
@@ -953,9 +1066,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-white py-16">
+    <footer class="bg-black text-white py-12">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
+            <div class="grid md:grid-cols-4 gap-12 mb-8">
                 <div>
                     <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-12 mb-4">
                     <p class="text-gray-400">Luxury smart home automation designed for the way you live.</p>
@@ -991,11 +1104,11 @@
                 </div>
             </div>
 
-            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Infinity Smart Home Systems. All rights reserved.</p>
+            <div class="border-t border-gray-700 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 Infinity Smart Home Systems. All rights reserved.</p>
             </div>
 
-            <div class="border-t border-gray-800 mt-8 pt-6 text-center">
+            <div class="border-t border-gray-800 mt-6 pt-4 text-center">
                 <p class="text-sm text-gray-500">
                     <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=alwin@tripletendigits.com" target="_blank" class="luxury-gold-text hover:opacity-80 transition">Triple Ten Digits</a>
                     <span class="mx-2">|</span>
@@ -1078,8 +1191,18 @@
             mobileMenu.classList.toggle('hidden');
         });
 
+        // Mobile services toggle
+        const mobileServicesToggle = document.getElementById('mobile-services-toggle');
+        const mobileServicesMenu = document.getElementById('mobile-services-menu');
+        if (mobileServicesToggle && mobileServicesMenu) {
+            mobileServicesToggle.addEventListener('click', () => {
+                mobileServicesMenu.classList.toggle('hidden');
+                mobileServicesToggle.querySelector('svg').classList.toggle('rotate-180');
+            });
+        }
+
         // Mode Switching with 6 modes
-        const modeTabs = document.querySelectorAll('.mode-tab');
+        const modeTabs = document.querySelectorAll('.mode-tab-overlay');
         const modeImages = {
             living: 'https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO0R9Td9ACxibhy3ODoNmvdupE9fqX1KjZrlz5',
             kitchen: 'https://36ic4d16sm.ufs.sh/f/BSQ067hngJVObrcM0vXKfNaSdO8x2el91DCWkujqIGTQXJ4i',
