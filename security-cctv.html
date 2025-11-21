@@ -9,144 +9,234 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: 'Inter', sans-serif; color: #2C2C2C; }
+        body { font-family: 'Inter', sans-serif; color: #2C2C2C; opacity: 0; transition: opacity 0.3s ease-in; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
-        .btn-primary { transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); }
+        .luxury-gold-text { background: linear-gradient(90deg, #cbaf82 0%, #ede9df 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .btn-gold { background: linear-gradient(90deg, #cbaf82 0%, #ede9df 100%); color: #1a1a1a; transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); font-weight: 600; }
+        .btn-gold:hover { background: linear-gradient(90deg, #d4ba8f 0%, #f5f1e8 100%); transform: translateY(-2px); box-shadow: 0 15px 30px rgba(203, 175, 130, 0.3); }
+        .feature-card { transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
+        .stat-card { background: linear-gradient(135deg, #ffffff 0%, #f8f6f3 100%); border: 1px solid rgba(203, 175, 130, 0.2); }
     </style>
 </head>
 <body class="bg-[#F5F3EF]">
 
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="/" class="flex items-center">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity" class="h-12">
+                <a href="/" class="flex items-center gap-3">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-10">
+                    <div class="hidden sm:block">
+                        <div class="text-lg font-semibold tracking-wider leading-tight luxury-gold-text">INFINITY</div>
+                        <div class="text-white/80 text-xs tracking-wide">Smart Home Systems</div>
+                    </div>
                 </a>
-                <a href="/#contact" class="btn-primary bg-[#C8A882] text-white px-6 py-2 rounded-full">Get Started</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#features" class="text-white hover:text-[#D4AF37] transition">Explore Features</a>
+                    <a href="/#process" class="text-white hover:text-[#D4AF37] transition">Our Process</a>
+                    <a href="/#services" class="text-white hover:text-[#D4AF37] transition">Services</a>
+                    <a href="/#contact" class="btn-gold px-6 py-2 rounded-full text-sm font-medium">Get Started</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-4">
+                <a href="/#features" class="block text-white hover:text-[#D4AF37]">Explore Features</a>
+                <a href="/#process" class="block text-white hover:text-[#D4AF37]">Our Process</a>
+                <a href="/#services" class="block text-white hover:text-[#D4AF37]">Services</a>
+                <a href="/#contact" class="block text-center btn-gold px-6 py-2 rounded-full">Get Started</a>
             </div>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO7LNADQODc0Kp37utaZSm5wfTgyF9qe1WCHhr" alt="Security & CCTV" class="w-full h-full object-cover">
+            <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOiTwkiJrk4MaBZsg7zTQWeXdtmvUc36hVOpFy" alt="Security & CCTV" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-black/50"></div>
         </div>
         <div class="relative z-10 text-white px-6 max-w-4xl mx-auto text-center" data-aos="fade-up">
+            <p class="text-sm uppercase tracking-[0.3em] mb-4 text-white/80">Complete Protection</p>
             <h1 class="text-5xl md:text-7xl font-light mb-6">Security &<br><span class="font-semibold">CCTV</span></h1>
-            <p class="text-xl md:text-2xl mb-8 font-light">Advanced protection for what matters most</p>
-            <a href="#features" class="btn-primary inline-block bg-white text-[#2C2C2C] px-8 py-4 rounded-full text-lg">Explore Security</a>
+            <p class="text-xl md:text-2xl mb-8 font-light opacity-90">Advanced protection for what matters most</p>
+            <a href="#features" class="btn-gold inline-block px-8 py-4 rounded-full text-lg">Explore Security</a>
         </div>
     </section>
 
-    <section class="py-24 bg-white" id="features">
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="stat-card p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-3xl md:text-4xl font-semibold luxury-gold-text mb-2">4K</div>
+                    <div class="text-sm text-gray-600">Camera Resolution</div>
+                </div>
+                <div class="stat-card p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-3xl md:text-4xl font-semibold luxury-gold-text mb-2">AI</div>
+                    <div class="text-sm text-gray-600">Smart Detection</div>
+                </div>
+                <div class="stat-card p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-3xl md:text-4xl font-semibold luxury-gold-text mb-2">24/7</div>
+                    <div class="text-sm text-gray-600">Monitoring</div>
+                </div>
+                <div class="stat-card p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-3xl md:text-4xl font-semibold luxury-gold-text mb-2">Instant</div>
+                    <div class="text-sm text-gray-600">Alerts</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-24 bg-[#F5F3EF]" id="features">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-semibold mb-4">Complete Peace of Mind</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">State-of-the-art security systems that protect your home and family with intelligent monitoring and instant alerts.</p>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">State-of-the-art security systems that protect your home and family.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-[#F5F3EF] p-8 rounded-lg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-[#C8A882] rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                        </svg>
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">4K Surveillance</h3>
-                    <p class="text-gray-600">Crystal-clear video recording with facial recognition and license plate detection.</p>
+                    <h3 class="text-2xl font-semibold mb-4">HD Surveillance</h3>
+                    <p class="text-gray-600">Crystal-clear 4K cameras with night vision, wide-angle lenses, and weatherproof housing.</p>
                 </div>
 
-                <div class="bg-[#F5F3EF] p-8 rounded-lg" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-[#C8A882] rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-                        </svg>
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Smart Alerts</h3>
-                    <p class="text-gray-600">Instant notifications to your phone when motion or activity is detected.</p>
+                    <h3 class="text-2xl font-semibold mb-4">AI Analytics</h3>
+                    <p class="text-gray-600">Intelligent detection that distinguishes people, vehicles, and animals from false alerts.</p>
                 </div>
 
-                <div class="bg-[#F5F3EF] p-8 rounded-lg" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 bg-[#C8A882] rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                        </svg>
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Access Control</h3>
-                    <p class="text-gray-600">Smart locks, intercoms, and keyless entry for secure, convenient access.</p>
+                    <h3 class="text-2xl font-semibold mb-4">Mobile Access</h3>
+                    <p class="text-gray-600">View live feeds and receive instant alerts on your smartphone from anywhere in the world.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 bg-[#F5F3EF]">
+    <!-- Image Showcase -->
+    <section class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-                <div data-aos="fade-right">
-                    <h2 class="text-4xl md:text-5xl font-semibold mb-6">Intelligent Protection</h2>
+                <div data-aos="fade-left">
+                    <h2 class="text-4xl md:text-5xl font-semibold mb-6">Comprehensive Security</h2>
                     <div class="space-y-6">
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-[#C8A882] rounded-full flex items-center justify-center">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
+                            <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-xl font-semibold mb-2">24/7 Recording</h4>
-                                <p class="text-gray-600">Continuous recording with secure cloud and local storage options</p>
+                                <h4 class="text-xl font-semibold mb-2">Intrusion Detection</h4>
+                                <p class="text-gray-600">Door/window sensors, motion detectors, and glass break sensors</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-[#C8A882] rounded-full flex items-center justify-center">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
+                            <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-xl font-semibold mb-2">Video Doorbell</h4>
-                                <p class="text-gray-600">See and speak with visitors from anywhere using your smartphone</p>
+                                <h4 class="text-xl font-semibold mb-2">Access Control</h4>
+                                <p class="text-gray-600">Smart locks, video doorbells, and keyless entry systems</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-[#C8A882] rounded-full flex items-center justify-center">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
+                            <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div>
                                 <h4 class="text-xl font-semibold mb-2">Professional Monitoring</h4>
-                                <p class="text-gray-600">Optional 24/7 professional monitoring with rapid response</p>
+                                <p class="text-gray-600">Optional 24/7 monitoring service with emergency dispatch</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800" alt="Security System" class="rounded-lg shadow-2xl">
+                <div data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800" alt="Security System" class="rounded-xl shadow-2xl w-full">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CTA Section -->
     <section class="py-24 bg-[#2C2C2C] text-white">
         <div class="container mx-auto px-6 text-center" data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-semibold mb-6">Protect What Matters Most</h2>
-            <p class="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">Get a comprehensive security solution tailored to your home and lifestyle.</p>
-            <a href="/#contact" class="btn-primary inline-block bg-[#C8A882] text-white px-10 py-4 rounded-full text-lg">Security Assessment</a>
+            <h2 class="text-4xl md:text-5xl font-semibold mb-6">Ready to Secure Your Home?</h2>
+            <p class="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">Let's design a security system that gives you complete peace of mind.</p>
+            <a href="/#contact" class="btn-gold inline-block px-10 py-4 rounded-full text-lg">Start Your Project</a>
         </div>
     </section>
 
-    <footer class="bg-[#2C2C2C] text-white py-8 border-t border-gray-700">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-400">&copy; 2024 Infinity Smart Home Systems. <a href="/terms.html" class="hover:text-[#C8A882]">Terms</a> | <a href="/privacy.html" class="hover:text-[#C8A882]">Privacy</a> | <a href="/cookies.html" class="hover:text-[#C8A882]">Cookies</a></p>
+    <!-- Footer -->
+    <footer class="bg-black text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-12 mb-4">
+                    <p class="text-gray-400">Luxury smart home automation designed for the way you live.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/smart-home-design.html" class="hover:text-[#D4AF37] transition">Smart Home Design</a></li>
+                        <li><a href="/home-theatre.html" class="hover:text-[#D4AF37] transition">Home Theatre</a></li>
+                        <li><a href="/wifi-networking.html" class="hover:text-[#D4AF37] transition">Wi-Fi & Networking</a></li>
+                        <li><a href="/multi-room-audio.html" class="hover:text-[#D4AF37] transition">Multi Room Audio</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">More Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/video-distribution.html" class="hover:text-[#D4AF37] transition">Video Distribution</a></li>
+                        <li><a href="/smart-shading.html" class="hover:text-[#D4AF37] transition">Smart Shading</a></li>
+                        <li><a href="/security-cctv.html" class="hover:text-[#D4AF37] transition">Security & CCTV</a></li>
+                        <li><a href="/electrical-installation.html" class="hover:text-[#D4AF37] transition">Electrical Installation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/terms.html" class="hover:text-[#D4AF37] transition">Terms of Service</a></li>
+                        <li><a href="/privacy.html" class="hover:text-[#D4AF37] transition">Privacy Policy</a></li>
+                        <li><a href="/cookies.html" class="hover:text-[#D4AF37] transition">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Infinity Smart Home Systems. All rights reserved.</p>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center">
+                <p class="text-sm text-gray-500">
+                    <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=alwin@tripletendigits.com" target="_blank" class="luxury-gold-text hover:opacity-80 transition">Triple Ten Digits</a>
+                    <span class="mx-2">|</span>
+                    Competition-crushing websites. Delivered in a week or less. Designed to convert.
+                </p>
+            </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 800, once: true });</script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        window.addEventListener('load', () => { document.body.style.opacity = '1'; });
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>

@@ -9,121 +9,162 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: 'Inter', sans-serif; color: #2C2C2C; }
+        body { font-family: 'Inter', sans-serif; color: #2C2C2C; opacity: 0; transition: opacity 0.3s ease-in; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
-        .btn-primary { transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); }
+        .luxury-gold-text { background: linear-gradient(90deg, #cbaf82 0%, #ede9df 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .btn-gold { background: linear-gradient(90deg, #cbaf82 0%, #ede9df 100%); color: #1a1a1a; transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); font-weight: 600; }
+        .btn-gold:hover { background: linear-gradient(90deg, #d4ba8f 0%, #f5f1e8 100%); transform: translateY(-2px); box-shadow: 0 15px 30px rgba(203, 175, 130, 0.3); }
+        .feature-card { transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
+        .stat-card { background: linear-gradient(135deg, #ffffff 0%, #f8f6f3 100%); border: 1px solid rgba(203, 175, 130, 0.2); }
     </style>
 </head>
 <body class="bg-[#F5F3EF]">
 
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="/" class="flex items-center">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity" class="h-12">
+                <a href="/" class="flex items-center gap-3">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-10">
+                    <div class="hidden sm:block">
+                        <div class="text-lg font-semibold tracking-wider leading-tight luxury-gold-text">INFINITY</div>
+                        <div class="text-white/80 text-xs tracking-wide">Smart Home Systems</div>
+                    </div>
                 </a>
-                <a href="/#contact" class="btn-primary bg-[#C8A882] text-white px-6 py-2 rounded-full">Get Started</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#features" class="text-white hover:text-[#D4AF37] transition">Explore Features</a>
+                    <a href="/#process" class="text-white hover:text-[#D4AF37] transition">Our Process</a>
+                    <a href="/#services" class="text-white hover:text-[#D4AF37] transition">Services</a>
+                    <a href="/#contact" class="btn-gold px-6 py-2 rounded-full text-sm font-medium">Get Started</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-4">
+                <a href="/#features" class="block text-white hover:text-[#D4AF37]">Explore Features</a>
+                <a href="/#process" class="block text-white hover:text-[#D4AF37]">Our Process</a>
+                <a href="/#services" class="block text-white hover:text-[#D4AF37]">Services</a>
+                <a href="/#contact" class="block text-center btn-gold px-6 py-2 rounded-full">Get Started</a>
             </div>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO3xD7GRqPMrCOl0XS3pu5hjcLJE9VqWnxYwRy" alt="Electrical Installation" class="w-full h-full object-cover">
+            <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOsfl9HcIKL5iR7svA0akPBhoUGYFSIrMmngfe" alt="Electrical Installation" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
         </div>
         <div class="relative z-10 text-white px-6 max-w-4xl mx-auto text-center" data-aos="fade-up">
+            <p class="text-sm uppercase tracking-[0.3em] mb-4 text-white/80">Certified Excellence</p>
             <h1 class="text-5xl md:text-7xl font-light mb-6">Electrical<br><span class="font-semibold">Installation</span></h1>
-            <p class="text-xl md:text-2xl mb-8 font-light">Professional electrical services for modern smart homes</p>
-            <a href="#features" class="btn-primary inline-block bg-white text-[#2C2C2C] px-8 py-4 rounded-full text-lg">Our Services</a>
+            <p class="text-xl md:text-2xl mb-8 font-light opacity-90">Professional electrical services for modern smart homes</p>
+            <a href="#features" class="btn-gold inline-block px-8 py-4 rounded-full text-lg">Our Services</a>
         </div>
     </section>
 
-    <section class="py-24 bg-white" id="features">
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="stat-card p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-3xl md:text-4xl font-semibold luxury-gold-text mb-2">NICEIC</div>
+                    <div class="text-sm text-gray-600">Approved</div>
+                </div>
+                <div class="stat-card p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-3xl md:text-4xl font-semibold luxury-gold-text mb-2">Part P</div>
+                    <div class="text-sm text-gray-600">Certified</div>
+                </div>
+                <div class="stat-card p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-3xl md:text-4xl font-semibold luxury-gold-text mb-2">25+</div>
+                    <div class="text-sm text-gray-600">Years Experience</div>
+                </div>
+                <div class="stat-card p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-3xl md:text-4xl font-semibold luxury-gold-text mb-2">6 Year</div>
+                    <div class="text-sm text-gray-600">Warranty</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-24 bg-[#F5F3EF]" id="features">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-semibold mb-4">Certified Excellence</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">NICEIC approved contractors providing safe, compliant electrical installations for residential and commercial properties.</p>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">NICEIC approved contractors providing safe, compliant electrical installations.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-[#F5F3EF] p-8 rounded-lg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-[#C8A882] rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Full Rewiring</h3>
+                    <p class="text-gray-600">Complete electrical rewiring for new builds and renovations with minimal disruption.</p>
+                </div>
+
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
                     </div>
                     <h3 class="text-2xl font-semibold mb-4">Smart Lighting</h3>
-                    <p class="text-gray-600">LED lighting systems with intelligent control and energy efficiency.</p>
+                    <p class="text-gray-600">Intelligent lighting circuits designed for dimming, scenes, and automation control.</p>
                 </div>
 
-                <div class="bg-[#F5F3EF] p-8 rounded-lg" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-[#C8A882] rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
-                        </svg>
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Power Distribution</h3>
-                    <p class="text-gray-600">Consumer units, sub-panels, and power management for smart homes.</p>
-                </div>
-
-                <div class="bg-[#F5F3EF] p-8 rounded-lg" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 bg-[#C8A882] rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Safety Testing</h3>
-                    <p class="text-gray-600">Electrical inspections, testing, and certification for peace of mind.</p>
+                    <h3 class="text-2xl font-semibold mb-4">Testing & Certification</h3>
+                    <p class="text-gray-600">Comprehensive electrical testing with full certification for insurance and compliance.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 bg-[#F5F3EF]">
+    <!-- Image Showcase -->
+    <section class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
                 <div data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=800" alt="Electrical Work" class="rounded-lg shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=800" alt="Electrical Work" class="rounded-xl shadow-2xl w-full">
                 </div>
                 <div data-aos="fade-left">
-                    <h2 class="text-4xl md:text-5xl font-semibold mb-6">Professional Service</h2>
+                    <h2 class="text-4xl md:text-5xl font-semibold mb-6">Expert Installation</h2>
                     <div class="space-y-6">
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-[#C8A882] rounded-full flex items-center justify-center">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
+                            <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-xl font-semibold mb-2">Full Rewiring</h4>
-                                <p class="text-gray-600">Complete electrical rewiring for new builds and renovations</p>
+                                <h4 class="text-xl font-semibold mb-2">Consumer Units</h4>
+                                <p class="text-gray-600">Modern consumer unit upgrades with RCD protection and surge protection</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-[#C8A882] rounded-full flex items-center justify-center">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
+                            <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-xl font-semibold mb-2">EV Charging Points</h4>
-                                <p class="text-gray-600">Electric vehicle charging installation with smart features</p>
+                                <h4 class="text-xl font-semibold mb-2">EV Charging</h4>
+                                <p class="text-gray-600">Electric vehicle charging point installation for home and commercial</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-[#C8A882] rounded-full flex items-center justify-center">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
+                            <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-xl font-semibold mb-2">Emergency Service</h4>
-                                <p class="text-gray-600">24/7 emergency electrical repairs and fault finding</p>
+                                <h4 class="text-xl font-semibold mb-2">Outdoor Power</h4>
+                                <p class="text-gray-600">Garden lighting, outbuilding supplies, and outdoor socket installations</p>
                             </div>
                         </div>
                     </div>
@@ -132,21 +173,70 @@
         </div>
     </section>
 
+    <!-- CTA Section -->
     <section class="py-24 bg-[#2C2C2C] text-white">
         <div class="container mx-auto px-6 text-center" data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-semibold mb-6">Safe, Reliable, Certified</h2>
-            <p class="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">Trust our NICEIC approved electricians for all your residential and commercial electrical needs.</p>
-            <a href="/#contact" class="btn-primary inline-block bg-[#C8A882] text-white px-10 py-4 rounded-full text-lg">Get a Quote</a>
+            <h2 class="text-4xl md:text-5xl font-semibold mb-6">Ready for Professional Electrical Work?</h2>
+            <p class="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">Let's ensure your electrical installation is safe, efficient, and future-proof.</p>
+            <a href="/#contact" class="btn-gold inline-block px-10 py-4 rounded-full text-lg">Start Your Project</a>
         </div>
     </section>
 
-    <footer class="bg-[#2C2C2C] text-white py-8 border-t border-gray-700">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-400">&copy; 2024 Infinity Smart Home Systems. <a href="/terms.html" class="hover:text-[#C8A882]">Terms</a> | <a href="/privacy.html" class="hover:text-[#C8A882]">Privacy</a> | <a href="/cookies.html" class="hover:text-[#C8A882]">Cookies</a></p>
+    <!-- Footer -->
+    <footer class="bg-black text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-12 mb-4">
+                    <p class="text-gray-400">Luxury smart home automation designed for the way you live.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/smart-home-design.html" class="hover:text-[#D4AF37] transition">Smart Home Design</a></li>
+                        <li><a href="/home-theatre.html" class="hover:text-[#D4AF37] transition">Home Theatre</a></li>
+                        <li><a href="/wifi-networking.html" class="hover:text-[#D4AF37] transition">Wi-Fi & Networking</a></li>
+                        <li><a href="/multi-room-audio.html" class="hover:text-[#D4AF37] transition">Multi Room Audio</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">More Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/video-distribution.html" class="hover:text-[#D4AF37] transition">Video Distribution</a></li>
+                        <li><a href="/smart-shading.html" class="hover:text-[#D4AF37] transition">Smart Shading</a></li>
+                        <li><a href="/security-cctv.html" class="hover:text-[#D4AF37] transition">Security & CCTV</a></li>
+                        <li><a href="/electrical-installation.html" class="hover:text-[#D4AF37] transition">Electrical Installation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/terms.html" class="hover:text-[#D4AF37] transition">Terms of Service</a></li>
+                        <li><a href="/privacy.html" class="hover:text-[#D4AF37] transition">Privacy Policy</a></li>
+                        <li><a href="/cookies.html" class="hover:text-[#D4AF37] transition">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Infinity Smart Home Systems. All rights reserved.</p>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center">
+                <p class="text-sm text-gray-500">
+                    <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=alwin@tripletendigits.com" target="_blank" class="luxury-gold-text hover:opacity-80 transition">Triple Ten Digits</a>
+                    <span class="mx-2">|</span>
+                    Competition-crushing websites. Delivered in a week or less. Designed to convert.
+                </p>
+            </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 800, once: true });</script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        window.addEventListener('load', () => { document.body.style.opacity = '1'; });
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>

@@ -9,25 +9,118 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: 'Inter', sans-serif; color: #2C2C2C; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2C2C2C;
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
         h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
-        .btn-primary { transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); }
+
+        .luxury-gold-text {
+            background: linear-gradient(90deg, #cbaf82 0%, #ede9df 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-gold {
+            background: linear-gradient(90deg, #cbaf82 0%, #ede9df 100%);
+            color: #1a1a1a;
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(90deg, #d4ba8f 0%, #f5f1e8 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(203, 175, 130, 0.3);
+        }
+
+        .btn-primary {
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-scrolled {
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card {
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-showcase {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+
+        .image-showcase::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(203, 175, 130, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f6f3 100%);
+            border: 1px solid rgba(203, 175, 130, 0.2);
+        }
     </style>
 </head>
 <body class="bg-[#F5F3EF]">
 
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="/" class="flex items-center">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity" class="h-12">
+                <a href="/" class="flex items-center gap-3">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-10">
+                    <div class="hidden sm:block">
+                        <div class="text-lg font-semibold tracking-wider leading-tight luxury-gold-text">INFINITY</div>
+                        <div class="text-white/80 text-xs tracking-wide">Smart Home Systems</div>
+                    </div>
                 </a>
-                <a href="/#contact" class="btn-primary bg-[#C8A882] text-white px-6 py-2 rounded-full">Get Started</a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#features" class="text-white hover:text-[#D4AF37] transition">Explore Features</a>
+                    <a href="/#process" class="text-white hover:text-[#D4AF37] transition">Our Process</a>
+                    <a href="/#services" class="text-white hover:text-[#D4AF37] transition">Services</a>
+                    <a href="/#contact" class="btn-gold px-6 py-2 rounded-full text-sm font-medium">Get Started</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-4">
+                <a href="/#features" class="block text-white hover:text-[#D4AF37]">Explore Features</a>
+                <a href="/#process" class="block text-white hover:text-[#D4AF37]">Our Process</a>
+                <a href="/#services" class="block text-white hover:text-[#D4AF37]">Services</a>
+                <a href="/#contact" class="block text-center btn-gold px-6 py-2 rounded-full">Get Started</a>
             </div>
         </nav>
     </header>
@@ -39,14 +132,39 @@
             <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
         </div>
         <div class="relative z-10 text-white px-6 max-w-4xl mx-auto text-center" data-aos="fade-up">
+            <p class="text-sm uppercase tracking-[0.3em] mb-4 text-white/80">Bespoke Automation</p>
             <h1 class="text-5xl md:text-7xl font-light mb-6">Smart Home<br><span class="font-semibold">Design</span></h1>
-            <p class="text-xl md:text-2xl mb-8 font-light">Custom automation architecture that transforms your living experience</p>
-            <a href="#features" class="btn-primary inline-block bg-white text-[#2C2C2C] px-8 py-4 rounded-full text-lg">Explore Solutions</a>
+            <p class="text-xl md:text-2xl mb-8 font-light opacity-90">Custom automation architecture that transforms your living experience</p>
+            <a href="#features" class="btn-gold inline-block px-8 py-4 rounded-full text-lg">Explore Solutions</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="stat-card p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-3xl md:text-4xl font-semibold luxury-gold-text mb-2">500+</div>
+                    <div class="text-sm text-gray-600">Projects Completed</div>
+                </div>
+                <div class="stat-card p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-3xl md:text-4xl font-semibold luxury-gold-text mb-2">15+</div>
+                    <div class="text-sm text-gray-600">Years Experience</div>
+                </div>
+                <div class="stat-card p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-3xl md:text-4xl font-semibold luxury-gold-text mb-2">100%</div>
+                    <div class="text-sm text-gray-600">Client Satisfaction</div>
+                </div>
+                <div class="stat-card p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-3xl md:text-4xl font-semibold luxury-gold-text mb-2">24/7</div>
+                    <div class="text-sm text-gray-600">Support Available</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="py-24 bg-white" id="features">
+    <section class="py-24 bg-[#F5F3EF]" id="features">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-semibold mb-4">Tailored Automation Architecture</h2>
@@ -54,8 +172,8 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-[#F5F3EF] p-8 rounded-lg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-[#C8A882] rounded-full flex items-center justify-center mb-6">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                         </svg>
@@ -64,8 +182,8 @@
                     <p class="text-gray-600">Detailed system design including wiring diagrams, equipment specifications, and integration roadmaps.</p>
                 </div>
 
-                <div class="bg-[#F5F3EF] p-8 rounded-lg" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-[#C8A882] rounded-full flex items-center justify-center mb-6">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
                         </svg>
@@ -74,8 +192,8 @@
                     <p class="text-gray-600">Unify lighting, climate, security, entertainment, and more into one cohesive ecosystem.</p>
                 </div>
 
-                <div class="bg-[#F5F3EF] p-8 rounded-lg" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 bg-[#C8A882] rounded-full flex items-center justify-center mb-6">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
@@ -87,15 +205,18 @@
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="py-24 bg-[#F5F3EF]">
+    <!-- Image Showcase Section -->
+    <section class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-                <div data-aos="fade-right">
+                <div class="image-showcase" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800" alt="Design Process" class="rounded-xl shadow-2xl w-full">
+                </div>
+                <div data-aos="fade-left">
                     <h2 class="text-4xl md:text-5xl font-semibold mb-6">Design Excellence</h2>
                     <div class="space-y-6">
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-[#C8A882] rounded-full flex items-center justify-center">
+                            <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -106,7 +227,7 @@
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-[#C8A882] rounded-full flex items-center justify-center">
+                            <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -117,7 +238,7 @@
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-[#C8A882] rounded-full flex items-center justify-center">
+                            <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -129,8 +250,38 @@
                         </div>
                     </div>
                 </div>
-                <div data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800" alt="Design Process" class="rounded-lg shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-24 bg-[#F5F3EF]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-semibold mb-4">Our Design Process</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">A systematic approach to creating your perfect smart home</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-semibold">1</div>
+                    <h3 class="text-xl font-semibold mb-2">Discovery</h3>
+                    <p class="text-gray-600 text-sm">Understanding your vision, needs, and lifestyle requirements</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-semibold">2</div>
+                    <h3 class="text-xl font-semibold mb-2">Design</h3>
+                    <p class="text-gray-600 text-sm">Creating detailed plans and system architecture</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-semibold">3</div>
+                    <h3 class="text-xl font-semibold mb-2">Install</h3>
+                    <p class="text-gray-600 text-sm">Professional installation with minimal disruption</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-semibold">4</div>
+                    <h3 class="text-xl font-semibold mb-2">Support</h3>
+                    <p class="text-gray-600 text-sm">Ongoing maintenance and system optimization</p>
                 </div>
             </div>
         </div>
@@ -141,18 +292,79 @@
         <div class="container mx-auto px-6 text-center" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl font-semibold mb-6">Ready to Design Your Smart Home?</h2>
             <p class="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">Let's create a custom automation system that perfectly fits your lifestyle and home.</p>
-            <a href="/#contact" class="btn-primary inline-block bg-[#C8A882] text-white px-10 py-4 rounded-full text-lg">Start Your Project</a>
+            <a href="/#contact" class="btn-gold inline-block px-10 py-4 rounded-full text-lg">Start Your Project</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#2C2C2C] text-white py-8 border-t border-gray-700">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-400">&copy; 2024 Infinity Smart Home Systems. <a href="/terms.html" class="hover:text-[#C8A882]">Terms</a> | <a href="/privacy.html" class="hover:text-[#C8A882]">Privacy</a> | <a href="/cookies.html" class="hover:text-[#C8A882]">Cookies</a></p>
+    <footer class="bg-black text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-12 mb-4">
+                    <p class="text-gray-400">Luxury smart home automation designed for the way you live.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/smart-home-design.html" class="hover:text-[#D4AF37] transition">Smart Home Design</a></li>
+                        <li><a href="/home-theatre.html" class="hover:text-[#D4AF37] transition">Home Theatre</a></li>
+                        <li><a href="/wifi-networking.html" class="hover:text-[#D4AF37] transition">Wi-Fi & Networking</a></li>
+                        <li><a href="/multi-room-audio.html" class="hover:text-[#D4AF37] transition">Multi Room Audio</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">More Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/video-distribution.html" class="hover:text-[#D4AF37] transition">Video Distribution</a></li>
+                        <li><a href="/smart-shading.html" class="hover:text-[#D4AF37] transition">Smart Shading</a></li>
+                        <li><a href="/security-cctv.html" class="hover:text-[#D4AF37] transition">Security & CCTV</a></li>
+                        <li><a href="/electrical-installation.html" class="hover:text-[#D4AF37] transition">Electrical Installation</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/terms.html" class="hover:text-[#D4AF37] transition">Terms of Service</a></li>
+                        <li><a href="/privacy.html" class="hover:text-[#D4AF37] transition">Privacy Policy</a></li>
+                        <li><a href="/cookies.html" class="hover:text-[#D4AF37] transition">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Infinity Smart Home Systems. All rights reserved.</p>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center">
+                <p class="text-sm text-gray-500">
+                    <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=alwin@tripletendigits.com" target="_blank" class="luxury-gold-text hover:opacity-80 transition">Triple Ten Digits</a>
+                    <span class="mx-2">|</span>
+                    Competition-crushing websites. Delivered in a week or less. Designed to convert.
+                </p>
+            </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 800, once: true });</script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Page fade-in
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>

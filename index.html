@@ -153,35 +153,84 @@
 
         .hotspot {
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: rgba(212, 175, 55, 0.95);
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(90deg, #cbaf82 0%, #ede9df 100%);
             border: 2px solid white;
             border-radius: 50%;
             cursor: pointer;
-            animation: pulse 2s infinite;
+            z-index: 20;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.2); opacity: 0.8; }
+        .hotspot::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #cbaf82 0%, #ede9df 100%);
+            animation: hotspot-pulse 2s ease-out infinite;
+        }
+
+        @keyframes hotspot-pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
         }
 
         .hotspot-label {
             position: absolute;
-            background: white;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 14px;
-            white-space: nowrap;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background: rgba(30, 30, 30, 0.95);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.5;
+            max-width: 280px;
+            white-space: normal;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
             opacity: 0;
-            transition: opacity 300ms;
+            transition: opacity 300ms, transform 300ms;
             pointer-events: none;
+            transform: translateY(5px);
+            z-index: 30;
         }
 
         .hotspot:hover + .hotspot-label {
             opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gold shine text effect */
+        .gold-shine-text {
+            background: linear-gradient(90deg, #D4AF37 0%, #F5E6B3 25%, #D4AF37 50%, #F5E6B3 75%, #D4AF37 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gold-shine 3s linear infinite;
+        }
+
+        @keyframes gold-shine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Page transition effect */
+        .page-transition {
+            animation: pageFadeOut 0.3s ease-out forwards;
+        }
+
+        @keyframes pageFadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
         }
 
         .before-after-container {
@@ -456,15 +505,9 @@
         <div class="relative z-10 hero-content text-white px-6 md:px-12 lg:px-20 max-w-4xl" data-aos="fade-up" data-aos-duration="1000">
             <!-- Main Tagline -->
             <h1 class="text-5xl md:text-7xl lg:text-8xl mb-6 leading-tight">
-                <span class="font-light italic luxury-gold-text">Your Home.</span><br>
+                <span class="font-light italic gold-shine-text">Your Home.</span><br>
                 <span class="font-bold uppercase tracking-wide">INFINITE CONTROL.</span>
             </h1>
-        </div>
-
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
         </div>
     </section>
 
@@ -674,8 +717,29 @@
                 </div>
 
                 <div class="relative" data-aos="fade-left">
-                    <div class="aspect-[4/3] overflow-hidden rounded-lg shadow-2xl">
-                        <img id="process-image" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800" alt="Process Step" class="w-full h-full object-cover transition-opacity duration-200">
+                    <div class="aspect-[4/3] overflow-hidden rounded-lg shadow-2xl bg-gray-50">
+                        <!-- Typewriter container for step 1 -->
+                        <div id="typewriter-container" class="w-full h-full flex flex-col items-center justify-center p-8">
+                            <div class="w-full max-w-md">
+                                <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+                                    <div class="flex items-center gap-2 mb-4">
+                                        <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                        <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                                    </div>
+                                    <label class="text-sm text-gray-500 mb-2 block">Enter your address</label>
+                                    <div class="flex items-center border-b-2 border-gray-300 pb-2">
+                                        <span id="typewriter-text" class="text-lg text-gray-800 font-medium"></span>
+                                        <span id="typewriter-cursor" class="ml-1 w-0.5 h-6 bg-gray-800 animate-pulse"></span>
+                                        <svg id="typewriter-check" class="w-6 h-6 text-green-500 ml-2 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Regular image for other steps -->
+                        <img id="process-image" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800" alt="Process Step" class="w-full h-full object-cover transition-opacity duration-200 hidden">
                     </div>
                 </div>
             </div>
@@ -870,9 +934,8 @@
         </div>
     </section>
 
-    <!-- Experience Section (Video CTA) - Moved to bottom before footer -->
-    <section class="parallax-section relative min-h-screen flex items-center justify-center overflow-hidden" id="contact">
-        <img src="https://dibudpu2qk.ufs.sh/f/gMLyxahiseXnsazdxYpicCu9NrM5WoKSUBnTPtyk6g0A4Yxd" alt="Luxury Smart Home" class="parallax-bg">
+    <!-- Experience Section - CTA with Background Image -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden" id="contact" style="background-image: url('https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO0R9Td9ACxibhy3ODoNmvdupE9fqX1KjZrlz5'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="absolute inset-0 bg-black/50"></div>
 
         <div class="relative z-10 text-center text-white px-6 max-w-3xl" data-aos="zoom-in">
@@ -1029,34 +1092,34 @@
         // Hotspots configuration for each room mode
         const modeHotspots = {
             living: [
-                { top: '35%', left: '25%', label: 'Ambient Lighting Scenes', labelTop: '32%', labelLeft: '28%' },
-                { top: '50%', left: '60%', label: 'Climate & Air Quality', labelTop: '47%', labelLeft: '63%' },
-                { top: '65%', left: '40%', label: 'Surround Sound System', labelTop: '62%', labelLeft: '43%' }
+                { top: '35%', left: '25%', label: 'Intelligent lighting scenes that adapt to time of day and activity, creating the perfect ambiance for any moment.', labelTop: '32%', labelLeft: '28%' },
+                { top: '50%', left: '60%', label: 'Advanced climate control with air quality monitoring, maintaining optimal temperature and freshness throughout your home.', labelTop: '47%', labelLeft: '40%' },
+                { top: '65%', left: '40%', label: 'Immersive multi-zone audio system delivering crystal-clear sound, controlled from a single interface.', labelTop: '62%', labelLeft: '43%' }
             ],
             kitchen: [
-                { top: '30%', left: '20%', label: 'Smart Lighting Zones', labelTop: '27%', labelLeft: '23%' },
-                { top: '55%', left: '70%', label: 'Connected Appliances', labelTop: '52%', labelLeft: '48%' },
-                { top: '70%', left: '35%', label: 'Voice Assistant Hub', labelTop: '67%', labelLeft: '38%' }
+                { top: '30%', left: '20%', label: 'Customizable lighting zones for cooking, dining, and entertaining—all adjustable with a single tap.', labelTop: '27%', labelLeft: '23%' },
+                { top: '55%', left: '70%', label: 'Seamlessly integrated smart appliances that communicate with your home system for effortless meal preparation.', labelTop: '52%', labelLeft: '48%' },
+                { top: '70%', left: '35%', label: 'Central voice control hub for hands-free operation of all kitchen systems while you cook.', labelTop: '67%', labelLeft: '38%' }
             ],
             bedroom: [
-                { top: '25%', left: '30%', label: 'Circadian Lighting', labelTop: '22%', labelLeft: '33%' },
-                { top: '50%', left: '65%', label: 'Automated Blinds', labelTop: '47%', labelLeft: '48%' },
-                { top: '75%', left: '45%', label: 'Sleep Mode Controls', labelTop: '72%', labelLeft: '48%' }
+                { top: '25%', left: '30%', label: 'Circadian-aware lighting that promotes natural sleep cycles and gentle wake-up routines.', labelTop: '22%', labelLeft: '33%' },
+                { top: '50%', left: '65%', label: 'Motorized blinds and curtains that respond to sunrise, sunset, and your personal schedule.', labelTop: '47%', labelLeft: '48%' },
+                { top: '75%', left: '45%', label: 'One-touch sleep mode that dims lights, adjusts temperature, and activates security systems.', labelTop: '72%', labelLeft: '48%' }
             ],
             bathroom: [
-                { top: '30%', left: '55%', label: 'Mirror Display', labelTop: '27%', labelLeft: '58%' },
-                { top: '50%', left: '25%', label: 'Heated Floor Control', labelTop: '47%', labelLeft: '28%' },
-                { top: '65%', left: '60%', label: 'Ambient Music', labelTop: '62%', labelLeft: '43%' }
+                { top: '30%', left: '55%', label: 'Smart mirror with integrated display showing weather, calendar, and news while you prepare.', labelTop: '27%', labelLeft: '35%' },
+                { top: '50%', left: '25%', label: 'Radiant floor heating with programmable schedules that warm your space before you arrive.', labelTop: '47%', labelLeft: '28%' },
+                { top: '65%', left: '60%', label: 'Waterproof speakers delivering your favorite music or podcasts throughout the space.', labelTop: '62%', labelLeft: '43%' }
             ],
             cinema: [
-                { top: '35%', left: '50%', label: '4K Laser Projector', labelTop: '32%', labelLeft: '53%' },
-                { top: '55%', left: '20%', label: 'Dolby Atmos System', labelTop: '52%', labelLeft: '23%' },
-                { top: '70%', left: '70%', label: 'One-Touch Scene', labelTop: '67%', labelLeft: '53%' }
+                { top: '35%', left: '50%', label: 'Ultra-bright 4K laser projector with HDR support, delivering cinema-quality visuals in any lighting condition.', labelTop: '32%', labelLeft: '30%' },
+                { top: '55%', left: '20%', label: 'Dolby Atmos surround sound with perfectly calibrated speakers for immersive three-dimensional audio.', labelTop: '52%', labelLeft: '23%' },
+                { top: '70%', left: '70%', label: 'One-touch movie mode that dims lights, closes blinds, and optimizes audio-visual settings instantly.', labelTop: '67%', labelLeft: '48%' }
             ],
             office: [
-                { top: '25%', left: '40%', label: 'Video Conference Setup', labelTop: '22%', labelLeft: '43%' },
-                { top: '50%', left: '70%', label: 'Task Lighting', labelTop: '47%', labelLeft: '53%' },
-                { top: '65%', left: '25%', label: 'Privacy Mode', labelTop: '62%', labelLeft: '28%' }
+                { top: '25%', left: '40%', label: 'Professional video conferencing setup with optimized lighting and acoustics for crystal-clear calls.', labelTop: '22%', labelLeft: '43%' },
+                { top: '50%', left: '70%', label: 'Adaptive task lighting that adjusts color temperature and brightness to reduce eye strain.', labelTop: '47%', labelLeft: '48%' },
+                { top: '65%', left: '25%', label: 'Privacy mode that activates soundproofing, adjusts blinds, and sets "do not disturb" status.', labelTop: '62%', labelLeft: '28%' }
             ]
         };
 
@@ -1179,16 +1242,72 @@
         let scrollAccumulator = 0;
         const scrollThreshold = 100;
 
+        // Typewriter animation variables
+        const typewriterContainer = document.getElementById('typewriter-container');
+        const typewriterText = document.getElementById('typewriter-text');
+        const typewriterCursor = document.getElementById('typewriter-cursor');
+        const typewriterCheck = document.getElementById('typewriter-check');
+        let typewriterTimeout;
+        const addressText = "210 S Beverly Drive, Beverly Hills";
+
+        function runTypewriter() {
+            typewriterText.textContent = '';
+            typewriterCheck.classList.add('hidden');
+            typewriterCursor.classList.remove('hidden');
+            let i = 0;
+
+            function type() {
+                if (i < addressText.length) {
+                    typewriterText.textContent += addressText.charAt(i);
+                    i++;
+                    typewriterTimeout = setTimeout(type, 60);
+                } else {
+                    // Show checkmark after typing completes
+                    setTimeout(() => {
+                        typewriterCursor.classList.add('hidden');
+                        typewriterCheck.classList.remove('hidden');
+                        typewriterCheck.style.animation = 'none';
+                        typewriterCheck.offsetHeight; // Trigger reflow
+                        typewriterCheck.style.animation = 'fadeInScale 0.3s ease-out forwards';
+                    }, 300);
+
+                    // Restart after delay
+                    typewriterTimeout = setTimeout(() => {
+                        if (currentProcessStep === 1) {
+                            runTypewriter();
+                        }
+                    }, 3000);
+                }
+            }
+            type();
+        }
+
         function setActiveStep(stepNum) {
             processSteps.forEach(s => s.classList.remove('active'));
             const activeStep = document.querySelector(`[data-step="${stepNum}"]`);
             if (activeStep) {
                 activeStep.classList.add('active');
-                processImage.style.opacity = '0';
-                setTimeout(() => {
-                    processImage.src = processImages[stepNum];
-                    processImage.style.opacity = '1';
-                }, 150);
+
+                // Clear any existing typewriter timeout
+                if (typewriterTimeout) {
+                    clearTimeout(typewriterTimeout);
+                }
+
+                if (stepNum === 1) {
+                    // Show typewriter for step 1
+                    typewriterContainer.classList.remove('hidden');
+                    processImage.classList.add('hidden');
+                    runTypewriter();
+                } else {
+                    // Show image for other steps
+                    typewriterContainer.classList.add('hidden');
+                    processImage.classList.remove('hidden');
+                    processImage.style.opacity = '0';
+                    setTimeout(() => {
+                        processImage.src = processImages[stepNum];
+                        processImage.style.opacity = '1';
+                    }, 150);
+                }
             }
         }
 
@@ -1369,6 +1488,32 @@
         // Update isMobile on resize
         window.addEventListener('resize', () => {
             isMobile = window.matchMedia('(max-width: 768px)').matches;
+        });
+
+        // Page transition effect for service card links
+        const serviceLinks = document.querySelectorAll('.flip-card-front a[href$=".html"]');
+        serviceLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+
+                // Apply fade-out to the entire page
+                document.body.classList.add('page-transition');
+
+                // Navigate after animation completes
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            });
+        });
+
+        // Check if page was navigated to with transition, apply fade-in
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.3s ease-in';
+            requestAnimationFrame(() => {
+                document.body.style.opacity = '1';
+            });
         });
     </script>
 </body>
