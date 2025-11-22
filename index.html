@@ -148,7 +148,11 @@
 
         /* Mode image transition */
         .mode-image-transition {
-            transition: opacity 200ms ease-in-out;
+            transition: opacity 150ms ease-in-out;
+        }
+
+        #process-image {
+            transition: opacity 150ms ease-in-out;
         }
 
         .hotspot {
@@ -366,36 +370,40 @@
         /* Mode tabs overlay styling */
         .mode-tabs-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 10;
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(4px);
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem 0.5rem 0 0;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            width: auto;
+            display: inline-block;
         }
 
         .mode-tab-overlay {
             padding: 0.5rem 1rem;
             font-size: 0.75rem;
-            color: white/80;
+            color: rgba(255, 255, 255, 0.6);
             transition: all 200ms ease;
             border-radius: 4px;
+            background: transparent;
         }
 
         .mode-tab-overlay.active {
-            background: rgba(212, 175, 55, 0.3);
             color: white;
+            background: transparent;
         }
 
         .mode-tab-overlay:hover {
-            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         @media (max-width: 768px) {
             .mode-tabs-overlay {
-                padding: 0.5rem;
+                padding: 0.4rem 0.5rem;
+                top: 0.5rem;
             }
             .mode-tab-overlay {
                 padding: 0.4rem 0.6rem;
@@ -711,7 +719,7 @@
                     <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO4ldjqS5RXgOlVJBKwzq6UIdiCyAD8Yxv7k1L" alt="Cinema Room" class="w-full h-full object-cover">
 
                     <div class="after-image" id="after-image">
-                        <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOlqjeAwBJcWIrYti38bEdm2AFzUj4hqPwZ9S5" alt="Living Room" class="w-full h-full object-cover">
+                        <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOhEBQRw1z42mCJODUbTgc6xrKas3LpqWtv5e8" alt="Living Room" class="w-full h-full object-cover">
                     </div>
 
                     <div class="before-after-slider" id="slider">
@@ -1269,7 +1277,7 @@
                     modeImage.src = modeImages[mode];
                     modeImage.style.opacity = '1';
                     updateHotspots(mode);
-                }, 200);
+                }, 150);
             });
         });
 
@@ -1360,6 +1368,24 @@
             7: 'https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOGS0qZDJPh6NTurQMxCgR5qE98obA7U4XH2wc'  // Move-in
         };
 
+        // Preload all images for instant transitions
+        function preloadImages() {
+            // Preload all process images
+            Object.values(processImages).forEach(url => {
+                const img = new Image();
+                img.src = url;
+            });
+
+            // Preload all mode images
+            Object.values(modeImages).forEach(url => {
+                const img = new Image();
+                img.src = url;
+            });
+        }
+
+        // Call preload on page load
+        preloadImages();
+
         let currentProcessStep = 1;
         let isScrollHijacked = false;
         let scrollAccumulator = 0;
@@ -1428,6 +1454,12 @@
                     processImage.style.opacity = '0';
                     setTimeout(() => {
                         processImage.src = processImages[stepNum];
+                        // Adjust object-position for manufacturing step (step 5) to show more of the top
+                        if (stepNum === 5) {
+                            processImage.style.objectPosition = 'center 20%';
+                        } else {
+                            processImage.style.objectPosition = 'center center';
+                        }
                         processImage.style.opacity = '1';
                     }, 150);
                 }
