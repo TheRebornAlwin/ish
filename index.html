@@ -1455,10 +1455,8 @@
                     processImage.style.opacity = '0';
                     setTimeout(() => {
                         processImage.src = processImages[stepNum];
-                        // Adjust object-position for manufacturing (step 5) and installation (step 6) to show more of the top
-                        if (stepNum === 5) {
-                            processImage.style.objectPosition = 'center 15%';
-                        } else if (stepNum === 6) {
+                        // Adjust object-position for installation (step 6) to show more of the top
+                        if (stepNum === 6) {
                             processImage.style.objectPosition = 'center top';
                         } else {
                             processImage.style.objectPosition = 'center center';
