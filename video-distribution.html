@@ -22,6 +22,11 @@
         .feature-card { transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); }
         .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
         .stat-card { background: linear-gradient(135deg, #ffffff 0%, #f8f6f3 100%); border: 1px solid rgba(203, 175, 130, 0.2); }
+        .services-dropdown { position: relative; }
+        .services-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); width: 280px; background: rgba(20, 20, 20, 0.98); backdrop-filter: blur(10px); border-radius: 12px; padding: 1rem 0; opacity: 0; visibility: hidden; transition: all 200ms ease-in-out; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); margin-top: 0.5rem; }
+        .services-dropdown:hover .services-dropdown-menu { opacity: 1; visibility: visible; }
+        .services-dropdown-menu a { display: block; padding: 0.75rem 1.5rem; color: white; font-size: 0.875rem; transition: all 150ms ease; }
+        .services-dropdown-menu a:hover { background: rgba(212, 175, 55, 0.1); color: #cbaf82; }
     </style>
 </head>
 <body class="bg-[#F5F3EF]">
@@ -38,10 +43,10 @@
                     </div>
                 </a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/#features" class="text-white hover:text-[#D4AF37] transition">Explore Features</a>
-                    <a href="/#process" class="text-white hover:text-[#D4AF37] transition">Our Process</a>
+                    <a href="/#features" class="text-white hover:text-[#cbaf82] transition">Explore Features</a>
+                    <a href="/#process" class="text-white hover:text-[#cbaf82] transition">Our Process</a>
                     <div class="services-dropdown">
-                        <a href="/#services" class="text-white hover:text-[#D4AF37] transition flex items-center gap-1">
+                        <a href="/#services" class="text-white hover:text-[#cbaf82] transition flex items-center gap-1">
                             Services
                             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </a>
@@ -63,22 +68,22 @@
                 </button>
             </div>
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-4">
-                <a href="/#features" class="block text-white hover:text-[#D4AF37]">Explore Features</a>
-                <a href="/#process" class="block text-white hover:text-[#D4AF37]">Our Process</a>
+                <a href="/#features" class="block text-white hover:text-[#cbaf82]">Explore Features</a>
+                <a href="/#process" class="block text-white hover:text-[#cbaf82]">Our Process</a>
                 <div>
-                    <button id="mobile-services-toggle" class="flex items-center justify-between w-full text-white hover:text-[#D4AF37]">
+                    <button id="mobile-services-toggle" class="flex items-center justify-between w-full text-white hover:text-[#cbaf82]">
                         <span>Services</span>
                         <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div id="mobile-services-menu" class="hidden pl-4 mt-2 space-y-2">
-                        <a href="/smart-home-design.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Smart Home Design</a>
-                        <a href="/home-theatre.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Home Theatre</a>
-                        <a href="/wifi-networking.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Wi-Fi & Networking</a>
-                        <a href="/multi-room-audio.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Multi Room Audio</a>
-                        <a href="/video-distribution.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Video Distribution</a>
-                        <a href="/smart-shading.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Smart Shading</a>
-                        <a href="/security-cctv.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Security & CCTV</a>
-                        <a href="/electrical-installation.html" class="block text-sm text-gray-300 hover:text-[#D4AF37]">Electrical Installation</a>
+                        <a href="/smart-home-design.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Smart Home Design</a>
+                        <a href="/home-theatre.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Home Theatre</a>
+                        <a href="/wifi-networking.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Wi-Fi & Networking</a>
+                        <a href="/multi-room-audio.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Multi Room Audio</a>
+                        <a href="/video-distribution.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Video Distribution</a>
+                        <a href="/smart-shading.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Smart Shading</a>
+                        <a href="/security-cctv.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Security & CCTV</a>
+                        <a href="/electrical-installation.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Electrical Installation</a>
                     </div>
                 </div>
                 <a href="/#contact" class="block text-center btn-gold px-6 py-2 rounded-full">Get Started</a>
@@ -204,11 +209,20 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-24 bg-[#2C2C2C] text-white">
-        <div class="container mx-auto px-6 text-center" data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-semibold mb-6">Ready for Seamless Video?</h2>
-            <p class="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">Let's design a video system that simplifies your entertainment.</p>
-            <a href="/#contact" class="btn-gold inline-block px-10 py-4 rounded-full text-lg">Start Your Project</a>
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background-image: url('https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOIA9CS3VUHb8INY36C5pdQ9aSvuTLoWA2JjD1'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <div class="absolute inset-0 bg-black/50"></div>
+
+        <div class="relative z-10 text-center text-white px-6 max-w-3xl" data-aos="zoom-in">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-light mb-6 leading-tight">
+                Ready for<br>
+                <span class="font-semibold">seamless video?</span>
+            </h2>
+            <p class="text-xl md:text-2xl mb-12 opacity-90 font-light">
+                Let's design a video system that simplifies your entertainment.
+            </p>
+            <a href="/#contact" class="inline-block border border-white/60 px-6 py-3 rounded-full text-sm font-medium text-white transition-all duration-300 hover:bg-white/10 hover:border-white">
+                Book Private Consultation
+            </a>
         </div>
     </section>
 
@@ -223,27 +237,27 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Services</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="/smart-home-design.html" class="hover:text-[#D4AF37] transition">Smart Home Design</a></li>
-                        <li><a href="/home-theatre.html" class="hover:text-[#D4AF37] transition">Home Theatre</a></li>
-                        <li><a href="/wifi-networking.html" class="hover:text-[#D4AF37] transition">Wi-Fi & Networking</a></li>
-                        <li><a href="/multi-room-audio.html" class="hover:text-[#D4AF37] transition">Multi Room Audio</a></li>
+                        <li><a href="/smart-home-design.html" class="hover:text-[#cbaf82] transition">Smart Home Design</a></li>
+                        <li><a href="/home-theatre.html" class="hover:text-[#cbaf82] transition">Home Theatre</a></li>
+                        <li><a href="/wifi-networking.html" class="hover:text-[#cbaf82] transition">Wi-Fi & Networking</a></li>
+                        <li><a href="/multi-room-audio.html" class="hover:text-[#cbaf82] transition">Multi Room Audio</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">More Services</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="/video-distribution.html" class="hover:text-[#D4AF37] transition">Video Distribution</a></li>
-                        <li><a href="/smart-shading.html" class="hover:text-[#D4AF37] transition">Smart Shading</a></li>
-                        <li><a href="/security-cctv.html" class="hover:text-[#D4AF37] transition">Security & CCTV</a></li>
-                        <li><a href="/electrical-installation.html" class="hover:text-[#D4AF37] transition">Electrical Installation</a></li>
+                        <li><a href="/video-distribution.html" class="hover:text-[#cbaf82] transition">Video Distribution</a></li>
+                        <li><a href="/smart-shading.html" class="hover:text-[#cbaf82] transition">Smart Shading</a></li>
+                        <li><a href="/security-cctv.html" class="hover:text-[#cbaf82] transition">Security & CCTV</a></li>
+                        <li><a href="/electrical-installation.html" class="hover:text-[#cbaf82] transition">Electrical Installation</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Legal</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="/terms.html" class="hover:text-[#D4AF37] transition">Terms of Service</a></li>
-                        <li><a href="/privacy.html" class="hover:text-[#D4AF37] transition">Privacy Policy</a></li>
-                        <li><a href="/cookies.html" class="hover:text-[#D4AF37] transition">Cookie Policy</a></li>
+                        <li><a href="/terms.html" class="hover:text-[#cbaf82] transition">Terms of Service</a></li>
+                        <li><a href="/privacy.html" class="hover:text-[#cbaf82] transition">Privacy Policy</a></li>
+                        <li><a href="/cookies.html" class="hover:text-[#cbaf82] transition">Cookie Policy</a></li>
                     </ul>
                 </div>
             </div>
