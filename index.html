@@ -376,15 +376,16 @@
             z-index: 10;
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(4px);
-            padding: 0.5rem 0.75rem;
+            padding: 0.4rem 0.6rem;
             border-radius: 0.5rem;
             width: auto;
             display: inline-block;
+            white-space: nowrap;
         }
 
         .mode-tab-overlay {
-            padding: 0.5rem 1rem;
-            font-size: 0.75rem;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.7rem;
             color: rgba(255, 255, 255, 0.6);
             transition: all 200ms ease;
             border-radius: 4px;
@@ -402,12 +403,12 @@
 
         @media (max-width: 768px) {
             .mode-tabs-overlay {
-                padding: 0.4rem 0.5rem;
+                padding: 0.3rem 0.4rem;
                 top: 0.5rem;
             }
             .mode-tab-overlay {
-                padding: 0.4rem 0.6rem;
-                font-size: 0.65rem;
+                padding: 0.3rem 0.5rem;
+                font-size: 0.6rem;
             }
         }
 
@@ -644,7 +645,7 @@
                 <div id="mode-image-container" class="relative rounded-lg overflow-hidden shadow-2xl">
                     <!-- Mode tabs overlay on top of image -->
                     <div class="mode-tabs-overlay">
-                        <div class="flex flex-wrap justify-center gap-2">
+                        <div class="flex justify-center gap-1">
                             <button class="mode-tab-overlay active" data-mode="living">Living Room</button>
                             <button class="mode-tab-overlay" data-mode="kitchen">Kitchen</button>
                             <button class="mode-tab-overlay" data-mode="bedroom">Bedroom</button>
@@ -1454,9 +1455,9 @@
                     processImage.style.opacity = '0';
                     setTimeout(() => {
                         processImage.src = processImages[stepNum];
-                        // Adjust object-position for manufacturing step (step 5) to show more of the top
-                        if (stepNum === 5) {
-                            processImage.style.objectPosition = 'center 20%';
+                        // Adjust object-position for manufacturing (step 5) and installation (step 6) to show more of the top
+                        if (stepNum === 5 || stepNum === 6) {
+                            processImage.style.objectPosition = 'center top';
                         } else {
                             processImage.style.objectPosition = 'center center';
                         }
