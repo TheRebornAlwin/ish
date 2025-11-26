@@ -27,7 +27,30 @@
         .services-dropdown:hover .services-dropdown-menu { opacity: 1; visibility: visible; }
         .services-dropdown-menu a { display: block; padding: 0.75rem 1.5rem; color: white; font-size: 0.875rem; transition: all 150ms ease; }
         .services-dropdown-menu a:hover { background: rgba(212, 175, 55, 0.1); color: #cbaf82; }
-    </style>
+        /* Overflow fix applied */
+        * { box-sizing: border-box; }
+        html, body { overflow-x: hidden; max-width: 100vw; }
+        .container { max-width: 100%; padding-left: 1.5rem; padding-right: 1.5rem; }
+
+        /* Fix dropdown menu overflow on mobile */
+        @media (max-width: 768px) {
+            .services-dropdown-menu {
+                width: 240px !important;
+                left: auto !important;
+                right: 0 !important;
+                transform: none !important;
+            }
+        }
+
+        /* Ensure all sections respect viewport width */
+        section { max-width: 100vw; overflow-x: hidden; }
+
+        /* Fix grid layouts on mobile and tablet */
+        @media (max-width: 768px) {
+            .grid { overflow-x: hidden; width: 100%; }
+            .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl { max-width: 100%; padding-left: 0; padding-right: 0; }
+        }
+</style>
 </head>
 <body class="bg-[#F5F3EF]">
 
