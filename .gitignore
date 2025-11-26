@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Testing
+test-screenshots/
+test-report.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+
+# Package files
+package-lock.json
+
+# Misc
+.DS_Store
+*.log
