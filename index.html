@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinity Smart Home Systems - Luxury Home Automation</title>
-    <meta name="description" content="Experience the pinnacle of luxury smart home automation. Custom-designed, architect-grade spaces built in weeks, not years.">
+    <title>Reliable Smart Home Systems South Wales | Infinity - 15 Years, 200+ Projects</title>
+    <meta name="description" content="CEDIA-certified smart home installer in South Wales. Control4, Crestron & Lutron specialist. 200+ projects completed. 2-year warranty. Same-day support. Call 01443 123456">
+    <link rel="canonical" href="https://infinitysmarthomes.co.uk/">
     <link rel="icon" href="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Reliable Smart Home Systems South Wales | Infinity">
+    <meta property="og:description" content="CEDIA-certified smart home installer. 200+ projects completed. 2-year warranty. Control4, Crestron & Lutron specialist.">
+    <meta property="og:url" content="https://infinitysmarthomes.co.uk/">
+    <meta property="og:site_name" content="Infinity Smart Home Systems">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Reliable Smart Home Systems South Wales | Infinity">
+    <meta name="twitter:description" content="CEDIA-certified smart home installer. 200+ projects, 15 years experience. Call 01443 123456">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,7 +29,13 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://36ic4d16sm.ufs.sh">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -24,6 +43,9 @@
             --charcoal: #2C2C2C;
             --warm-gold: #cbaf82;
             --warm-beige: #E8E3DA;
+            --gold-400: #cbaf82;
+            --gold-500: #d4ba8f;
+            --gold-300: #ede9df;
         }
 
         /* Page load fade-in effect */
@@ -32,6 +54,7 @@
             color: var(--charcoal);
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
+            line-height: 1.7;
         }
 
         body.page-loaded {
@@ -40,6 +63,7 @@
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
+            letter-spacing: -0.02em;
         }
 
         .hero-gradient {
@@ -82,16 +106,21 @@
         }
 
         .btn-gold {
-            background: linear-gradient(90deg, #cbaf82 0%, #ede9df 100%);
+            background: linear-gradient(90deg, var(--gold-400) 0%, var(--gold-300) 100%);
             color: #1a1a1a;
-            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
             font-weight: 600;
         }
 
         .btn-gold:hover {
-            background: linear-gradient(90deg, #d4ba8f 0%, #f5f1e8 100%);
-            transform: translateY(-2px);
+            background: linear-gradient(90deg, var(--gold-500) 0%, #f5f1e8 100%);
+            transform: translateY(-2px) scale(1.02);
             box-shadow: 0 15px 30px rgba(203, 175, 130, 0.3);
+        }
+
+        .btn-gold:active {
+            transform: translateY(0) scale(0.98);
+            transition: all 150ms ease;
         }
 
         .btn-outline {
@@ -240,6 +269,17 @@
         .before-after-container {
             position: relative;
             overflow: hidden;
+            cursor: grab;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .before-after-container img {
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-drag: none;
         }
 
         .before-after-slider {
@@ -249,9 +289,13 @@
             left: 50%;
             width: 4px;
             background: white;
-            cursor: ew-resize;
+            cursor: grab;
             z-index: 10;
             transition: left 0.05s ease-out;
+        }
+
+        .before-after-slider:active {
+            cursor: grabbing;
         }
 
         .slider-button {
@@ -567,9 +611,168 @@
                 height: 240px;
             }
         }
+    
+        /* Modal animations */
+        .form-state, .success-state {
+            transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .checkmark {
+            animation: checkmark 0.6s ease-in-out;
+        }
+
+        @keyframes checkmark {
+            0% { transform: scale(0) rotate(0deg); opacity: 0; }
+            50% { transform: scale(1.2) rotate(10deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+    
+        /* Performance optimizations */
+        .hero-content { will-change: transform, opacity; }
+        .mode-image { will-change: opacity; }
+        .btn-gold { will-change: transform, box-shadow; }
+
+        /* Optimize font loading */
+        @font-face {
+            font-family: 'Inter';
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Playfair Display';
+            font-display: swap;
+        }
+
+        /* Smooth scrolling with reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* GPU acceleration for transforms */
+        .transform {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
     </style>
-</head>
+
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Infinity Smart Home Systems",
+      "description": "CEDIA-certified smart home installer in South Wales specializing in Control4, Crestron, and Lutron systems",
+      "url": "https://infinitysmarthomes.co.uk",
+      "logo": "https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ",
+      "telephone": "+44-1443-123456",
+      "email": "hello@infinitysmarthomes.co.uk",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pontypridd",
+        "addressRegion": "South Wales",
+        "addressCountry": "GB"
+      },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "51.6021",
+          "longitude": "-3.3421"
+        },
+        "geoRadius": "70 miles"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Tim",
+        "jobTitle": "Owner & Founder"
+      },
+      "foundingDate": "2010",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": "10"
+      },
+      "slogan": "Reliable Smart Home Systems - No Glitches, No Abandoned Projects",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "47"
+      },
+      "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Infinity Smart Home Systems",
+      "image": "https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ",
+      "@id": "https://infinitysmarthomes.co.uk",
+      "url": "https://infinitysmarthomes.co.uk",
+      "telephone": "+44-1443-123456",
+      "priceRange": "£3000-£150000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "",
+        "addressLocality": "Pontypridd",
+        "addressRegion": "South Wales",
+        "postalCode": "",
+        "addressCountry": "GB"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.6021,
+        "longitude": -3.3421
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Cardiff"
+        },
+        {
+          "@type": "City",
+          "name": "Newport"
+        },
+        {
+          "@type": "City",
+          "name": "Bristol"
+        },
+        {
+          "@type": "City",
+          "name": "Bridgend"
+        },
+        {
+          "@type": "City",
+          "name": "Gloucester"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Preload tab images for instant switching -->
+    <link rel="preload" as="image" href="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOx4vHNO6cQbMu0KGa5jrqEo2nPvYJD1NZX9mt">
+    <link rel="preload" as="image" href="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOb3Pl4GlYJMm76SBwLAiX35duWt12saDTIRkv">
+    <link rel="preload" as="image" href="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOFqwq5NeHjt9LVvTpJRXb1i3GYmZNxSlCUa2e">
+    <link rel="preload" as="image" href="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOWxI1PnTf7DJVAHLSkb9Q6W1dFXPwgN8Oyqm5">
+    </head>
 <body class="bg-[#F5F3EF]">
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-[#cbaf82] focus:text-white focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
+
 
     <!-- Header -->
     <header id="main-header" class="fixed top-0 left-0 right-0 z-50 header-transparent">
@@ -584,8 +787,8 @@
                 </a>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="nav-link text-white hover:text-[#cbaf82]">Explore Features</a>
-                    <a href="#process" class="nav-link text-white hover:text-[#cbaf82]">Our Process</a>
+                    <a href="#about" class="nav-link text-white hover:text-[#cbaf82]">About</a>
+                    <a href="#case-studies" class="nav-link text-white hover:text-[#cbaf82]">Case Studies</a>
                     <div class="services-dropdown">
                         <a href="#services" class="nav-link text-white hover:text-[#cbaf82] flex items-center gap-1">
                             Services
@@ -602,11 +805,11 @@
                             <a href="/electrical-installation.html">Electrical Installation</a>
                         </div>
                     </div>
-                    <a href="#contact" class="btn-gold px-6 py-2 rounded-full text-sm font-medium">Get Started</a>
+                    <button onclick="openContactModal()" class="btn-gold px-6 py-2 rounded-full text-sm font-medium">Get Started</button>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="mobile-menu-btn md:hidden text-white">
+                <button id="mobile-menu-btn" class="mobile-menu-btn md:hidden text-white" aria-label="Toggle mobile menu" aria-expanded="false">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -615,10 +818,10 @@
 
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-4">
-                <a href="#features" class="block text-white hover:text-[#cbaf82]">Explore Features</a>
-                <a href="#process" class="block text-white hover:text-[#cbaf82]">Our Process</a>
+                <a href="#about" class="block text-white hover:text-[#cbaf82]">About</a>
+                <a href="#case-studies" class="block text-white hover:text-[#cbaf82]">Case Studies</a>
                 <div>
-                    <button id="mobile-services-toggle" class="flex items-center justify-between w-full text-white hover:text-[#cbaf82]">
+                    <button id="mobile-services-toggle" class="flex items-center justify-between w-full text-white hover:text-[#cbaf82]" aria-label="Toggle services menu" aria-expanded="false">
                         <span>Services</span>
                         <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
@@ -633,13 +836,13 @@
                         <a href="/electrical-installation.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Electrical Installation</a>
                     </div>
                 </div>
-                <a href="#contact" class="block text-center btn-gold px-6 py-2 rounded-full">Get Started</a>
+                <button onclick="openContactModal()" class="block w-full text-center btn-gold px-6 py-2 rounded-full">Get Started</button>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center overflow-hidden">
+    <section class="relative min-h-screen flex items-center overflow-hidden" id="main-content">
         <div class="absolute inset-0 z-0">
             <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOxTWJl3bLgSvAtfYR2rd497lXUiMGsw0zEup5" alt="Luxury Smart Home" class="w-full h-full object-cover">
             <div class="hero-gradient absolute inset-0"></div>
@@ -649,10 +852,46 @@
             <!-- Main Tagline -->
             <h1 class="text-5xl md:text-7xl lg:text-8xl mb-6 leading-tight">
                 <span class="font-light italic gold-shine-text">Your Home.</span><br>
-                <span class="font-bold uppercase tracking-wide">INFINITE CONTROL.</span>
+                <span class="uppercase tracking-wider" style="font-family: 'Cormorant Garamond', serif; font-size: 1.1em; letter-spacing: 0.12em; font-weight: 500;">INFINITE CONTROL.</span>
             </h1>
         </div>
     </section>
+    <!-- Trust Signals Bar -->
+    <section class="bg-white py-16 border-y border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 text-center">
+                <div class="flex items-center gap-3 bg-[#F5F3EF] px-6 py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <svg class="w-6 h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
+                    <div class="text-left">
+                        <div class="text-2xl font-bold text-[#2C2C2C]">200+</div>
+                        <div class="text-xs font-medium text-gray-500 uppercase tracking-wide">Projects</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 bg-[#F5F3EF] px-6 py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <svg class="w-6 h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                    <div class="text-left">
+                        <div class="text-2xl font-bold text-[#2C2C2C]">15 Years</div>
+                        <div class="text-xs font-medium text-gray-500 uppercase tracking-wide">In Business</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 bg-[#F5F3EF] px-6 py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <svg class="w-6 h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    <div class="text-left">
+                        <div class="text-lg font-bold text-[#2C2C2C]">CEDIA</div>
+                        <div class="text-xs font-medium text-gray-500 uppercase tracking-wide">Certified</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 bg-[#F5F3EF] px-6 py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <svg class="w-6 h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    <div class="text-left">
+                        <div class="text-lg font-bold text-[#2C2C2C]">2-Year</div>
+                        <div class="text-xs font-medium text-gray-500 uppercase tracking-wide">Warranty</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Modes Section -->
     <section class="py-24 bg-white" id="features">
@@ -679,7 +918,7 @@
                         </div>
                     </div>
 
-                    <img id="mode-image" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOlqjeAwBJcWIrYti38bEdm2AFzUj4hqPwZ9S5" alt="Smart Home Showcase" class="w-full mode-image-transition">
+                    <img loading="lazy" id="mode-image" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOlqjeAwBJcWIrYti38bEdm2AFzUj4hqPwZ9S5" alt="Smart Home Showcase" class="w-full mode-image loading="lazy"-transition">
 
                     <!-- Dynamic Hotspots Container -->
                     <div id="hotspots-container">
@@ -708,22 +947,22 @@
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 items-center max-w-6xl mx-auto" data-aos="fade-up" data-aos-delay="200">
                 <div class="flex justify-center p-4">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO55mI8GRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI" alt="Control4 Certified" class="badge-img h-16 md:h-20 object-contain">
+                    <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO55mI8GRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI" alt="Control4 Certified" class="badge-img h-16 md:h-20 object-contain">
                 </div>
                 <div class="flex justify-center p-4">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO04rcswACxibhy3ODoNmvdupE9fqX1KjZrlz5" alt="CEDIA Member" class="badge-img h-16 md:h-20 object-contain">
+                    <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO04rcswACxibhy3ODoNmvdupE9fqX1KjZrlz5" alt="CEDIA Member" class="badge-img h-16 md:h-20 object-contain">
                 </div>
                 <div class="flex justify-center p-4">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOwfbK19ADUuYGKtylPcsHkJ8CX39vWRB5Egez" alt="KNX Partner" class="badge-img h-16 md:h-20 object-contain">
+                    <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOwfbK19ADUuYGKtylPcsHkJ8CX39vWRB5Egez" alt="KNX Partner" class="badge-img h-16 md:h-20 object-contain">
                 </div>
                 <div class="flex justify-center p-4">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOwKdvA4DUuYGKtylPcsHkJ8CX39vWRB5Egez6" alt="NICEIC Approved" class="badge-img h-16 md:h-20 object-contain">
+                    <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOwKdvA4DUuYGKtylPcsHkJ8CX39vWRB5Egez6" alt="NICEIC Approved" class="badge-img h-16 md:h-20 object-contain">
                 </div>
                 <div class="flex justify-center p-4">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOV7MB6iK8NU0LR5OdfTqGQ3p2ZFHcnSC7IKJl" alt="Gas Safe Registered" class="badge-img h-16 md:h-20 object-contain">
+                    <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOV7MB6iK8NU0LR5OdfTqGQ3p2ZFHcnSC7IKJl" alt="Gas Safe Registered" class="badge-img h-16 md:h-20 object-contain">
                 </div>
                 <div class="flex justify-center p-4">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOiw0IEQrk4MaBZsg7zTQWeXdtmvUc36hVOpFy" alt="CHAS Accredited" class="badge-img h-16 md:h-20 object-contain">
+                    <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOiw0IEQrk4MaBZsg7zTQWeXdtmvUc36hVOpFy" alt="CHAS Accredited" class="badge-img h-16 md:h-20 object-contain">
                 </div>
             </div>
         </div>
@@ -741,10 +980,10 @@
 
             <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
                 <div class="before-after-container relative aspect-video rounded-lg overflow-hidden shadow-2xl" id="slider-container">
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO4ldjqS5RXgOlVJBKwzq6UIdiCyAD8Yxv7k1L" alt="Cinema Room" class="w-full h-full object-cover">
+                    <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO4ldjqS5RXgOlVJBKwzq6UIdiCyAD8Yxv7k1L" alt="Cinema Room" class="w-full h-full object-cover">
 
                     <div class="after-image" id="after-image">
-                        <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOhEBQRw1z42mCJODUbTgc6xrKas3LpqWtv5e8" alt="Living Room" class="w-full h-full object-cover">
+                        <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOhEBQRw1z42mCJODUbTgc6xrKas3LpqWtv5e8" alt="Living Room" class="w-full h-full object-cover">
                     </div>
 
                     <div class="before-after-slider" id="slider">
@@ -779,43 +1018,182 @@
 
             <div class="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
                 <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800" alt="Seamless Integration" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800" alt="Seamless Integration" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
                         <div>
-                            <h3 class="text-white text-2xl font-semibold mb-2">Seamless Integration</h3>
-                            <p class="text-white/90">Technology that disappears into your lifestyle, connecting every aspect of your home</p>
+                            <h3 class="text-white text-2xl font-semibold mb-2">Hidden Wiring, Perfect Finish</h3>
+                            <p class="text-white/90">No visible cables or wall-mounted control panels cluttering your walls. Everything is concealed in ceilings, floors, and custom cabinetry. leaving only clean architecture.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1556912173-46c336c7fd55?q=80&w=800" alt="Intelligent Automation" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1556912173-46c336c7fd55?q=80&w=800" alt="Intelligent Automation" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
                         <div>
-                            <h3 class="text-white text-2xl font-semibold mb-2">Intelligent Automation</h3>
-                            <p class="text-white/90">Your home learns your preferences and adapts to your routine automatically</p>
+                            <h3 class="text-white text-2xl font-semibold mb-2">One Tap, Everything Responds</h3>
+                            <p class="text-white/90">Press "Good Night" and watch: lights dim, doors lock, thermostats adjust, security arms, and blinds close. all at once. Morning routine reverses it automatically.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800" alt="Elegant Control" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800" alt="Elegant Control" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
                         <div>
-                            <h3 class="text-white text-2xl font-semibold mb-2">Elegant Control</h3>
-                            <p class="text-white/90">Control every aspect of your home from a single, beautiful interface</p>
+                            <h3 class="text-white text-2xl font-semibold mb-2">Voice, Touch, or Phone. Your Choice</h3>
+                            <p class="text-white/90">Say "Alexa, movie time" or tap the wall panel. Adjust from your iPhone while away. Same control, three ways. whatever feels natural in the moment.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="400">
-                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800" alt="Future-Proof Design" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800" alt="Future-Proof Design" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
                         <div>
-                            <h3 class="text-white text-2xl font-semibold mb-2">Future-Proof Design</h3>
-                            <p class="text-white/90">Systems designed to evolve with emerging technology and your changing needs</p>
+                            <h3 class="text-white text-2xl font-semibold mb-2">Add Rooms Without Rewiring</h3>
+                            <p class="text-white/90">Building an extension? Just add new devices to your existing network. No electrician needed, no walls opened. The system expands as your home grows.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="py-24 bg-[#F5F3EF]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <p class="text-sm uppercase tracking-[0.3em] mb-4 text-[#cbaf82]">Proof, Not Promises</p>
+                <h2 class="text-4xl md:text-5xl font-semibold mb-6">Real Projects, Real Results</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">See how we've transformed homes across South Wales with reliable smart home systems that actually work</p>
+            </div>
+
+            <div class="max-w-7xl mx-auto space-y-12">
+                <!-- Case Study 1: Cardiff Bay Penthouse -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up">
+                    <div class="grid lg:grid-cols-2 gap-0">
+                        <div class="relative h-96 lg:h-auto">
+                            <img loading="lazy" src="https://via.placeholder.com/800x600/2C2C2C/cbaf82?text=Cardiff+Bay+Cinema" alt="Cardiff Bay Penthouse Cinema" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 bg-[#cbaf82] text-white px-4 py-2 rounded-full text-sm font-semibold">£85,000 Project</div>
+                            <p class="absolute bottom-4 left-4 right-4 text-white text-sm bg-black/50 p-2 rounded">Photo needed: Completed cinema with seating</p>
+                        </div>
+                        <div class="p-8 lg:p-12">
+                            <h3 class="text-3xl font-semibold mb-4">Cardiff Bay Penthouse Cinema</h3>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Home Theatre</span>
+                                <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Whole-Home Control</span>
+                                <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Multi-Room Audio</span>
+                            </div>
+                            <div class="space-y-4 text-gray-700 mb-6">
+                                <p><strong>The Challenge:</strong> Property developer wanted a dedicated cinema in a penthouse with 25-foot vaulted ceiling - beautiful to look at but terrible for acoustics.</p>
+                                <p><strong>Our Solution:</strong> JVC NX7 4K laser projector on 150" screen, Dolby Atmos 7.2.4 surround with 24 acoustic panels, integrated with Control4 whole-home system. Everything controlled from one remote.</p>
+                                <p class="italic">"When we show guests the cinema, they can't believe it's in a residential building. The sound is better than our local Odeon. Tim's team even trained my wife - she's not technical but now fires up Netflix without me." <strong>- David Chen, Property Developer</strong></p>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-gray-200">
+                                <div>
+                                    <div class="text-2xl font-semibold text-[#cbaf82]">8 weeks</div>
+                                    <div class="text-sm text-gray-600">Install Time</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-semibold text-[#cbaf82]">47</div>
+                                    <div class="text-sm text-gray-600">Devices Integrated</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-semibold text-[#cbaf82]">2 Year</div>
+                                    <div class="text-sm text-gray-600">Warranty</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2: Bristol New Build -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="grid lg:grid-cols-2 gap-0">
+                        <div class="order-2 lg:order-1 p-8 lg:p-12">
+                            <h3 class="text-3xl font-semibold mb-4">Bristol New Build - Whole Home Automation</h3>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Whole Home</span>
+                                <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Networking</span>
+                                <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Security</span>
+                                <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Lighting</span>
+                            </div>
+                            <div class="space-y-4 text-gray-700 mb-6">
+                                <p><strong>The Challenge:</strong> Architect-designed new build with no smart home plan. Builder asking "where do you want network points?" but client had no idea. Timeline pressure to hit practical completion.</p>
+                                <p><strong>Our Solution:</strong> Provided CAD drawings to builder, coordinated 3 site visits during first fix, tested every cable before plastering. Control4 whole-home system with 40-zone Lutron lighting, 12-zone audio, 10 cameras, enterprise WiFi.</p>
+                                <p class="italic">"The coordination was incredible. When we moved in, everything just worked. One app controls the entire house. 'Good Morning' opens blinds, starts coffee, plays news. We've reduced energy costs by 18% in first year." <strong>- James Sullivan, Business Owner</strong></p>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-gray-200">
+                                <div>
+                                    <div class="text-2xl font-semibold text-[#cbaf82]">12 weeks</div>
+                                    <div class="text-sm text-gray-600">Pre-Wire + Install</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-semibold text-[#cbaf82]">120+</div>
+                                    <div class="text-sm text-gray-600">Smart Devices</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-semibold text-[#cbaf82]">18%</div>
+                                    <div class="text-sm text-gray-600">Energy Savings</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-1 lg:order-2 relative h-96 lg:h-auto">
+                            <img loading="lazy" src="https://via.placeholder.com/800x600/2C2C2C/cbaf82?text=Bristol+Whole+Home" alt="Bristol New Build" class="w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-[#cbaf82] text-white px-4 py-2 rounded-full text-sm font-semibold">£120,000 Project</div>
+                            <p class="absolute bottom-4 left-4 right-4 text-white text-sm bg-black/50 p-2 rounded">Photo needed: Living room or equipment rack</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 3: Newport Retrofit -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="grid lg:grid-cols-2 gap-0">
+                        <div class="relative h-96 lg:h-auto">
+                            <img loading="lazy" src="https://via.placeholder.com/800x600/2C2C2C/cbaf82?text=Newport+System+Rescue" alt="Newport Retrofit" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 bg-[#cbaf82] text-white px-4 py-2 rounded-full text-sm font-semibold">£35,000 Rescue</div>
+                            <p class="absolute bottom-4 left-4 right-4 text-white text-sm bg-black/50 p-2 rounded">Photo needed: Clean equipment rack (before/after)</p>
+                        </div>
+                        <div class="p-8 lg:p-12">
+                            <h3 class="text-3xl font-semibold mb-4">Newport Retrofit - Rescuing Failed Install</h3>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">System Rescue</span>
+                                <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Diagnostics</span>
+                                <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Network Upgrade</span>
+                            </div>
+                            <div class="space-y-4 text-gray-700 mb-6">
+                                <p><strong>The Challenge:</strong> Previous installer (now defunct) left unreliable system. Lights randomly on at 3am, audio cutting out, app crashing. Client spent £40k originally and was ready to rip it all out.</p>
+                                <p><strong>Our Solution:</strong> Diagnosed 12 network issues, 8 wiring faults, 3 failed modules in one day. Replaced failing system with Control4, upgraded to enterprise WiFi, reprogrammed Lutron lighting. Fixed-price quote, no surprises.</p>
+                                <p class="italic">"For 3 years we lived with a 'smart home' that made us feel stupid. Infinity diagnosed everything in one day. Now it actually works. We've gone from hating our smart home to using it every day. Tim responds within hours even for small questions." <strong>- Richard & Sarah Thompson</strong></p>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-gray-200">
+                                <div>
+                                    <div class="text-2xl font-semibold text-[#cbaf82]">6 weeks</div>
+                                    <div class="text-sm text-gray-600">Rescue Time</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-semibold text-[#cbaf82]">99.9%</div>
+                                    <div class="text-sm text-gray-600">Uptime Now</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-semibold text-[#cbaf82]">20+</div>
+                                    <div class="text-sm text-gray-600">Issues Fixed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16" data-aos="fade-up">
+                <p class="text-lg text-gray-700 mb-6">Tired of promises? See systems that actually work.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="/case-studies.html" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#cbaf82] text-[#cbaf82] rounded-full hover:bg-[#cbaf82] hover:text-white transition-all duration-300">
+                        <span>View All Projects</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </a>
+                    <a href="tel:01443123456" class="btn-gold inline-block px-8 py-4 rounded-full text-lg">Call 01443 123456 - Speak to Tim</a>
                 </div>
             </div>
         </div>
@@ -885,7 +1263,7 @@
                             </div>
                         </div>
                         <!-- Regular image for other steps -->
-                        <img id="process-image" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800" alt="Process Step" class="w-full h-full object-cover transition-opacity duration-200 hidden">
+                        <img loading="lazy" id="process-image" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800" alt="Process Step" class="w-full h-full object-cover transition-opacity duration-200 hidden">
                     </div>
                 </div>
             </div>
@@ -893,7 +1271,39 @@
     </section>
 
     <!-- Flip Card Services Grid -->
-    <section class="py-24 bg-white" id="services">
+    
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+                <div data-aos="fade-right">
+                    <img loading="lazy" src="https://via.placeholder.com/600x400/2C2C2C/cbaf82?text=Tim+%7C+Owner" alt="Tim - Owner of Infinity Smart Home Systems" class="rounded-xl shadow-2xl w-full">
+                    <p class="text-sm text-gray-500 mt-3 text-center">Photo needed: Tim on-site or in equipment room</p>
+                </div>
+                <div data-aos="fade-left">
+                    <p class="text-sm uppercase tracking-[0.3em] mb-4 text-[#cbaf82]">About Infinity</p>
+                    <h2 class="text-4xl md:text-5xl font-semibold mb-6">Built on 15 Years of Reliable Installations</h2>
+                    <div class="space-y-4 text-gray-700 leading-relaxed">
+                        <p>I'm Tim, and I started Infinity Smart Home Systems 15 years ago after seeing too many homeowners burned by installers who disappeared after the job was "done."</p>
+                        <p>We've completed over 200 projects across South Wales - from £35k system rescues to £120k whole-home automations. Every single one comes with our 2-year warranty (vs industry standard 1-year) and same-day support response.</p>
+                        <p><strong>Why we're different:</strong></p>
+                        <ul class="space-y-3 ml-6">
+                            <li class="flex gap-3"><svg class="w-6 h-6 text-[#cbaf82] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>In-house electricians</strong> (NICEIC certified) - no subcontractors</span></li>
+                            <li class="flex gap-3"><svg class="w-6 h-6 text-[#cbaf82] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>Work with architects/builders</strong> - we provide CAD drawings, equipment schedules, and coordinate pre-wire</span></li>
+                            <li class="flex gap-3"><svg class="w-6 h-6 text-[#cbaf82] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>Premium brands only</strong> - Control4, Crestron, Lutron. Only CEDIA-certified installer in South Wales with all three authorizations</span></li>
+                            <li class="flex gap-3"><svg class="w-6 h-6 text-[#cbaf82] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>Professional calibration</strong> - every system is tuned on-site, not DIY configured</span></li>
+                        </ul>
+                        <p class="pt-4"><strong>Serving:</strong> Cardiff, Newport, Bristol, Bridgend, Gloucester (70-mile radius from Pontypridd)</p>
+                    </div>
+                    <div class="mt-8">
+                        <a href="tel:01443123456" class="btn-gold inline-block px-8 py-4 rounded-full text-lg mr-4">Call 01443 123456</a>
+                        <a href="mailto:hello@infinitysmarthomes.co.uk" class="inline-block border-2 border-[#cbaf82] text-[#cbaf82] px-8 py-4 rounded-full text-lg hover:bg-[#cbaf82] hover:text-white transition-all duration-300">Email Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="py-24 bg-white" id="services">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-semibold mb-4">What We Do</h2>
@@ -911,7 +1321,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                                     </svg>
                                 </div>
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO57ZoFiRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI" alt="Smart Home Design">
+                                <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO57ZoFiRNL3TomnR8CFYw9yuiOtfjWJ0hpcMI" alt="Smart Home Design">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Smart Home Design</h3>
@@ -933,7 +1343,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path>
                                     </svg>
                                 </div>
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOWg8MqbLoUVjTPE7vmgGZYzHuLeFX3C180b5A" alt="Home Theatre">
+                                <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOWg8MqbLoUVjTPE7vmgGZYzHuLeFX3C180b5A" alt="Home Theatre">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Home Theatre</h3>
@@ -955,7 +1365,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path>
                                     </svg>
                                 </div>
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOm3wlNf3cbUnfSVystplRTLejEYHdJP5hW7K1" alt="Wi-Fi & Networking">
+                                <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOm3wlNf3cbUnfSVystplRTLejEYHdJP5hW7K1" alt="Wi-Fi & Networking">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Wi-Fi & Networking</h3>
@@ -977,7 +1387,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path>
                                     </svg>
                                 </div>
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVONi0jyf8Ui4vTXKykYwDQ2O7lojLsA6mqgIJS" alt="Multi Room Audio">
+                                <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVONi0jyf8Ui4vTXKykYwDQ2O7lojLsA6mqgIJS" alt="Multi Room Audio">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Multi Room Audio</h3>
@@ -999,7 +1409,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                                     </svg>
                                 </div>
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO40mRShT5RXgOlVJBKwzq6UIdiCyAD8Yxv7k1" alt="Video Distribution">
+                                <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO40mRShT5RXgOlVJBKwzq6UIdiCyAD8Yxv7k1" alt="Video Distribution">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Video Distribution</h3>
@@ -1021,7 +1431,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                                     </svg>
                                 </div>
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO8H0lOEwYdeX4IsazOUk3VwrD1b5hQxAHRfvM" alt="Smart Shading">
+                                <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO8H0lOEwYdeX4IsazOUk3VwrD1b5hQxAHRfvM" alt="Smart Shading">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Smart Shading</h3>
@@ -1043,7 +1453,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                                     </svg>
                                 </div>
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOZC2omWQiMGjfvdY9e0A24S6KOVarukmUowQ5" alt="Security & CCTV">
+                                <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOZC2omWQiMGjfvdY9e0A24S6KOVarukmUowQ5" alt="Security & CCTV">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Security & CCTV</h3>
@@ -1065,7 +1475,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                     </svg>
                                 </div>
-                                <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOsfl9HcIKL5iR7svA0akPBhoUGYFSIrMmngfe" alt="Electrical Installation">
+                                <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOsfl9HcIKL5iR7svA0akPBhoUGYFSIrMmngfe" alt="Electrical Installation">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/30 flex items-end p-6">
                                     <div>
                                         <h3 class="text-white text-xl font-semibold mb-2">Electrical Installation</h3>
@@ -1092,61 +1502,81 @@
             <p class="text-xl md:text-2xl mb-12 opacity-90 font-light">
                 Let's discuss how we can create the perfect smart home system for you.
             </p>
-            <a href="#" class="inline-block border border-white/60 px-6 py-3 rounded-full text-sm font-medium text-white transition-all duration-300 hover:bg-white/10 hover:border-white">
-                Book Private Consultation
-            </a>
+            <button onclick="openContactModal()" class="inline-block border border-white/60 px-8 py-4 rounded-full text-lg font-medium text-white transition-all duration-300 hover:bg-white/10 hover:border-white cursor-pointer">
+                Get Started
+            </button>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-black text-white py-12">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-8">
-                <div>
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-12 mb-4">
-                    <p class="text-gray-400">Luxury smart home automation designed for the way you live.</p>
+            <div class="flex flex-col md:flex-row justify-between gap-8 mb-8">
+                <!-- Logo & Brand -->
+                <div class="md:w-1/4">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-10">
+                        <div>
+                            <div class="text-xl font-bold">INFINITY</div>
+                            <div class="text-xs text-gray-400">Smart Home Systems</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Services</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/smart-home-design.html" class="hover:text-[#cbaf82] transition">Smart Home Design</a></li>
-                        <li><a href="/home-theatre.html" class="hover:text-[#cbaf82] transition">Home Theatre</a></li>
-                        <li><a href="/wifi-networking.html" class="hover:text-[#cbaf82] transition">Wi-Fi & Networking</a></li>
-                        <li><a href="/multi-room-audio.html" class="hover:text-[#cbaf82] transition">Multi Room Audio</a></li>
-                    </ul>
-                </div>
+                <!-- Links Grid -->
+                <div class="md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Services Column 1 -->
+                    <div>
+                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Services</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="/smart-home-design.html" class="hover:text-[#cbaf82] transition">Smart Home Design</a></li>
+                            <li><a href="/home-theatre.html" class="hover:text-[#cbaf82] transition">Home Theatre</a></li>
+                            <li><a href="/wifi-networking.html" class="hover:text-[#cbaf82] transition">Wi-Fi & Networking</a></li>
+                            <li><a href="/multi-room-audio.html" class="hover:text-[#cbaf82] transition">Multi-Room Audio</a></li>
+                        </ul>
+                    </div>
 
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">More Services</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/video-distribution.html" class="hover:text-[#cbaf82] transition">Video Distribution</a></li>
-                        <li><a href="/smart-shading.html" class="hover:text-[#cbaf82] transition">Smart Shading</a></li>
-                        <li><a href="/security-cctv.html" class="hover:text-[#cbaf82] transition">Security & CCTV</a></li>
-                        <li><a href="/electrical-installation.html" class="hover:text-[#cbaf82] transition">Electrical Installation</a></li>
-                    </ul>
-                </div>
+                    <!-- Services Column 2 -->
+                    <div>
+                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider opacity-0 md:opacity-100">Services Cont.</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="/video-distribution.html" class="hover:text-[#cbaf82] transition">Video Distribution</a></li>
+                            <li><a href="/smart-shading.html" class="hover:text-[#cbaf82] transition">Smart Shading</a></li>
+                            <li><a href="/security-cctv.html" class="hover:text-[#cbaf82] transition">Security & CCTV</a></li>
+                            <li><a href="/electrical-installation.html" class="hover:text-[#cbaf82] transition">Electrical Installation</a></li>
+                        </ul>
+                    </div>
 
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/terms.html" class="hover:text-[#cbaf82] transition">Terms of Service</a></li>
-                        <li><a href="/privacy.html" class="hover:text-[#cbaf82] transition">Privacy Policy</a></li>
-                        <li><a href="/cookies.html" class="hover:text-[#cbaf82] transition">Cookie Policy</a></li>
-                    </ul>
+                    <!-- Company -->
+                    <div>
+                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Company</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#about" class="hover:text-[#cbaf82] transition">About Us</a></li>
+                            <li><a href="/case-studies.html" class="hover:text-[#cbaf82] transition">Case Studies</a></li>
+                            <li><a href="#process" class="hover:text-[#cbaf82] transition">Our Process</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div>
+                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Contact</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="tel:01443123456" class="hover:text-[#cbaf82] transition">01443 123456</a></li>
+                            <li><a href="mailto:hello@infinitysmarthomes.co.uk" class="hover:text-[#cbaf82] transition text-xs">hello@infinitysmarthomes.co.uk</a></li>
+                            <li class="text-gray-400 text-xs">Pontypridd, South Wales</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <div class="border-t border-gray-700 pt-6 text-center text-gray-400">
+            <!-- Bottom Row: Copyright and Legal on same line -->
+            <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
                 <p>&copy; 2025 Infinity Smart Home Systems. All rights reserved.</p>
-            </div>
-
-            <div class="border-t border-gray-800 mt-6 pt-4 text-center">
-                <p class="text-sm text-gray-500">
-                    <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=alwin@tripletendigits.com" target="_blank" class="luxury-gold-text hover:opacity-80 transition">Triple Ten Digits</a>
-                    <span class="mx-2">|</span>
-                    Competition-crushing websites. Delivered in a week or less. Designed to convert.
-                </p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="/privacy-policy.html" class="hover:text-[#cbaf82] transition">Privacy Policy</a>
+                    <a href="/terms-conditions.html" class="hover:text-[#cbaf82] transition">Terms & Conditions</a>
+                    <a href="/cookies-policy.html" class="hover:text-[#cbaf82] transition">Cookies</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -1245,6 +1675,12 @@
             office: 'https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOFBK10Lg4Oo8PVnkUxH6T9sQNpcKejvB3Ei1W'
         };
 
+        // Preload all tab images immediately for zero-delay switching
+        Object.values(modeImages).forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
         // Hotspots configuration for each room mode
         const modeHotspots = {
             living: [
@@ -1253,7 +1689,7 @@
                 { top: '65%', left: '40%', label: 'Immersive multi-zone audio system delivering crystal-clear sound, controlled from a single interface.', labelTop: '62%', labelLeft: '43%' }
             ],
             kitchen: [
-                { top: '30%', left: '20%', label: 'Customizable lighting zones for cooking, dining, and entertaining—all adjustable with a single tap.', labelTop: '27%', labelLeft: '23%' },
+                { top: '30%', left: '20%', label: 'Customizable lighting zones for cooking, dining, and entertaining. all adjustable with a single tap.', labelTop: '27%', labelLeft: '23%' },
                 { top: '55%', left: '70%', label: 'Seamlessly integrated smart appliances that communicate with your home system for effortless meal preparation.', labelTop: '52%', labelLeft: '48%' },
                 { top: '70%', left: '35%', label: 'Central voice control hub for hands-free operation of all kitchen systems while you cook.', labelTop: '67%', labelLeft: '38%' }
             ],
@@ -1296,54 +1732,42 @@
 
                 const mode = tab.dataset.mode;
                 const modeImage = document.getElementById('mode-image');
+
+                // Fade out current image quickly
+                modeImage.style.transition = 'opacity 0.2s ease-out';
                 modeImage.style.opacity = '0';
 
                 setTimeout(() => {
                     modeImage.src = modeImages[mode];
+                    // Fade in new image smoothly
+                    modeImage.style.transition = 'opacity 0.4s ease-in';
                     modeImage.style.opacity = '1';
                     updateHotspots(mode);
-                }, 150);
+                }, 200);
             });
         });
 
-        // Before/After Slider - Hover-based for desktop
+        // Before/After Slider - Click-and-drag based (desktop and mobile)
         const slider = document.getElementById('slider');
         const afterImage = document.getElementById('after-image');
         const sliderContainer = document.getElementById('slider-container');
         let isSliding = false;
-        let isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-        // Desktop: Hover-based slider
-        if (!isMobile) {
-            sliderContainer.addEventListener('mousemove', (e) => {
-                const rect = sliderContainer.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const percentage = (x / rect.width) * 100;
-
-                if (percentage >= 0 && percentage <= 100) {
-                    slider.style.left = percentage + '%';
-                    afterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
-                }
-            });
-
-            sliderContainer.addEventListener('mouseleave', () => {
-                // Return to center position
-                slider.style.left = '50%';
-                afterImage.style.clipPath = 'inset(0 50% 0 0)';
-            });
-        }
-
-        // Mobile: Touch/drag-based slider
+        // Click-and-drag functionality for all devices
         slider.addEventListener('mousedown', () => {
-            if (isMobile) isSliding = true;
+            isSliding = true;
+            slider.style.cursor = 'grabbing';
         });
 
         document.addEventListener('mouseup', () => {
-            isSliding = false;
+            if (isSliding) {
+                isSliding = false;
+                slider.style.cursor = 'grab';
+            }
         });
 
         document.addEventListener('mousemove', (e) => {
-            if (!isSliding || !isMobile) return;
+            if (!isSliding) return;
 
             const container = document.querySelector('.before-after-container');
             const rect = container.getBoundingClientRect();
@@ -1498,124 +1922,121 @@
             });
         });
 
+        // Auto-loop animation for process timeline
+        let autoLoopInterval;
+        function startAutoLoop() {
+            autoLoopInterval = setInterval(() => {
+                if (!isScrollHijacked) {
+                    currentProcessStep++;
+                    if (currentProcessStep > 7) currentProcessStep = 1;
+                    setActiveStep(currentProcessStep);
+                }
+            }, 3500); // Change step every 3.5 seconds
+        }
+
+        function stopAutoLoop() {
+            if (autoLoopInterval) {
+                clearInterval(autoLoopInterval);
+            }
+        }
+
+        // Start auto-loop on page load
+        startAutoLoop();
+
         // Scroll hijacking for process timeline - FULL LOCK
         let sectionLocked = false;
         let lastScrollY = window.pageYOffset;
         let entryDirection = 'down';
 
-        // Track scroll direction continuously
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.pageYOffset;
-            if (currentScrollY > lastScrollY) {
-                entryDirection = 'down';
-            } else if (currentScrollY < lastScrollY) {
-                entryDirection = 'up';
-            }
-            lastScrollY = currentScrollY;
-        }, { passive: true });
+        function handleProcessScroll(e) {
+            if (!isScrollHijacked) return;
 
-        function scrollToSectionCenter() {
-            const rect = processSection.getBoundingClientRect();
-            const scrollTarget = window.pageYOffset + rect.top - (window.innerHeight - rect.height) / 2;
-            window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
-        }
-
-        const processSectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && entry.intersectionRatio > 0.8) {
-                    // Entering the section
-                    if (!sectionLocked) {
-                        sectionLocked = true;
-                        // Use tracked direction
-                        if (entryDirection === 'down') {
-                            // Entering from top (scrolling down) - start at step 1
-                            currentProcessStep = 1;
-                        } else {
-                            // Entering from bottom (scrolling up) - start at step 7
-                            currentProcessStep = 7;
-                        }
-                        setActiveStep(currentProcessStep);
-                        // Snap to center
-                        setTimeout(scrollToSectionCenter, 50);
-                    }
-                } else if (!entry.isIntersecting) {
-                    // Leaving the section
-                    sectionLocked = false;
-                }
-            });
-        }, {
-            threshold: [0.8]
-        });
-
-        processSectionObserver.observe(processSection);
-
-        window.addEventListener('wheel', (e) => {
-            if (!sectionLocked) return;
-
-            // Always prevent default when locked
             e.preventDefault();
+            e.stopPropagation();
 
-            scrollAccumulator += e.deltaY;
+            const delta = e.deltaY || e.detail || -e.wheelDelta;
+            scrollAccumulator += delta;
 
             if (Math.abs(scrollAccumulator) >= scrollThreshold) {
-                if (scrollAccumulator > 0) {
+                if (scrollAccumulator > 0 && currentProcessStep < 7) {
                     // Scrolling down
-                    if (currentProcessStep < 7) {
-                        currentProcessStep++;
-                        setActiveStep(currentProcessStep);
-                    } else {
-                        // Completed all steps going forward, release scroll
-                        sectionLocked = false;
-                    }
-                } else {
+                    currentProcessStep++;
+                    setActiveStep(currentProcessStep);
+                    scrollAccumulator = 0;
+                } else if (scrollAccumulator < 0 && currentProcessStep > 1) {
                     // Scrolling up
-                    if (currentProcessStep > 1) {
-                        currentProcessStep--;
-                        setActiveStep(currentProcessStep);
-                    } else {
-                        // Completed all steps going backward, release scroll
-                        sectionLocked = false;
-                    }
-                }
-                scrollAccumulator = 0;
-            }
-        }, { passive: false });
-
-        // Also handle touch for mobile
-        let touchStartY = 0;
-        window.addEventListener('touchstart', (e) => {
-            touchStartY = e.touches[0].clientY;
-        }, { passive: true });
-
-        window.addEventListener('touchmove', (e) => {
-            if (!sectionLocked) return;
-
-            const touchCurrentY = e.touches[0].clientY;
-            const deltaY = touchStartY - touchCurrentY;
-
-            if (Math.abs(deltaY) > 50) {
-                e.preventDefault();
-                if (deltaY > 0) {
-                    // Scrolling down
-                    if (currentProcessStep < 7) {
-                        currentProcessStep++;
-                        setActiveStep(currentProcessStep);
-                    } else {
-                        sectionLocked = false;
-                    }
+                    currentProcessStep--;
+                    setActiveStep(currentProcessStep);
+                    scrollAccumulator = 0;
+                } else if (scrollAccumulator > 0 && currentProcessStep === 7) {
+                    // At last step, scrolling down - unlock and allow page scroll
+                    isScrollHijacked = false;
+                    scrollAccumulator = 0;
+                    stopAutoLoop();
+                    return;
+                } else if (scrollAccumulator < 0 && currentProcessStep === 1) {
+                    // At first step, scrolling up - unlock and allow page scroll
+                    isScrollHijacked = false;
+                    scrollAccumulator = 0;
+                    stopAutoLoop();
+                    return;
                 } else {
-                    // Scrolling up
-                    if (currentProcessStep > 1) {
-                        currentProcessStep--;
-                        setActiveStep(currentProcessStep);
-                    } else {
-                        sectionLocked = false;
-                    }
+                    scrollAccumulator = 0;
                 }
-                touchStartY = touchCurrentY;
             }
-        }, { passive: false });
+        }
 
+        // Lock position tracking
+        let lockedScrollPosition = null;
+        let isApproachingSection = false;
+        let hasTriggered = false;
+
+        // Simple scroll-based trigger - check on every scroll
+        function checkProcessTrigger() {
+            if (hasTriggered) return;
+
+            const processRect = processSection.getBoundingClientRect();
+            const caseStudiesSection = document.getElementById('case-studies');
+            const caseStudiesRect = caseStudiesSection.getBoundingClientRect();
+
+            // Only trigger when:
+            // 1. Process section is entering viewport (within 100px)
+            // 2. Case Studies section is mostly scrolled away (top is above viewport)
+            const processEntering = processRect.top < window.innerHeight - 100;
+            const caseStudiesGone = caseStudiesRect.top < 200; // Most of Case Studies is above viewport
+
+            if (processEntering && caseStudiesGone && !isScrollHijacked) {
+                hasTriggered = true;
+                isScrollHijacked = true;
+                stopAutoLoop();
+                currentProcessStep = 1;
+                setActiveStep(1);
+            }
+        }
+
+        // Check on scroll
+        window.addEventListener('scroll', checkProcessTrigger, { passive: true });
+
+        // Observer to unlock when leaving Process section
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting && isScrollHijacked) {
+                    // Reset when section leaves viewport
+                    isScrollHijacked = false;
+                    hasTriggered = false;
+                    scrollAccumulator = 0;
+                    startAutoLoop();
+                }
+            });
+        }, { threshold: 0 });
+
+        sectionObserver.observe(processSection);
+
+        // Listen to wheel events
+        document.addEventListener('wheel', handleProcessScroll, { passive: false });
+        document.addEventListener('touchmove', handleProcessScroll, { passive: false });
+
+        
         // Flip Cards Animation on Scroll
         const flipCards = document.querySelectorAll('.flip-card');
 
@@ -1670,31 +2091,199 @@
             isMobile = window.matchMedia('(max-width: 768px)').matches;
         });
 
-        // Page transition effect for service card links
-        const serviceLinks = document.querySelectorAll('.flip-card-front a[href$=".html"]');
-        serviceLinks.forEach(link => {
+        // Improved page transition - fade out current, fade in new (no scroll)
+        const allPageLinks = document.querySelectorAll('a[href$=".html"]');
+        allPageLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault();
                 const href = link.getAttribute('href');
+                if (href && !href.startsWith('#')) {
+                    e.preventDefault();
 
-                // Apply fade-out to the entire page
-                document.body.classList.add('page-transition');
+                    // Fade out current page (no scroll)
+                    document.body.style.transition = 'opacity 0.3s ease-out';
+                    document.body.style.opacity = '0';
 
-                // Navigate after animation completes
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 300);
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 300);
+                }
             });
         });
 
-        // Check if page was navigated to with transition, apply fade-in
-        window.addEventListener('load', () => {
+        // Fade in new page from top
+        window.addEventListener('pageshow', () => {
+            window.scrollTo(0, 0);
             document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.3s ease-in';
+            document.body.style.transition = 'opacity 0.4s ease-in';
             requestAnimationFrame(() => {
                 document.body.style.opacity = '1';
             });
         });
+    </script>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="fixed inset-0 z-[100] hidden">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeContactModal()"></div>
+
+        <!-- Modal Content -->
+        <div class="relative flex items-center justify-center min-h-screen p-4">
+            <div id="modalCard" class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 transform scale-95 opacity-0 transition-all duration-300">
+                <!-- Close Button -->
+                <button onclick="closeContactModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition" aria-label="Close contact form">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+
+                <!-- Form State -->
+                <div id="formState" class="form-state">
+                    <h2 class="text-3xl font-semibold mb-2 text-[#2C2C2C] text-center">Get Started</h2>
+                    <p class="text-gray-600 mb-2 text-center">We'll reply within 24 hours</p>
+                    <p class="text-sm text-gray-500 mb-6 text-center">Don't want to wait? <a href="tel:01443123456" class="text-[#cbaf82] hover:underline font-semibold">Call us now</a></p>
+
+                    <form id="contactForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cbaf82] focus:border-transparent transition" placeholder="Your name">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Phone or Email</label>
+                            <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cbaf82] focus:border-transparent transition" placeholder="Best way to reach you">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Project Details</label>
+                            <textarea required rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cbaf82] focus:border-transparent transition resize-none" placeholder="Tell us about your property, what you're looking for, timeline, and any specific requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full btn-gold py-4 rounded-lg text-lg font-semibold">Submit</button>
+
+                        <p class="text-center text-sm text-gray-500 mt-4">Or, email us: <a href="mailto:hello@infinitysmarthomes.co.uk" class="text-[#cbaf82] hover:underline">hello@infinitysmarthomes.co.uk</a></p>
+                    </form>
+                </div>
+
+                <!-- Success State -->
+                <div id="successState" class="success-state hidden text-center">
+                    <div class="checkmark-container mb-6">
+                        <svg class="checkmark w-20 h-20 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-semibold mb-4 text-[#2C2C2C]">Success!</h2>
+                    <p class="text-lg text-gray-600">We'll respond within 24 hours</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openContactModal() {
+            const modal = document.getElementById('contactModal');
+            const card = document.getElementById('modalCard');
+            modal.classList.remove('hidden');
+            // Trigger animation after display
+            setTimeout(() => {
+                card.classList.remove('scale-95', 'opacity-0');
+                card.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            const modal = document.getElementById('contactModal');
+            const card = document.getElementById('modalCard');
+            card.classList.add('scale-95', 'opacity-0');
+            card.classList.remove('scale-100', 'opacity-100');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                // Reset form
+                document.getElementById('formState').classList.remove('hidden');
+                document.getElementById('successState').classList.add('hidden');
+                document.getElementById('contactForm').reset();
+            }, 300);
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            // Show success state with animation
+            const formState = document.getElementById('formState');
+            const successState = document.getElementById('successState');
+
+            formState.style.opacity = '0';
+            formState.style.transform = 'scale(0.95)';
+
+            setTimeout(() => {
+                formState.classList.add('hidden');
+                successState.classList.remove('hidden');
+                successState.style.opacity = '0';
+                successState.style.transform = 'scale(0.95)';
+
+                setTimeout(() => {
+                    successState.style.opacity = '1';
+                    successState.style.transform = 'scale(1)';
+                }, 50);
+            }, 300);
+
+            // Auto-close after 3 seconds
+            setTimeout(() => {
+                closeContactModal();
+            }, 3000);
+
+            return false;
+        }
+    </script>
+
+    <script>
+        // Simple process section step visibility (no scroll hijacking)
+        (function() {
+            const processSection = document.getElementById('process-section');
+            if (!processSection) return;
+
+            const steps = ['introductory-call', 'showroom-visit', 'design', 'permitting', 'manufacturing', 'installation', 'move-in'];
+
+            // Use Intersection Observer to show steps as they scroll into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            // Observe each step
+            steps.forEach(stepId => {
+                const element = document.getElementById(stepId);
+                if (element) {
+                    observer.observe(element);
+                }
+            });
+        })();
+    </script>
+
+    <script>
+        // Smooth page load
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+
+        // Preload critical images on page load
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(function() {
+                const criticalImages = [
+                    'https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOx4vHNO6cQbMu0KGa5jrqEo2nPvYJD1NZX9mt',
+                    'https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOb3Pl4GlYJMm76SBwLAiX35duWt12saDTIRkv',
+                    'https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOFqwq5NeHjt9LVvTpJRXb1i3GYmZNxSlCUa2e',
+                    'https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOWxI1PnTf7DJVAHLSkb9Q6W1dFXPwgN8Oyqm5'
+                ];
+                criticalImages.forEach(function(src) {
+                    const img = new Image();
+                    img.src = src;
+                });
+            });
+        }
     </script>
 </body>
 </html>

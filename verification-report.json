@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-11-26T20:54:23.509Z",
+  "totalIssues": 3,
+  "issues": [
+    "⚠️  home-theatre.html missing starting price",
+    "⚠️  smart-shading.html missing starting price",
+    "⚠️  electrical-installation.html missing starting price"
+  ],
+  "screenshots": [
+    "homepage-desktop.png",
+    "case-studies-desktop.png",
+    "homepage-mobile.png"
+  ]
+}

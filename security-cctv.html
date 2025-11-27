@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security & CCTV - Infinity Smart Home Systems</title>
-    <meta name="description" content="Advanced home security and surveillance systems for complete peace of mind.">
+    <title>Security & CCTV Systems | Infinity Smart Home Systems - From £4,000</title>
+    <meta name="description" content="All properties, especially remote/high-value homes, rental properties, estates, properties with previous break-ins. Hikvision/Axis 4K AI cameras, Control4/Loxone integration, Yale/Paxton smart locks, monitored alarm systems. Starting from £4,000. Call 01443 123456">
     <link rel="icon" href="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -55,7 +55,7 @@
 <body class="bg-[#F5F3EF]">
 
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm">
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 header-transparent">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <a href="/" class="flex items-center gap-3">
@@ -65,11 +65,12 @@
                         <div class="text-white/80 text-xs tracking-wide">Smart Home Systems</div>
                     </div>
                 </a>
+
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/#features" class="text-white hover:text-[#cbaf82] transition">Explore Features</a>
-                    <a href="/#process" class="text-white hover:text-[#cbaf82] transition">Our Process</a>
+                    <a href="#about" class="nav-link text-white hover:text-[#cbaf82]">About</a>
+                    <a href="#case-studies" class="nav-link text-white hover:text-[#cbaf82]">Case Studies</a>
                     <div class="services-dropdown">
-                        <a href="/#services" class="text-white hover:text-[#cbaf82] transition flex items-center gap-1">
+                        <a href="#services" class="nav-link text-white hover:text-[#cbaf82] flex items-center gap-1">
                             Services
                             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </a>
@@ -84,17 +85,23 @@
                             <a href="/electrical-installation.html">Electrical Installation</a>
                         </div>
                     </div>
-                    <a href="/#contact" class="btn-gold px-6 py-2 rounded-full text-sm font-medium">Get Started</a>
+                    <button onclick="openContactModal()" class="btn-gold px-6 py-2 rounded-full text-sm font-medium">Get Started</button>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="mobile-menu-btn md:hidden text-white" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
                 </button>
             </div>
+
+            <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-4">
-                <a href="/#features" class="block text-white hover:text-[#cbaf82]">Explore Features</a>
-                <a href="/#process" class="block text-white hover:text-[#cbaf82]">Our Process</a>
+                <a href="#about" class="block text-white hover:text-[#cbaf82]">About</a>
+                <a href="#case-studies" class="block text-white hover:text-[#cbaf82]">Case Studies</a>
                 <div>
-                    <button id="mobile-services-toggle" class="flex items-center justify-between w-full text-white hover:text-[#cbaf82]">
+                    <button id="mobile-services-toggle" class="flex items-center justify-between w-full text-white hover:text-[#cbaf82]" aria-label="Toggle services menu" aria-expanded="false">
                         <span>Services</span>
                         <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
@@ -109,7 +116,7 @@
                         <a href="/electrical-installation.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Electrical Installation</a>
                     </div>
                 </div>
-                <a href="/#contact" class="block text-center btn-gold px-6 py-2 rounded-full">Get Started</a>
+                <button onclick="openContactModal()" class="block w-full text-center btn-gold px-6 py-2 rounded-full">Get Started</button>
             </div>
         </nav>
     </header>
@@ -231,7 +238,82 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    
+    <!-- Pricing & Details Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-semibold mb-6">Investment & Pricing</h2>
+                    <p class="text-xl text-gray-600">Transparent pricing for security & cctv systems</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-[#F5F3EF] p-8 rounded-xl" data-aos="fade-up">
+                        <div class="text-sm uppercase tracking-wider text-[#cbaf82] mb-2">Starting From</div>
+                        <div class="text-5xl font-bold text-[#2C2C2C] mb-4">£4,000</div>
+                        <p class="text-gray-600">Basic system installation</p>
+                    </div>
+                    <div class="bg-[#F5F3EF] p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-sm uppercase tracking-wider text-[#cbaf82] mb-2">Full Systems</div>
+                        <div class="text-3xl font-bold text-[#2C2C2C] mb-4">£15,000+ for full perimeter with AI detection and smart home integration</div>
+                        <p class="text-gray-600">Complete professional installation</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border-2 border-[#cbaf82] rounded-xl p-8" data-aos="fade-up">
+                    <h3 class="text-2xl font-semibold mb-4">Who Needs This?</h3>
+                    <p class="text-gray-700 mb-6">All properties, especially remote/high-value homes, rental properties, estates, properties with previous break-ins</p>
+
+                    <h3 class="text-2xl font-semibold mb-4 mt-8">Technology We Use</h3>
+                    <p class="text-gray-700 mb-6">Hikvision/Axis 4K AI cameras, Control4/Loxone integration, Yale/Paxton smart locks, monitored alarm systems</p>
+
+                    <h3 class="text-2xl font-semibold mb-4 mt-8">Real Example</h3>
+                    <p class="text-gray-700 mb-6">Rural property near Bridgend - 12 AI cameras with person/vehicle detection, alerts to phone, integrated with lighting (lights flash on intrusion)</p>
+
+                    <h3 class="text-2xl font-semibold mb-4 mt-8">Our Approach</h3>
+                    <p class="text-gray-700">AI detection reduces false alarms (ignores cats/rain), integration with smart home (auto-arm when you leave), remote viewing, optional 24/7 monitoring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-[#F5F3EF]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-semibold mb-6">Frequently Asked Questions</h2>
+                    <p class="text-xl text-gray-600">Everything you need to know about security & cctv systems</p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="0">
+                        <h3 class="text-xl font-semibold mb-3 text-[#2C2C2C]">Wired vs WiFi cameras - which is better?</h3>
+                        <p class="text-gray-700">Wired (PoE) is more reliable, can't be jammed, no battery changes. WiFi works for hard-to-reach spots. We prefer wired for main system.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-xl font-semibold mb-3 text-[#2C2C2C]">How long is footage stored?</h3>
+                        <p class="text-gray-700">30 days typical on local NVR. Cloud backup available. 4K cameras use ~1TB per camera per month.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-xl font-semibold mb-3 text-[#2C2C2C]">Can it integrate with smart home?</h3>
+                        <p class="text-gray-700">Yes - arm/disarm based on location, flash lights when motion detected, get alerts on TV/phone, unlock door for deliveries via camera.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-xl font-semibold mb-3 text-[#2C2C2C]">What about facial recognition?</h3>
+                        <p class="text-gray-700">Available but has privacy concerns. We do person/vehicle detection (alerts you to humans vs cats) without storing faces.</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12" data-aos="fade-up">
+                    <p class="text-lg text-gray-700 mb-6">Have more questions? Let's talk about your project.</p>
+                    <a href="tel:01443123456" class="btn-gold inline-block px-8 py-4 rounded-full text-lg">Call 01443 123456 - Speak to Tim</a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- CTA Section -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background-image: url('https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOWGpukQoUVjTPE7vmgGZYzHuLeFX3C180b5Ao'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="absolute inset-0 bg-black/50"></div>
 
@@ -250,56 +332,81 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-white py-12">
+    <footer class="bg-[#2C2C2C] text-white py-12">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-8">
-                <div>
-                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-12 mb-4">
-                    <p class="text-gray-400">Luxury smart home automation designed for the way you live.</p>
+            <div class="flex flex-col md:flex-row justify-between gap-8 mb-8">
+                <!-- Logo & Brand -->
+                <div class="md:w-1/4">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-10">
+                        <div>
+                            <div class="text-xl font-bold">INFINITY</div>
+                            <div class="text-xs text-gray-400">Smart Home Systems</div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Services</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/smart-home-design.html" class="hover:text-[#cbaf82] transition">Smart Home Design</a></li>
-                        <li><a href="/home-theatre.html" class="hover:text-[#cbaf82] transition">Home Theatre</a></li>
-                        <li><a href="/wifi-networking.html" class="hover:text-[#cbaf82] transition">Wi-Fi & Networking</a></li>
-                        <li><a href="/multi-room-audio.html" class="hover:text-[#cbaf82] transition">Multi Room Audio</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">More Services</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/video-distribution.html" class="hover:text-[#cbaf82] transition">Video Distribution</a></li>
-                        <li><a href="/smart-shading.html" class="hover:text-[#cbaf82] transition">Smart Shading</a></li>
-                        <li><a href="/security-cctv.html" class="hover:text-[#cbaf82] transition">Security & CCTV</a></li>
-                        <li><a href="/electrical-installation.html" class="hover:text-[#cbaf82] transition">Electrical Installation</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/terms.html" class="hover:text-[#cbaf82] transition">Terms of Service</a></li>
-                        <li><a href="/privacy.html" class="hover:text-[#cbaf82] transition">Privacy Policy</a></li>
-                        <li><a href="/cookies.html" class="hover:text-[#cbaf82] transition">Cookie Policy</a></li>
-                    </ul>
+
+                <!-- Links Grid -->
+                <div class="md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Services Column 1 -->
+                    <div>
+                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Services</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="/smart-home-design.html" class="hover:text-[#cbaf82] transition">Smart Home Design</a></li>
+                            <li><a href="/home-theatre.html" class="hover:text-[#cbaf82] transition">Home Theatre</a></li>
+                            <li><a href="/wifi-networking.html" class="hover:text-[#cbaf82] transition">Wi-Fi & Networking</a></li>
+                            <li><a href="/multi-room-audio.html" class="hover:text-[#cbaf82] transition">Multi-Room Audio</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Services Column 2 -->
+                    <div>
+                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider opacity-0 md:opacity-100">.</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="/video-distribution.html" class="hover:text-[#cbaf82] transition">Video Distribution</a></li>
+                            <li><a href="/smart-shading.html" class="hover:text-[#cbaf82] transition">Smart Shading</a></li>
+                            <li><a href="/security-cctv.html" class="hover:text-[#cbaf82] transition">Security & CCTV</a></li>
+                            <li><a href="/electrical-installation.html" class="hover:text-[#cbaf82] transition">Electrical Installation</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Company -->
+                    <div>
+                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Company</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#about" class="hover:text-[#cbaf82] transition">About Us</a></li>
+                            <li><a href="/case-studies.html" class="hover:text-[#cbaf82] transition">Case Studies</a></li>
+                            <li><a href="#process" class="hover:text-[#cbaf82] transition">Our Process</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div>
+                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Contact</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="tel:01443123456" class="hover:text-[#cbaf82] transition">01443 123456</a></li>
+                            <li><a href="mailto:hello@infinitysmarthomes.co.uk" class="hover:text-[#cbaf82] transition text-xs">hello@infinitysmarthomes.co.uk</a></li>
+                            <li class="text-gray-400 text-xs">Pontypridd, South Wales</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="border-t border-gray-700 pt-6 text-center text-gray-400">
+
+            <!-- Bottom Row: Copyright and Legal on same line -->
+            <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
                 <p>&copy; 2025 Infinity Smart Home Systems. All rights reserved.</p>
-            </div>
-            <div class="border-t border-gray-800 mt-6 pt-4 text-center">
-                <p class="text-sm text-gray-500">
-                    <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=alwin@tripletendigits.com" target="_blank" class="luxury-gold-text hover:opacity-80 transition">Triple Ten Digits</a>
-                    <span class="mx-2">|</span>
-                    Competition-crushing websites. Delivered in a week or less. Designed to convert.
-                </p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="/privacy-policy.html" class="hover:text-[#cbaf82] transition">Privacy Policy</a>
+                    <a href="/terms-conditions.html" class="hover:text-[#cbaf82] transition">Terms & Conditions</a>
+                    <a href="/cookies-policy.html" class="hover:text-[#cbaf82] transition">Cookies</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true });
+        AOS.init({ duration: 800, once: false, offset: 50 });
         window.addEventListener('load', () => { document.body.style.opacity = '1'; });
         document.getElementById('mobile-menu-btn').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');

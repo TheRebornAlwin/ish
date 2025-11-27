@@ -1,0 +1,14 @@
+Remaining fixes to apply:
+
+4. Features section - improve copy (DONE - will update in separate edit)
+5. Case studies - add prices consistently + create new page (case-studies.html already exists!)
+6. Process timeline - restore looping animation
+7. Process timeline - Re-add scroll-lock
+8. Footer - restructure services list
+9. Header CTA "Get Started" with modal
+10. Test everything
+
+Key priorities:
+- Get Started modal is MOST IMPORTANT
+- Scroll-lock for process section
+- Footer restructure

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | Infinity Smart Home Systems - Real Projects, Real Results</title>
+    <meta name="description" content="See our completed smart home projects across South Wales. From £35k system rescues to £120k whole-home installations. 200+ projects completed.">
+    <link rel="icon" href="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .btn-gold { background: linear-gradient(90deg, #cbaf82 0%, #ede9df 100%); color: #1a1a1a; transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1); font-weight: 600; }
+        .btn-gold:hover { background: linear-gradient(90deg, #d4ba8f 0%, #f5f1e8 100%); transform: translateY(-2px) scale(1.02); box-shadow: 0 15px 30px rgba(203, 175, 130, 0.3); }
+    </style>
+</head>
+<body class="bg-[#F5F3EF]">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 header-transparent">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="flex items-center gap-3">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-10">
+                    <div class="hidden sm:block">
+                        <div class="text-lg font-semibold tracking-wider leading-tight luxury-gold-text">INFINITY</div>
+                        <div class="text-white/80 text-xs tracking-wide">Smart Home Systems</div>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link text-white hover:text-[#cbaf82]">About</a>
+                    <a href="#case-studies" class="nav-link text-white hover:text-[#cbaf82]">Case Studies</a>
+                    <div class="services-dropdown">
+                        <a href="#services" class="nav-link text-white hover:text-[#cbaf82] flex items-center gap-1">
+                            Services
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </a>
+                        <div class="services-dropdown-menu">
+                            <a href="/smart-home-design.html">Smart Home Design</a>
+                            <a href="/home-theatre.html">Home Theatre</a>
+                            <a href="/wifi-networking.html">Wi-Fi & Networking</a>
+                            <a href="/multi-room-audio.html">Multi Room Audio</a>
+                            <a href="/video-distribution.html">Video Distribution</a>
+                            <a href="/smart-shading.html">Smart Shading</a>
+                            <a href="/security-cctv.html">Security & CCTV</a>
+                            <a href="/electrical-installation.html">Electrical Installation</a>
+                        </div>
+                    </div>
+                    <button onclick="openContactModal()" class="btn-gold px-6 py-2 rounded-full text-sm font-medium">Get Started</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="mobile-menu-btn md:hidden text-white" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-4">
+                <a href="#about" class="block text-white hover:text-[#cbaf82]">About</a>
+                <a href="#case-studies" class="block text-white hover:text-[#cbaf82]">Case Studies</a>
+                <div>
+                    <button id="mobile-services-toggle" class="flex items-center justify-between w-full text-white hover:text-[#cbaf82]" aria-label="Toggle services menu" aria-expanded="false">
+                        <span>Services</span>
+                        <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="mobile-services-menu" class="hidden pl-4 mt-2 space-y-2">
+                        <a href="/smart-home-design.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Smart Home Design</a>
+                        <a href="/home-theatre.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Home Theatre</a>
+                        <a href="/wifi-networking.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Wi-Fi & Networking</a>
+                        <a href="/multi-room-audio.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Multi Room Audio</a>
+                        <a href="/video-distribution.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Video Distribution</a>
+                        <a href="/smart-shading.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Smart Shading</a>
+                        <a href="/security-cctv.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Security & CCTV</a>
+                        <a href="/electrical-installation.html" class="block text-sm text-gray-300 hover:text-[#cbaf82]">Electrical Installation</a>
+                    </div>
+                </div>
+                <button onclick="openContactModal()" class="block w-full text-center btn-gold px-6 py-2 rounded-full">Get Started</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative pt-32 pb-16 bg-gradient-to-b from-[#2C2C2C] to-[#1a1a1a] text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-semibold mb-6" data-aos="fade-up">Case Studies</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Real projects across South Wales. From £35k system rescues to £150k whole-home installations.
+            </p>
+        </div>
+    </section>
+
+    <!-- Case Studies Grid -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+
+                <!-- Cardiff Bay Cinema -->
+                <div class="bg-[#F5F3EF] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300" data-aos="fade-up">
+                    <img src="https://via.placeholder.com/600x400/2C2C2C/cbaf82?text=Cardiff+Cinema" alt="Cardiff Bay Cinema" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-[#cbaf82] mb-2">£85,000</div>
+                        <h3 class="text-2xl font-semibold mb-3">Cardiff Bay Penthouse Cinema</h3>
+                        <p class="text-gray-600 mb-4">8-week installation. JVC NX7 projector, Dolby Atmos 7.2.4 surround, 24 acoustic panels.</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                            <span>8 weeks | 47 devices</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bristol Whole Home -->
+                <div class="bg-[#F5F3EF] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://via.placeholder.com/600x400/2C2C2C/cbaf82?text=Bristol+Whole+Home" alt="Bristol New Build" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-[#cbaf82] mb-2">£120,000</div>
+                        <h3 class="text-2xl font-semibold mb-3">Bristol New Build</h3>
+                        <p class="text-gray-600 mb-4">Complete smart home. Control4, 40-zone Lutron, 12-zone audio, 10 cameras. 18% energy savings.</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                            <span>12 weeks | 120+ devices</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newport Rescue -->
+                <div class="bg-[#F5F3EF] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://via.placeholder.com/600x400/2C2C2C/cbaf82?text=Newport+Rescue" alt="Newport System Rescue" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-[#cbaf82] mb-2">£35,000</div>
+                        <h3 class="text-2xl font-semibold mb-3">Newport System Rescue</h3>
+                        <p class="text-gray-600 mb-4">Fixed abandoned installation. Previous installer defunct. Replaced with Control4. 99.9% uptime.</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                            <span>6 weeks | 20+ issues fixed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More case studies placeholders -->
+                <div class="bg-[#F5F3EF] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300" data-aos="fade-up">
+                    <img src="https://via.placeholder.com/600x400/2C2C2C/cbaf82?text=Penarth+Villa" alt="Penarth Villa" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-[#cbaf82] mb-2">£92,000</div>
+                        <h3 class="text-2xl font-semibold mb-3">Penarth Waterfront Villa</h3>
+                        <p class="text-gray-600 mb-4">5-bed new build. Lutron RadioRA 3, Sonos Architectural, outdoor AV, gate automation.</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                            <span>10 weeks | 85 devices</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#F5F3EF] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://via.placeholder.com/600x400/2C2C2C/cbaf82?text=Chepstow+Manor" alt="Chepstow Manor" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-[#cbaf82] mb-2">£145,000</div>
+                        <h3 class="text-2xl font-semibold mb-3">Chepstow Country Manor</h3>
+                        <p class="text-gray-600 mb-4">8-bed estate. Crestron control, 16-camera CCTV, full Lutron lighting, Runco cinema.</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                            <span>16 weeks | 200+ devices</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#F5F3EF] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://via.placeholder.com/600x400/2C2C2C/cbaf82?text=Cowbridge+Retrofit" alt="Cowbridge Retrofit" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-[#cbaf82] mb-2">£48,000</div>
+                        <h3 class="text-2xl font-semibold mb-3">Cowbridge Period Home Retrofit</h3>
+                        <p class="text-gray-600 mb-4">Listed building. Wireless Lutron RA3, discreet speakers, hidden networking.</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                            <span>7 weeks | 60 devices</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 bg-[#2C2C2C] text-white text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-semibold mb-6" data-aos="fade-up">Ready to Start Your Project?</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                We'll reply within 24 hours with a free consultation
+            </p>
+            <a href="tel:01443123456" class="btn-gold inline-block px-8 py-4 rounded-full text-lg" data-aos="fade-up" data-aos-delay="200">Call 01443 123456</a>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>
