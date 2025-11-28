@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Infinity Smart Home Systems - Real Projects, Real Results</title>
+    <meta name="description" content="Explore 200+ luxury smart home installations across South Wales. £15M+ deployed in premium Control4, Crestron & Lutron systems.">
+    <link rel="icon" href="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Smart Home Case Studies",
+        "description": "Premium smart home installations by Infinity Smart Home Systems",
+        "itemListElement": [
+            {
+                "@type": "Project",
+                "name": "Cardiff Bay Penthouse Cinema",
+                "description": "£85,000 luxury home cinema with JVC NX7 and Dolby Atmos 7.2.4",
+                "image": "https://via.placeholder.com/1200x800/2C2C2C/cbaf82?text=Cardiff+Cinema"
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0A0A0A;
+        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* Luxury Gold Gradient */
+        .btn-gold {
+            background: linear-gradient(135deg, #cbaf82 0%, #f4e4c1 50%, #cbaf82 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+            color: #1a1a1a;
+            transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-weight: 600;
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(203, 175, 130, 0.4);
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            grid-auto-rows: 350px;
+        }
+
+        @media (min-width: 768px) {
+            .bento-grid {
+                gap: 24px;
+                grid-auto-rows: 400px;
+            }
+        }
+
+        .bento-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            transition: all 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+
+        .bento-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(203, 175, 130, 0.3);
+        }
+
+        /* Varying sizes for bento */
+        .bento-item.large {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        .bento-item.wide {
+            grid-column: span 1;
+        }
+
+        .bento-item.tall {
+            grid-row: span 1;
+        }
+
+        @media (min-width: 768px) {
+            .bento-item.large {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+
+            .bento-item.wide {
+                grid-column: span 2;
+            }
+
+            .bento-item.tall {
+                grid-row: span 2;
+            }
+        }
+
+        /* Image blur-up effect */
+        .project-image {
+            position: absolute;
+            inset: 0;
+            object-fit: cover;
+            transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .bento-item:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 16px;
+            transition: background 400ms;
+        }
+
+        @media (min-width: 768px) {
+            .project-overlay {
+                padding: 32px;
+            }
+        }
+
+        .bento-item:hover .project-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+        }
+
+        /* Stats ticker animation */
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .ticker {
+            animation: ticker 30s linear infinite;
+        }
+
+        /* Filter buttons */
+        .filter-btn {
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: all 300ms;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 768px) {
+            .filter-btn {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+        }
+
+        .filter-btn:hover {
+            background: rgba(203, 175, 130, 0.2);
+            border-color: #cbaf82;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #cbaf82 0%, #f4e4c1 50%, #cbaf82 100%);
+            color: #1a1a1a;
+            border-color: #cbaf82;
+        }
+
+        /* Magnetic hover effect */
+        .magnetic {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Star rating */
+        .stars {
+            color: #cbaf82;
+            font-size: 14px;
+        }
+
+        /* Tag pills */
+        .tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background: rgba(203, 175, 130, 0.2);
+            border: 1px solid rgba(203, 175, 130, 0.3);
+            border-radius: 20px;
+            font-size: 12px;
+            color: #cbaf82;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* Search bar glow */
+        .search-bar:focus {
+            box-shadow: 0 0 0 3px rgba(203, 175, 130, 0.3);
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-[#0A0A0A] text-white">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 glass">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="flex items-center gap-3">
+                    <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-10">
+                    <div class="hidden sm:block">
+                        <div class="text-lg font-semibold tracking-wider leading-tight text-[#cbaf82]">INFINITY</div>
+                        <div class="text-white/80 text-xs tracking-wide">Smart Home Systems</div>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="nav-link text-white/80 hover:text-[#cbaf82] transition">Home</a>
+                    <a href="/#about" class="nav-link text-white/80 hover:text-[#cbaf82] transition">About</a>
+                    <a href="/portfolio.html" class="nav-link text-[#cbaf82]">Portfolio</a>
+                    <button class="btn-gold px-6 py-2 rounded-full text-sm font-medium">Get Started</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero with Stats Ticker -->
+    <section class="relative pt-32 pb-24 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO9Eztla7L7a4yZkOSwjp6VneHW3fciXINMmRJ" alt="Smart home cinema background" class="w-full h-full object-cover" loading="eager">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/80 via-[#0A0A0A]/70 to-[#0A0A0A]"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-5xl mx-auto">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-6 fade-in-up" style="background: linear-gradient(135deg, #cbaf82 0%, #fff 50%, #cbaf82 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                    Portfolio of Excellence
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl text-gray-400 mb-8 fade-in-up" style="animation-delay: 0.2s">
+                    Transforming luxury homes across South Wales since 2010
+                </p>
+
+                <!-- Live Stats -->
+                <div class="grid grid-cols-3 gap-3 sm:gap-6 md:gap-8 max-w-3xl mx-auto mb-12 fade-in-up" style="animation-delay: 0.4s">
+                    <div class="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6">
+                        <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#cbaf82] mb-1 md:mb-2">200+</div>
+                        <div class="text-xs md:text-xs md:text-sm text-gray-400">Projects Completed</div>
+                    </div>
+                    <div class="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6">
+                        <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#cbaf82] mb-1 md:mb-2">£15M+</div>
+                        <div class="text-xs md:text-xs md:text-sm text-gray-400">Systems Deployed</div>
+                    </div>
+                    <div class="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6">
+                        <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#cbaf82] mb-1 md:mb-2">99.9%</div>
+                        <div class="text-xs md:text-xs md:text-sm text-gray-400">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scrolling ticker -->
+        <div class="relative overflow-hidden py-4 glass mt-8">
+            <div class="ticker whitespace-nowrap text-gray-500">
+                <span class="inline-block mx-8">Control4 ★ Crestron ★ Lutron ★ Sonos ★ JVC ★ Sony ★ Bang & Olufsen ★ Savant ★ </span>
+                <span class="inline-block mx-8">Control4 ★ Crestron ★ Lutron ★ Sonos ★ JVC ★ Sony ★ Bang & Olufsen ★ Savant ★ </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters & Search -->
+    <section class="py-4 md:py-6 border-t border-white/10">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col lg:flex-row gap-3 md:gap-4 items-center justify-between max-w-6xl mx-auto">
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-1.5 md:gap-2 items-center justify-center w-full lg:w-auto">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="cinema">Home Cinema</button>
+                    <button class="filter-btn" data-filter="whole-home">Whole Home</button>
+                    <button class="filter-btn" data-filter="rescue">System Rescue</button>
+                    <button class="filter-btn" data-filter="retrofit">Retrofit</button>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="w-full lg:w-auto lg:flex-1 max-w-sm">
+                    <input
+                        type="text"
+                        id="search-input"
+                        placeholder="Search projects..."
+                        class="search-bar w-full px-4 md:px-5 py-2 md:py-2.5 rounded-full glass text-white placeholder-gray-500 outline-none transition text-sm"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Grid Projects -->
+    <section class="py-8 md:py-12">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="bento-grid" id="projects-grid">
+
+                <!-- Featured Project 1 - Large -->
+                <div class="bento-item large" data-category="cinema" data-price="85000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&h=800&fit=crop" alt="Cardiff Cinema" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-2xl md:text-4xl font-bold text-[#cbaf82] mb-1 md:mb-2">£85,000</div>
+                        <h3 class="text-xl md:text-3xl font-semibold mb-2 md:mb-3">Cardiff Bay Penthouse Cinema</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-4">8-week installation. JVC NX7 4K projector, Dolby Atmos 7.2.4 surround, 24 acoustic panels, motorized seating.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-4">
+                            <span class="tag">Cinema</span>
+                            <span class="tag">Atmos</span>
+                            <span class="tag">JVC</span>
+                            <span class="tag">Luxury</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">8 weeks | 47 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 - Wide -->
+                <div class="bento-item wide" data-category="whole-home" data-price="120000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=600&fit=crop" alt="London Townhouse Retrofit" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-xl md:text-3xl font-bold text-[#cbaf82] mb-1 md:mb-2">£120,000</div>
+                        <h3 class="text-lg md:text-2xl font-semibold mb-1 md:mb-2">London Townhouse Retrofit</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-3">Grade II listed Georgian townhouse. Control4, 40-zone Lutron, 12-zone audio, 10 cameras. 18% energy savings.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Control4</span>
+                            <span class="tag">Lutron</span>
+                            <span class="tag">Retrofit</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">12 weeks | 120+ devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Regular -->
+                <div class="bento-item" data-category="rescue" data-price="35000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=800&fit=crop" alt="Newport Rescue" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#cbaf82] mb-1 md:mb-2">£35,000</div>
+                        <h3 class="text-xl font-semibold mb-2">Newport System Rescue</h3>
+                        <p class="text-gray-300 text-sm mb-3">Fixed abandoned installation. Replaced with Control4. 99.9% uptime.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Rescue</span>
+                            <span class="tag">Control4</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">6 weeks</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 - Tall -->
+                <div class="bento-item tall" data-category="whole-home" data-price="92000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=1200&fit=crop" alt="Penarth Villa" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-xl md:text-3xl font-bold text-[#cbaf82] mb-1 md:mb-2">£92,000</div>
+                        <h3 class="text-lg md:text-2xl font-semibold mb-2 md:mb-3">Penarth Waterfront Villa</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-4">5-bed new build. Lutron RadioRA 3, Sonos Architectural, outdoor AV, gate automation.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-4">
+                            <span class="tag">Lutron</span>
+                            <span class="tag">Sonos</span>
+                            <span class="tag">Outdoor</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">10 weeks | 85 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 5 - Large -->
+                <div class="bento-item large" data-category="whole-home" data-price="250000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop" alt="Bath Georgian Estate" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-4xl font-bold text-[#cbaf82] mb-2">£250,000</div>
+                        <h3 class="text-3xl font-semibold mb-3">Bath Georgian Estate</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-4">12,000 sq ft Grade I estate. Crestron Home, 80-zone Lutron, Steinway Lyngdorf audio, Sony 8K cinema, Tesla solar.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-4">
+                            <span class="tag">Crestron</span>
+                            <span class="tag">Lutron</span>
+                            <span class="tag">Estate</span>
+                            <span class="tag">Cinema</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">20 weeks | 400+ devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 6 - Regular -->
+                <div class="bento-item" data-category="retrofit" data-price="48000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=800&fit=crop" alt="Cowbridge Retrofit" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#cbaf82] mb-1 md:mb-2">£48,000</div>
+                        <h3 class="text-xl font-semibold mb-2">Cowbridge Period Home</h3>
+                        <p class="text-gray-300 text-sm mb-3">Listed building retrofit. Wireless Lutron RA3, discreet speakers.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Retrofit</span>
+                            <span class="tag">Listed</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">7 weeks</span>
+                    </div>
+                </div>
+
+                <!-- Project 7 - Wide -->
+                <div class="bento-item wide" data-category="cinema" data-price="67000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&h=600&fit=crop" alt="Bridgend Cinema" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-xl md:text-3xl font-bold text-[#cbaf82] mb-1 md:mb-2">£67,000</div>
+                        <h3 class="text-lg md:text-2xl font-semibold mb-1 md:mb-2">Bridgend Basement Cinema</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-3">Basement conversion. Sony 4K laser projector, 7.2.4 Atmos, acoustic treatment, star ceiling.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Cinema</span>
+                            <span class="tag">Sony</span>
+                            <span class="tag">Atmos</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">9 weeks | 35 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 8 - Regular -->
+                <div class="bento-item" data-category="whole-home" data-price="78000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600566753051-f0fcf75f92cb?w=800&h=800&fit=crop" alt="Swansea Smart Home" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#cbaf82] mb-1 md:mb-2">£78,000</div>
+                        <h3 class="text-xl font-semibold mb-2">Swansea Marina Apartment</h3>
+                        <p class="text-gray-300 text-sm mb-3">Luxury 3-bed penthouse. Savant control, Lutron lighting, 8-zone audio.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Savant</span>
+                            <span class="tag">Penthouse</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">6 weeks</span>
+                    </div>
+                </div>
+
+                <!-- Project 9 - Home Cinema - Wide -->
+                <div class="bento-item wide" data-category="cinema" data-price="95000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&h=600&fit=crop" alt="Bristol Private Cinema" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-xl md:text-3xl font-bold text-[#cbaf82] mb-1 md:mb-2">£95,000</div>
+                        <h3 class="text-lg md:text-2xl font-semibold mb-1 md:mb-2">Bristol Private Cinema Suite</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-3">Dedicated 18-seater cinema room. Sony VPL-VW915ES 4K laser projector, 9.4.6 Dolby Atmos, custom acoustic panels, tiered seating with D-Box motion.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Cinema</span>
+                            <span class="tag">Sony</span>
+                            <span class="tag">Atmos</span>
+                            <span class="tag">DBox</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs md:text-sm text-gray-400">11 weeks | 62 devices</span>
+                            <span class="text-xs md:text-sm text-gray-400">5-year warranty</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10 - Home Cinema - Regular -->
+                <div class="bento-item" data-category="cinema" data-price="58000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?w=800&h=800&fit=crop" alt="Monmouth Cinema" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#cbaf82] mb-1 md:mb-2">£58,000</div>
+                        <h3 class="text-xl font-semibold mb-2">Monmouth Garden Room Cinema</h3>
+                        <p class="text-gray-300 text-sm mb-3">Garden room conversion. Epson LS12000 laser projector, 5.2.4 Atmos, automated blackout blinds, acoustic treatment.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Cinema</span>
+                            <span class="tag">Epson</span>
+                            <span class="tag">GardenRoom</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">7 weeks | 28 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 11 - Home Cinema - Regular -->
+                <div class="bento-item" data-category="cinema" data-price="73000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&h=800&fit=crop" alt="Chepstow Cinema" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#cbaf82] mb-1 md:mb-2">£73,000</div>
+                        <h3 class="text-xl font-semibold mb-2">Chepstow Luxury Media Room</h3>
+                        <p class="text-gray-300 text-sm mb-3">Multi-purpose media room. JVC NZ8 8K projector, 7.2.4 Atmos, motorized screen, ambient lighting, Xbox gaming integration.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Cinema</span>
+                            <span class="tag">JVC</span>
+                            <span class="tag">8K</span>
+                            <span class="tag">Gaming</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">8 weeks | 41 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 12 - Whole Home - Large -->
+                <div class="bento-item large" data-category="whole-home" data-price="185000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?w=1200&h=800&fit=crop" alt="Cotswolds Estate" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-4xl font-bold text-[#cbaf82] mb-2">£185,000</div>
+                        <h3 class="text-3xl font-semibold mb-3">Cotswolds Country Estate</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-4">8-bedroom estate automation. Control4 OS3, 65-zone Lutron RA3, 18-zone Sonos Architectural, 22 cameras, gate/pool automation, Tesla Powerwall integration.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-4">
+                            <span class="tag">Control4</span>
+                            <span class="tag">Lutron</span>
+                            <span class="tag">Estate</span>
+                            <span class="tag">Security</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs md:text-sm text-gray-400">16 weeks | 285 devices</span>
+                            <span class="text-xs md:text-sm text-gray-400">3-year warranty</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 13 - Whole Home - Tall -->
+                <div class="bento-item tall" data-category="whole-home" data-price="142000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=1200&fit=crop" alt="Oxford Modern Home" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-xl md:text-3xl font-bold text-[#cbaf82] mb-1 md:mb-2">£142,000</div>
+                        <h3 class="text-lg md:text-2xl font-semibold mb-2 md:mb-3">Oxford Eco Smart Home</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-4">LEED Gold certified new build. Savant Pro, Ketra lighting, 14-zone audio, HVAC integration, solar monitoring, EV charging automation.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-4">
+                            <span class="tag">Savant</span>
+                            <span class="tag">Ketra</span>
+                            <span class="tag">Eco</span>
+                            <span class="tag">LEED</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">14 weeks | 198 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 14 - Whole Home - Regular -->
+                <div class="bento-item" data-category="whole-home" data-price="89000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&h=800&fit=crop" alt="Gloucester Smart Home" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#cbaf82] mb-1 md:mb-2">£89,000</div>
+                        <h3 class="text-xl font-semibold mb-2">Gloucester Family Smart Home</h3>
+                        <p class="text-gray-300 text-sm mb-3">4-bed family home. Control4 EA5, 38-zone Lutron Caseta, 10-zone Sonos, Ring security integration, kids room controls.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Control4</span>
+                            <span class="tag">Family</span>
+                            <span class="tag">Sonos</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">9 weeks | 112 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 15 - System Rescue - Wide -->
+                <div class="bento-item wide" data-category="rescue" data-price="52000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop" alt="Cheltenham Rescue" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-xl md:text-3xl font-bold text-[#cbaf82] mb-1 md:mb-2">£52,000</div>
+                        <h3 class="text-lg md:text-2xl font-semibold mb-1 md:mb-2">Cheltenham System Recovery</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-3">Rescued failed £180k installation by bankrupt installer. Complete system redesign with Control4, reprogrammed all devices, 18 months of issues resolved in 10 weeks.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Rescue</span>
+                            <span class="tag">Control4</span>
+                            <span class="tag">Recovery</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs md:text-sm text-gray-400">10 weeks | 147 devices restored</span>
+                            <span class="text-xs md:text-sm text-gray-400">100% uptime since</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 16 - System Rescue - Regular -->
+                <div class="bento-item" data-category="rescue" data-price="28000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=800&fit=crop" alt="Hereford Rescue" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#cbaf82] mb-1 md:mb-2">£28,000</div>
+                        <h3 class="text-xl font-semibold mb-2">Hereford Crestron Revival</h3>
+                        <p class="text-gray-300 text-sm mb-3">Abandoned 8-year-old Crestron system. Updated firmware, rewired network, new touchpanels, cloud integration restored.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Rescue</span>
+                            <span class="tag">Crestron</span>
+                            <span class="tag">Update</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">5 weeks | 68 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 17 - System Rescue - Regular -->
+                <div class="bento-item" data-category="rescue" data-price="41000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=800&fit=crop" alt="Worcester Rescue" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#cbaf82] mb-1 md:mb-2">£41,000</div>
+                        <h3 class="text-xl font-semibold mb-2">Worcester DIY Disaster Recovery</h3>
+                        <p class="text-gray-300 text-sm mb-3">Fixed failed DIY smart home attempt. Replaced incompatible devices, professional wiring, migrated to Control4, proper network infrastructure.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Rescue</span>
+                            <span class="tag">DIY-Fix</span>
+                            <span class="tag">Control4</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">7 weeks | 92 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 18 - Retrofit - Wide -->
+                <div class="bento-item wide" data-category="retrofit" data-price="76000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=600&fit=crop" alt="Victorian Retrofit" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-xl md:text-3xl font-bold text-[#cbaf82] mb-1 md:mb-2">£76,000</div>
+                        <h3 class="text-lg md:text-2xl font-semibold mb-1 md:mb-2">Bristol Victorian Mansion Retrofit</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-3">Grade II* listed Victorian mansion. Wireless Lutron RA3, invisible speakers, discreet cameras, no structural changes, conservation officer approved.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Retrofit</span>
+                            <span class="tag">Listed</span>
+                            <span class="tag">Lutron</span>
+                            <span class="tag">Victorian</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs md:text-sm text-gray-400">13 weeks | 89 devices</span>
+                            <span class="text-xs md:text-sm text-gray-400">Conservation approved</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 19 - Retrofit - Regular -->
+                <div class="bento-item" data-category="retrofit" data-price="54000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=800&fit=crop" alt="Georgian Retrofit" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#cbaf82] mb-1 md:mb-2">£54,000</div>
+                        <h3 class="text-xl font-semibold mb-2">Stroud Georgian Townhouse</h3>
+                        <p class="text-gray-300 text-sm mb-3">1780s townhouse modernization. Wireless Lutron, Sonos architectural, minimal cable runs, period-appropriate faceplates.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Retrofit</span>
+                            <span class="tag">Georgian</span>
+                            <span class="tag">Wireless</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">9 weeks | 71 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 20 - Home Cinema - Regular -->
+                <div class="bento-item" data-category="cinema" data-price="62000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=800&h=800&fit=crop" alt="Newport Atmos Cinema" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#cbaf82] mb-1 md:mb-2">£62,000</div>
+                        <h3 class="text-xl font-semibold mb-2">Newport Dedicated Cinema Room</h3>
+                        <p class="text-gray-300 text-sm mb-3">Purpose-built cinema. Epson LS12000 laser, 7.2.4 Dolby Atmos, acoustic panels, starlight ceiling, Control4 automation.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Cinema</span>
+                            <span class="tag">Atmos</span>
+                            <span class="tag">Epson</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">7 weeks | 32 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 21 - System Rescue - Wide -->
+                <div class="bento-item wide" data-category="rescue" data-price="42000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&h=600&fit=crop" alt="Cheltenham Rescue" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-xl md:text-3xl font-bold text-[#cbaf82] mb-1 md:mb-2">£42,000</div>
+                        <h3 class="text-lg md:text-2xl font-semibold mb-1 md:mb-2">Cheltenham System Rescue</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-3">Abandoned Crestron system rescue. Replaced with Control4 OS3, retained existing wiring, added cloud monitoring, 2-year support contract included.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Rescue</span>
+                            <span class="tag">Control4</span>
+                            <span class="tag">Crestron</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">8 weeks | 67 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 22 - Whole Home - Tall -->
+                <div class="bento-item tall" data-category="whole-home" data-price="145000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&h=1200&fit=crop" alt="Clifton Townhouse" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-xl md:text-3xl font-bold text-[#cbaf82] mb-1 md:mb-2">£145,000</div>
+                        <h3 class="text-lg md:text-2xl font-semibold mb-2 md:mb-3">Clifton Luxury Townhouse</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-4">5-story townhouse automation. Savant Pro, Lutron HomeWorks QS, Sonos, 16 cameras, elevator integration, wine cellar climate control.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-4">
+                            <span class="tag">Savant</span>
+                            <span class="tag">Lutron</span>
+                            <span class="tag">Townhouse</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">15 weeks | 198 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 23 - Home Cinema - Regular -->
+                <div class="bento-item" data-category="cinema" data-price="51000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=800&h=800&fit=crop" alt="Abergavenny Cinema" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#cbaf82] mb-1 md:mb-2">£51,000</div>
+                        <h3 class="text-xl font-semibold mb-2">Abergavenny Family Media Room</h3>
+                        <p class="text-gray-300 text-sm mb-3">Family-friendly cinema. 135" screen, BenQ laser projector, 5.1.2 Atmos, PS5/Xbox integration, kids-safe controls.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Cinema</span>
+                            <span class="tag">Family</span>
+                            <span class="tag">Gaming</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">6 weeks | 24 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 24 - System Rescue - Regular -->
+                <div class="bento-item" data-category="rescue" data-price="28000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&h=800&fit=crop" alt="Gloucester Rescue" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#cbaf82] mb-1 md:mb-2">£28,000</div>
+                        <h3 class="text-xl font-semibold mb-2">Gloucester Lighting Rescue</h3>
+                        <p class="text-gray-300 text-sm mb-3">Failed Rako system replacement. Upgraded to Lutron Caseta, retained existing fixtures, cloud control added.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Rescue</span>
+                            <span class="tag">Lutron</span>
+                            <span class="tag">Lighting</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">4 weeks | 45 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 25 - Whole Home - Large -->
+                <div class="bento-item large" data-category="whole-home" data-price="210000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop" alt="Henley Estate" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-4xl font-bold text-[#cbaf82] mb-2">£210,000</div>
+                        <h3 class="text-3xl font-semibold mb-3">Henley-on-Thames Riverside Estate</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-4">10-bedroom waterfront estate. Crestron Home, 95-zone Lutron, cinema, wine cellar, gym AV, boat house automation, Tesla solar+battery.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-4">
+                            <span class="tag">Crestron</span>
+                            <span class="tag">Lutron</span>
+                            <span class="tag">Estate</span>
+                            <span class="tag">Waterfront</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs md:text-sm text-gray-400">22 weeks | 380+ devices</span>
+                            <span class="text-xs md:text-sm text-gray-400">5-year warranty</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 26 - Retrofit - Wide -->
+                <div class="bento-item wide" data-category="retrofit" data-price="68000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=1200&h=600&fit=crop" alt="Tetbury Retrofit" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-xl md:text-3xl font-bold text-[#cbaf82] mb-1 md:mb-2">£68,000</div>
+                        <h3 class="text-lg md:text-2xl font-semibold mb-1 md:mb-2">Tetbury Manor House Retrofit</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-3">1650s manor house. Wireless Lutron RA3, invisible speakers, battery-powered shades, zero structural changes, English Heritage approved.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Retrofit</span>
+                            <span class="tag">Listed</span>
+                            <span class="tag">Manor</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">11 weeks | 78 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 27 - System Rescue - Regular -->
+                <div class="bento-item" data-category="rescue" data-price="38000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600566752229-250ed79707d6?w=800&h=800&fit=crop" alt="Swindon Rescue" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#cbaf82] mb-1 md:mb-2">£38,000</div>
+                        <h3 class="text-xl font-semibold mb-2">Swindon Audio Rescue</h3>
+                        <p class="text-gray-300 text-sm mb-3">Failed Sonance system. Replaced with Sonos Architectural, added Control4 integration, 10-zone coverage.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Rescue</span>
+                            <span class="tag">Sonos</span>
+                            <span class="tag">Audio</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">5 weeks | 52 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 28 - Home Cinema - Wide -->
+                <div class="bento-item wide" data-category="cinema" data-price="89000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=1200&h=600&fit=crop" alt="Oxford Cinema" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-xl md:text-3xl font-bold text-[#cbaf82] mb-1 md:mb-2">£89,000</div>
+                        <h3 class="text-lg md:text-2xl font-semibold mb-1 md:mb-2">Oxford Premium Home Cinema</h3>
+                        <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-3">14-seater private cinema. JVC NX9 8K projector, 9.2.6 Dolby Atmos, custom acoustic design, wine fridge, popcorn machine integration.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Cinema</span>
+                            <span class="tag">JVC</span>
+                            <span class="tag">8K</span>
+                            <span class="tag">Premium</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">10 weeks | 54 devices</span>
+                    </div>
+                </div>
+
+                <!-- Project 29 - Whole Home - Regular -->
+                <div class="bento-item" data-category="whole-home" data-price="98000" data-rating="5">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&h=800&fit=crop" alt="Reading New Build" class="project-image" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="stars mb-1 md:mb-2 text-sm md:text-base">★★★★★</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#cbaf82] mb-1 md:mb-2">£98,000</div>
+                        <h3 class="text-xl font-semibold mb-2">Reading Smart New Build</h3>
+                        <p class="text-gray-300 text-sm mb-3">4-bed new build. Control4 OS3, Lutron lighting, 8-zone audio, security cameras, EV charger integration.</p>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                            <span class="tag">Control4</span>
+                            <span class="tag">NewBuild</span>
+                            <span class="tag">EV</span>
+                        </div>
+                        <span class="text-xs md:text-sm text-gray-400">9 weeks | 92 devices</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Load More -->
+            <div class="text-center mt-12">
+                <button class="btn-gold px-12 py-4 rounded-full text-lg font-semibold">Load More Projects</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Testimonial Video Section -->
+    <section class="py-24 border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-4">What Clients Say</h2>
+            <p class="text-center text-gray-400 mb-12 text-xl">Real testimonials from real homeowners</p>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="glass rounded-2xl p-8">
+                    <div class="stars mb-4">★★★★★</div>
+                    <p class="text-lg text-gray-300 mb-6 italic">"Infinity transformed our home into something from the future. The cinema room alone justifies every penny. Tim's team is professional, reliable, and genuinely passionate."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#cbaf82] to-[#f4e4c1]"></div>
+                        <div>
+                            <div class="font-semibold">James Richardson</div>
+                            <div class="text-xs md:text-sm text-gray-400">Cardiff Bay Penthouse</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass rounded-2xl p-8">
+                    <div class="stars mb-4">★★★★★</div>
+                    <p class="text-lg text-gray-300 mb-6 italic">"After our previous installer vanished, Infinity rescued the entire system. They worked around our schedule, communicated daily, and delivered beyond expectations."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#cbaf82] to-[#f4e4c1]"></div>
+                        <div>
+                            <div class="font-semibold">Sarah & Michael Chen</div>
+                            <div class="text-xs md:text-sm text-gray-400">Bristol New Build</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#cbaf82]/20 via-transparent to-[#cbaf82]/20"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-6xl font-bold mb-6" style="background: linear-gradient(135deg, #cbaf82 0%, #fff 50%, #cbaf82 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                Ready to Transform Your Home?
+            </h2>
+            <p class="text-2xl text-gray-300 mb-12 max-w-2xl mx-auto">
+                Free consultation within 24 hours. No obligation, just expert advice.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="btn-gold px-12 py-5 rounded-full text-xl font-semibold">Book Consultation</button>
+                <a href="tel:01443123456" class="glass px-12 py-5 rounded-full text-xl font-semibold hover:bg-white/10 transition">Call Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-12">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2025 Infinity Smart Home Systems. All rights reserved.</p>
+            <p class="mt-2 text-sm">CEDIA Certified | NICEIC Registered | 15 Years Excellence</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: false, offset: 50 });
+
+        // Filtering System
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectsGrid = document.getElementById('projects-grid');
+        const projects = document.querySelectorAll('.bento-item');
+        const searchInput = document.getElementById('search-input');
+        const sortSelect = document.getElementById('sort-select');
+
+        // Filter functionality
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                projects.forEach(project => {
+                    if (filter === 'all' || project.dataset.category === filter) {
+                        project.style.display = '';
+                        setTimeout(() => {
+                            project.style.opacity = '1';
+                            project.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        project.style.opacity = '0';
+                        project.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            project.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+
+            projects.forEach(project => {
+                const text = project.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    project.style.display = '';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        });
+
+        // Sort functionality
+        sortSelect.addEventListener('change', (e) => {
+            const sortType = e.target.value;
+            const projectsArray = Array.from(projects);
+
+            projectsArray.sort((a, b) => {
+                const priceA = parseInt(a.dataset.price);
+                const priceB = parseInt(b.dataset.price);
+                const ratingA = parseInt(a.dataset.rating);
+                const ratingB = parseInt(b.dataset.rating);
+
+                switch(sortType) {
+                    case 'price-high':
+                        return priceB - priceA;
+                    case 'price-low':
+                        return priceA - priceB;
+                    case 'rating':
+                        return ratingB - ratingA;
+                    default:
+                        return 0;
+                }
+            });
+
+            // Re-append in new order
+            projectsArray.forEach(project => {
+                projectsGrid.appendChild(project);
+            });
+        });
+
+        // Magnetic hover effect
+        document.querySelectorAll('.magnetic').forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                el.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            });
+
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = '';
+            });
+        });
+
+        // Smooth scroll for header
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 10, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>

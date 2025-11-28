@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,6 +55,7 @@
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
             line-height: 1.7;
+            overflow-x: hidden;
         }
 
         body.page-loaded {
@@ -323,17 +324,6 @@
             transition: clip-path 0.05s ease-out;
         }
 
-        .process-step {
-            opacity: 0.4;
-            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-        }
-
-        .process-step.active {
-            opacity: 1;
-            font-weight: 600;
-        }
-
         .flip-card {
             perspective: 1000px;
             height: 320px;
@@ -411,9 +401,9 @@
             color: #cbaf82;
         }
 
-        /* Overflow fix applied */
+        /* Prevent horizontal overflow without breaking scroll */
         * { box-sizing: border-box; }
-        html, body { overflow-x: hidden; max-width: 100vw; }
+        body { max-width: 100vw; }
         .container { max-width: 100%; padding-left: 1.5rem; padding-right: 1.5rem; }
 
         /* Fix dropdown menu overflow on mobile */
@@ -427,7 +417,7 @@
         }
 
         /* Ensure all sections respect viewport width */
-        section { max-width: 100vw; overflow-x: hidden; }
+        section { max-width: 100vw; }
 
         /* Fix grid layouts on mobile and tablet */
         @media (max-width: 768px) {
@@ -788,7 +778,7 @@
 
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#about" class="nav-link text-white hover:text-[#cbaf82]">About</a>
-                    <a href="#case-studies" class="nav-link text-white hover:text-[#cbaf82]">Case Studies</a>
+                    <a href="portfolio.html" class="nav-link text-white hover:text-[#cbaf82]">Portfolio</a>
                     <div class="services-dropdown">
                         <a href="#services" class="nav-link text-white hover:text-[#cbaf82] flex items-center gap-1">
                             Services
@@ -819,7 +809,7 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-4">
                 <a href="#about" class="block text-white hover:text-[#cbaf82]">About</a>
-                <a href="#case-studies" class="block text-white hover:text-[#cbaf82]">Case Studies</a>
+                <a href="portfolio.html" class="block text-white hover:text-[#cbaf82]">Portfolio</a>
                 <div>
                     <button id="mobile-services-toggle" class="flex items-center justify-between w-full text-white hover:text-[#cbaf82]" aria-label="Toggle services menu" aria-expanded="false">
                         <span>Services</span>
@@ -850,42 +840,42 @@
 
         <div class="relative z-10 hero-content text-white px-6 md:px-12 lg:px-20 max-w-4xl" data-aos="fade-up" data-aos-duration="1000">
             <!-- Main Tagline -->
-            <h1 class="text-5xl md:text-7xl lg:text-8xl mb-6 leading-tight">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl mb-6 leading-tight">
                 <span class="font-light italic gold-shine-text">Your Home.</span><br>
                 <span class="uppercase tracking-wider" style="font-family: 'Cormorant Garamond', serif; font-size: 1.1em; letter-spacing: 0.12em; font-weight: 500;">INFINITE CONTROL.</span>
             </h1>
         </div>
     </section>
     <!-- Trust Signals Bar -->
-    <section class="bg-white py-16 border-y border-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 text-center">
-                <div class="flex items-center gap-3 bg-[#F5F3EF] px-6 py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <svg class="w-6 h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
+    <section class="bg-white py-8 md:py-16 border-y border-gray-100">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-wrap justify-center items-center gap-3 md:gap-6 lg:gap-10 text-center">
+                <div class="flex items-center gap-2 md:gap-3 bg-[#F5F3EF] px-3 py-2.5 md:px-6 md:py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
                     <div class="text-left">
-                        <div class="text-2xl font-bold text-[#2C2C2C]">200+</div>
-                        <div class="text-xs font-medium text-gray-500 uppercase tracking-wide">Projects</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#2C2C2C]">200+</div>
+                        <div class="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide">Projects</div>
                     </div>
                 </div>
-                <div class="flex items-center gap-3 bg-[#F5F3EF] px-6 py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <svg class="w-6 h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                <div class="flex items-center gap-2 md:gap-3 bg-[#F5F3EF] px-3 py-2.5 md:px-6 md:py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
                     <div class="text-left">
-                        <div class="text-2xl font-bold text-[#2C2C2C]">15 Years</div>
-                        <div class="text-xs font-medium text-gray-500 uppercase tracking-wide">In Business</div>
+                        <div class="text-lg md:text-2xl font-bold text-[#2C2C2C]">15 Years</div>
+                        <div class="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide">In Business</div>
                     </div>
                 </div>
-                <div class="flex items-center gap-3 bg-[#F5F3EF] px-6 py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <svg class="w-6 h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <div class="flex items-center gap-2 md:gap-3 bg-[#F5F3EF] px-3 py-2.5 md:px-6 md:py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
                     <div class="text-left">
-                        <div class="text-lg font-bold text-[#2C2C2C]">CEDIA</div>
-                        <div class="text-xs font-medium text-gray-500 uppercase tracking-wide">Certified</div>
+                        <div class="text-sm md:text-lg font-bold text-[#2C2C2C]">CEDIA</div>
+                        <div class="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide">Certified</div>
                     </div>
                 </div>
-                <div class="flex items-center gap-3 bg-[#F5F3EF] px-6 py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <svg class="w-6 h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <div class="flex items-center gap-2 md:gap-3 bg-[#F5F3EF] px-3 py-2.5 md:px-6 md:py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
                     <div class="text-left">
-                        <div class="text-lg font-bold text-[#2C2C2C]">2-Year</div>
-                        <div class="text-xs font-medium text-gray-500 uppercase tracking-wide">Warranty</div>
+                        <div class="text-sm md:text-lg font-bold text-[#2C2C2C]">2-Year</div>
+                        <div class="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide">Warranty</div>
                     </div>
                 </div>
             </div>
@@ -894,10 +884,10 @@
 
 
     <!-- Modes Section -->
-    <section class="py-24 bg-white" id="features">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-light mb-6">
+    <section class="py-12 md:py-24 bg-white" id="features">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-8 md:mb-16" data-aos="fade-up">
+                <h2 class="text-2xl md:text-4xl lg:text-5xl font-light mb-4 md:mb-6">
                     We design custom, architect-grade<br>
                     <span class="font-semibold">smart home systems</span> that seamlessly<br>
                     integrate with your lifestyle.
@@ -1060,7 +1050,7 @@
         </div>
     </section>
 
-    <!-- Case Studies Section -->
+    <!-- Portfolio Section -->
     <section id="case-studies" class="py-24 bg-[#F5F3EF]">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -1073,13 +1063,12 @@
                 <!-- Case Study 1: Cardiff Bay Penthouse -->
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up">
                     <div class="grid lg:grid-cols-2 gap-0">
-                        <div class="relative h-96 lg:h-auto">
-                            <img loading="lazy" src="https://via.placeholder.com/800x600/2C2C2C/cbaf82?text=Cardiff+Bay+Cinema" alt="Cardiff Bay Penthouse Cinema" class="w-full h-full object-cover">
-                            <div class="absolute top-4 left-4 bg-[#cbaf82] text-white px-4 py-2 rounded-full text-sm font-semibold">£85,000 Project</div>
-                            <p class="absolute bottom-4 left-4 right-4 text-white text-sm bg-black/50 p-2 rounded">Photo needed: Completed cinema with seating</p>
+                        <div class="relative h-96 lg:h-auto overflow-hidden">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&h=600&fit=crop" alt="Cardiff Bay Penthouse Cinema" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 bg-[#cbaf82] text-white px-4 py-2 rounded-full text-sm font-semibold z-10">£85,000 Project</div>
                         </div>
-                        <div class="p-8 lg:p-12">
-                            <h3 class="text-3xl font-semibold mb-4">Cardiff Bay Penthouse Cinema</h3>
+                        <div class="p-6 md:p-8 lg:p-12">
+                            <h3 class="text-2xl md:text-3xl font-semibold mb-4">Cardiff Bay Penthouse Cinema</h3>
                             <div class="flex flex-wrap gap-3 mb-6">
                                 <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Home Theatre</span>
                                 <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Whole-Home Control</span>
@@ -1112,7 +1101,7 @@
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="grid lg:grid-cols-2 gap-0">
                         <div class="order-2 lg:order-1 p-8 lg:p-12">
-                            <h3 class="text-3xl font-semibold mb-4">Bristol New Build - Whole Home Automation</h3>
+                            <h3 class="text-2xl md:text-3xl font-semibold mb-4">Bristol New Build - Whole Home Automation</h3>
                             <div class="flex flex-wrap gap-3 mb-6">
                                 <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Whole Home</span>
                                 <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Networking</span>
@@ -1140,9 +1129,8 @@
                             </div>
                         </div>
                         <div class="order-1 lg:order-2 relative h-96 lg:h-auto">
-                            <img loading="lazy" src="https://via.placeholder.com/800x600/2C2C2C/cbaf82?text=Bristol+Whole+Home" alt="Bristol New Build" class="w-full h-full object-cover">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop" alt="Bristol New Build" class="w-full h-full object-cover">
                             <div class="absolute top-4 right-4 bg-[#cbaf82] text-white px-4 py-2 rounded-full text-sm font-semibold">£120,000 Project</div>
-                            <p class="absolute bottom-4 left-4 right-4 text-white text-sm bg-black/50 p-2 rounded">Photo needed: Living room or equipment rack</p>
                         </div>
                     </div>
                 </div>
@@ -1151,12 +1139,11 @@
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
                     <div class="grid lg:grid-cols-2 gap-0">
                         <div class="relative h-96 lg:h-auto">
-                            <img loading="lazy" src="https://via.placeholder.com/800x600/2C2C2C/cbaf82?text=Newport+System+Rescue" alt="Newport Retrofit" class="w-full h-full object-cover">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop" alt="Newport Retrofit" class="w-full h-full object-cover">
                             <div class="absolute top-4 left-4 bg-[#cbaf82] text-white px-4 py-2 rounded-full text-sm font-semibold">£35,000 Rescue</div>
-                            <p class="absolute bottom-4 left-4 right-4 text-white text-sm bg-black/50 p-2 rounded">Photo needed: Clean equipment rack (before/after)</p>
                         </div>
-                        <div class="p-8 lg:p-12">
-                            <h3 class="text-3xl font-semibold mb-4">Newport Retrofit - Rescuing Failed Install</h3>
+                        <div class="p-6 md:p-8 lg:p-12">
+                            <h3 class="text-2xl md:text-3xl font-semibold mb-4">Newport Retrofit - Rescuing Failed Install</h3>
                             <div class="flex flex-wrap gap-3 mb-6">
                                 <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">System Rescue</span>
                                 <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Diagnostics</span>
@@ -1188,12 +1175,10 @@
 
             <div class="text-center mt-16" data-aos="fade-up">
                 <p class="text-lg text-gray-700 mb-6">Tired of promises? See systems that actually work.</p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="/case-studies.html" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#cbaf82] text-[#cbaf82] rounded-full hover:bg-[#cbaf82] hover:text-white transition-all duration-300">
-                        <span>View All Projects</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div class="flex justify-center">
+                    <a href="/portfolio.html" class="inline-block px-8 py-4 border-2 border-[#cbaf82] text-[#cbaf82] rounded-full hover:bg-[#cbaf82] hover:text-white transition-all duration-300 text-lg font-semibold">
+                        View All Projects
                     </a>
-                    <a href="tel:01443123456" class="btn-gold inline-block px-8 py-4 rounded-full text-lg">Call 01443 123456 - Speak to Tim</a>
                 </div>
             </div>
         </div>
@@ -1201,70 +1186,154 @@
 
     <!-- Process Timeline Section -->
     <section class="py-24 bg-[#F5F3EF]" id="process">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-light mb-6">
+        <div class="container mx-auto px-6 md:px-10">
+            <div class="max-w-7xl mx-auto mb-20 text-center">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-light mb-6 text-gray-900">
                     A streamlined experience<br>
                     gives way to <span class="font-semibold">timeless results.</span>
                 </h2>
+                <p class="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto">
+                    Our proven 7-step process ensures your smart home installation is seamless from start to finish.
+                </p>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto items-center">
-                <div class="space-y-4" data-aos="fade-right" id="process-steps-container">
-                    <div class="process-step active" data-step="1">
-                        <h3 class="text-xl md:text-2xl">Introductory Call</h3>
+            <div class="relative max-w-7xl mx-auto pb-20" id="timeline-container">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item flex justify-start pt-10 md:pt-40 md:gap-10">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
+                        <div class="timeline-dot-wrapper h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#F5F3EF] flex items-center justify-center">
+                            <div class="timeline-dot h-4 w-4 rounded-full bg-gray-200 border border-gray-300 p-2"></div>
+                        </div>
+                        <h3 class="hidden md:block text-xl md:pl-20 md:text-5xl font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">
+                            Introductory Call
+                        </h3>
                     </div>
-
-                    <div class="process-step" data-step="2">
-                        <h3 class="text-xl md:text-2xl">Showroom Visit</h3>
-                    </div>
-
-                    <div class="process-step" data-step="3">
-                        <h3 class="text-xl md:text-2xl">Design</h3>
-                    </div>
-
-                    <div class="process-step" data-step="4">
-                        <h3 class="text-xl md:text-2xl">Permitting</h3>
-                    </div>
-
-                    <div class="process-step" data-step="5">
-                        <h3 class="text-xl md:text-2xl">Manufacturing</h3>
-                    </div>
-
-                    <div class="process-step" data-step="6">
-                        <h3 class="text-xl md:text-2xl">Installation</h3>
-                    </div>
-
-                    <div class="process-step" data-step="7">
-                        <h3 class="text-xl md:text-2xl">Move-in</h3>
-                    </div>
-                </div>
-
-                <div class="relative" data-aos="fade-left">
-                    <div class="aspect-[4/3] overflow-hidden rounded-lg shadow-2xl bg-gray-50">
-                        <!-- Typewriter container for step 1 -->
-                        <div id="typewriter-container" class="w-full h-full flex flex-col items-center justify-center p-8">
-                            <div class="w-full max-w-md">
-                                <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
-                                    <div class="flex items-center gap-2 mb-4">
-                                        <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                                        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                                        <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                                    </div>
-                                    <label class="text-sm text-gray-500 mb-2 block">Enter your address</label>
-                                    <div class="flex items-center border-b-2 border-gray-300 pb-2">
-                                        <span id="typewriter-text" class="text-lg text-gray-800 font-medium"></span>
-                                        <span id="typewriter-cursor" class="ml-1 w-0.5 h-6 bg-gray-800 animate-pulse"></span>
-                                        <svg id="typewriter-check" class="w-6 h-6 text-green-500 ml-2 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                        </svg>
+                    <div class="relative pl-16 pr-2 md:pl-4 md:pr-4 w-full">
+                        <h3 class="md:hidden block text-xl sm:text-2xl mb-3 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Introductory Call</h3>
+                        <div class="aspect-[4/3] w-full sm:w-11/12 md:w-3/4 ml-auto overflow-hidden rounded-lg shadow-2xl bg-gray-50">
+                            <!-- Typewriter container for step 1 -->
+                            <div id="typewriter-container" class="w-full h-full flex flex-col items-center justify-center p-8">
+                                <div class="w-full max-w-md">
+                                    <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+                                        <div class="flex items-center gap-2 mb-4">
+                                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                                        </div>
+                                        <label class="text-sm text-gray-500 mb-2 block">Enter your address</label>
+                                        <div class="flex items-center border-b-2 border-gray-300 pb-2">
+                                            <span id="typewriter-text" class="text-lg text-gray-800 font-medium"></span>
+                                            <span id="typewriter-cursor" class="ml-1 w-0.5 h-6 bg-gray-800 animate-pulse"></span>
+                                            <svg id="typewriter-check" class="w-6 h-6 text-green-500 ml-2 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Regular image for other steps -->
-                        <img loading="lazy" id="process-image" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800" alt="Process Step" class="w-full h-full object-cover transition-opacity duration-200 hidden">
                     </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item flex justify-start pt-10 md:pt-40 md:gap-10">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
+                        <div class="timeline-dot-wrapper h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#F5F3EF] flex items-center justify-center">
+                            <div class="timeline-dot h-4 w-4 rounded-full bg-gray-200 border border-gray-300 p-2"></div>
+                        </div>
+                        <h3 class="hidden md:block text-xl md:pl-20 md:text-5xl font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">
+                            Showroom Visit
+                        </h3>
+                    </div>
+                    <div class="relative pl-16 pr-2 md:pl-4 md:pr-4 w-full">
+                        <h3 class="md:hidden block text-xl sm:text-2xl mb-3 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Showroom Visit</h3>
+                        <img loading="lazy" src="https://dibudpu2qk.ufs.sh/f/gMLyxahiseXnOn9hwLKZbdG2cj4JyRhki5YsTnSMV8ptU0Iw" alt="Showroom" class="rounded-lg object-cover aspect-[4/3] w-full sm:w-11/12 md:w-3/4 ml-auto shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item flex justify-start pt-10 md:pt-40 md:gap-10">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
+                        <div class="timeline-dot-wrapper h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#F5F3EF] flex items-center justify-center">
+                            <div class="timeline-dot h-4 w-4 rounded-full bg-gray-200 border border-gray-300 p-2"></div>
+                        </div>
+                        <h3 class="hidden md:block text-xl md:pl-20 md:text-5xl font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">
+                            Design
+                        </h3>
+                    </div>
+                    <div class="relative pl-16 pr-2 md:pl-4 md:pr-4 w-full">
+                        <h3 class="md:hidden block text-xl sm:text-2xl mb-3 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Design</h3>
+                        <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOzyuFC2jLKR0IxHoSujXsN92C6UbdmwrDt5vp" alt="Design" class="rounded-lg object-cover aspect-[4/3] w-full sm:w-11/12 md:w-3/4 ml-auto shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item flex justify-start pt-10 md:pt-40 md:gap-10">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
+                        <div class="timeline-dot-wrapper h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#F5F3EF] flex items-center justify-center">
+                            <div class="timeline-dot h-4 w-4 rounded-full bg-gray-200 border border-gray-300 p-2"></div>
+                        </div>
+                        <h3 class="hidden md:block text-xl md:pl-20 md:text-5xl font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">
+                            Permitting
+                        </h3>
+                    </div>
+                    <div class="relative pl-16 pr-2 md:pl-4 md:pr-4 w-full">
+                        <h3 class="md:hidden block text-xl sm:text-2xl mb-3 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Permitting</h3>
+                        <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO9Eztla7L7a4yZkOSwjp6VneHW3fciXINMmRJ" alt="Permitting" class="rounded-lg object-cover aspect-[4/3] w-full sm:w-11/12 md:w-3/4 ml-auto shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item flex justify-start pt-10 md:pt-40 md:gap-10">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
+                        <div class="timeline-dot-wrapper h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#F5F3EF] flex items-center justify-center">
+                            <div class="timeline-dot h-4 w-4 rounded-full bg-gray-200 border border-gray-300 p-2"></div>
+                        </div>
+                        <h3 class="hidden md:block text-xl md:pl-20 md:text-5xl font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">
+                            Manufacturing
+                        </h3>
+                    </div>
+                    <div class="relative pl-16 pr-2 md:pl-4 md:pr-4 w-full">
+                        <h3 class="md:hidden block text-xl sm:text-2xl mb-3 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Manufacturing</h3>
+                        <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO7B6CFwmVU1kR5np8h3MbP6F9WYtLHX4QayIj" alt="Manufacturing" class="rounded-lg object-cover aspect-[4/3] w-full sm:w-11/12 md:w-3/4 ml-auto shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Timeline Item 6 -->
+                <div class="timeline-item flex justify-start pt-10 md:pt-40 md:gap-10">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
+                        <div class="timeline-dot-wrapper h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#F5F3EF] flex items-center justify-center">
+                            <div class="timeline-dot h-4 w-4 rounded-full bg-gray-200 border border-gray-300 p-2"></div>
+                        </div>
+                        <h3 class="hidden md:block text-xl md:pl-20 md:text-5xl font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">
+                            Installation
+                        </h3>
+                    </div>
+                    <div class="relative pl-16 pr-2 md:pl-4 md:pr-4 w-full">
+                        <h3 class="md:hidden block text-xl sm:text-2xl mb-3 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Installation</h3>
+                        <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOTQy6eDfH42ClRqOnmzcMUWVaDjYdXkF6oy85" alt="Installation" class="rounded-lg object-cover aspect-[4/3] w-full sm:w-11/12 md:w-3/4 ml-auto shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Timeline Item 7 -->
+                <div class="timeline-item flex justify-start pt-10 md:pt-40 md:gap-10">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
+                        <div class="timeline-dot-wrapper h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#F5F3EF] flex items-center justify-center">
+                            <div class="timeline-dot h-4 w-4 rounded-full bg-gray-200 border border-gray-300 p-2"></div>
+                        </div>
+                        <h3 class="hidden md:block text-xl md:pl-20 md:text-5xl font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">
+                            Move-in
+                        </h3>
+                    </div>
+                    <div class="relative pl-16 pr-2 md:pl-4 md:pr-4 w-full">
+                        <h3 class="md:hidden block text-xl sm:text-2xl mb-3 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Move-in</h3>
+                        <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOGS0qZDJPh6NTurQMxCgR5qE98obA7U4XH2wc" alt="Move-in" class="rounded-lg object-cover aspect-[4/3] w-full sm:w-11/12 md:w-3/4 ml-auto shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Progress Line -->
+                <div class="timeline-line absolute md:left-8 left-8 top-0 w-[2px] bg-gradient-to-b from-transparent via-gray-200 to-transparent" style="height: 100%; mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);">
+                    <div id="timeline-progress" class="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-b from-[#cbaf82] to-transparent transition-all duration-300 ease-out" style="height: 0%;"></div>
                 </div>
             </div>
         </div>
@@ -1296,7 +1365,7 @@
                         <p class="pt-4"><strong>Serving:</strong> Cardiff, Newport, Bristol, Bridgend, Gloucester (70-mile radius from Pontypridd)</p>
                     </div>
                     <div class="mt-8">
-                        <a href="tel:01443123456" class="btn-gold inline-block px-8 py-4 rounded-full text-lg mr-4">Call 01443 123456</a>
+                        <a href="tel:01443123456" class="btn-gold inline-block px-8 py-4 rounded-full text-lg mr-4">Call Us</a>
                         <a href="mailto:hello@infinitysmarthomes.co.uk" class="inline-block border-2 border-[#cbaf82] text-[#cbaf82] px-8 py-4 rounded-full text-lg hover:bg-[#cbaf82] hover:text-white transition-all duration-300">Email Us</a>
                     </div>
                 </div>
@@ -1494,37 +1563,37 @@
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden" id="contact" style="background-image: url('https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO0R9Td9ACxibhy3ODoNmvdupE9fqX1KjZrlz5'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="absolute inset-0 bg-black/50"></div>
 
-        <div class="relative z-10 text-center text-white px-6 max-w-3xl" data-aos="zoom-in">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-light mb-6 leading-tight">
+        <div class="relative z-10 text-center text-white px-4 md:px-6 max-w-3xl" data-aos="zoom-in">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-4 md:mb-6 leading-tight">
                 Experience a new height<br>
                 <span class="font-semibold">in home living.</span>
             </h2>
-            <p class="text-xl md:text-2xl mb-12 opacity-90 font-light">
+            <p class="text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 opacity-90 font-light">
                 Let's discuss how we can create the perfect smart home system for you.
             </p>
-            <button onclick="openContactModal()" class="inline-block border border-white/60 px-8 py-4 rounded-full text-lg font-medium text-white transition-all duration-300 hover:bg-white/10 hover:border-white cursor-pointer">
+            <button onclick="openContactModal()" class="inline-block border border-white/60 px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-medium text-white transition-all duration-300 hover:bg-white/10 hover:border-white cursor-pointer">
                 Get Started
             </button>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between gap-8 mb-8">
+    <footer class="bg-black text-white py-8 md:py-12">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between gap-6 md:gap-8 mb-6 md:mb-8">
                 <!-- Logo & Brand -->
                 <div class="md:w-1/4">
                     <div class="flex items-center gap-3 mb-4">
-                        <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-10">
+                        <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-8 md:h-10">
                         <div>
-                            <div class="text-xl font-bold">INFINITY</div>
+                            <div class="text-lg md:text-xl font-bold">INFINITY</div>
                             <div class="text-xs text-gray-400">Smart Home Systems</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Links Grid -->
-                <div class="md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     <!-- Services Column 1 -->
                     <div>
                         <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Services</h3>
@@ -1552,7 +1621,7 @@
                         <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Company</h3>
                         <ul class="space-y-2 text-sm">
                             <li><a href="#about" class="hover:text-[#cbaf82] transition">About Us</a></li>
-                            <li><a href="/case-studies.html" class="hover:text-[#cbaf82] transition">Case Studies</a></li>
+                            <li><a href="/portfolio.html" class="hover:text-[#cbaf82] transition">Portfolio</a></li>
                             <li><a href="#process" class="hover:text-[#cbaf82] transition">Our Process</a></li>
                         </ul>
                     </div>
@@ -1561,7 +1630,7 @@
                     <div>
                         <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Contact</h3>
                         <ul class="space-y-2 text-sm">
-                            <li><a href="tel:01443123456" class="hover:text-[#cbaf82] transition">01443 123456</a></li>
+                            <li><a href="tel:01443123456" class="hover:text-[#cbaf82] transition">Call Us</a></li>
                             <li><a href="mailto:hello@infinitysmarthomes.co.uk" class="hover:text-[#cbaf82] transition text-xs">hello@infinitysmarthomes.co.uk</a></li>
                             <li class="text-gray-400 text-xs">Pontypridd, South Wales</li>
                         </ul>
@@ -1570,9 +1639,9 @@
             </div>
 
             <!-- Bottom Row: Copyright and Legal on same line -->
-            <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-                <p>&copy; 2025 Infinity Smart Home Systems. All rights reserved.</p>
-                <div class="flex gap-6 mt-4 md:mt-0">
+            <div class="border-t border-gray-700 pt-4 md:pt-6 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm text-gray-400">
+                <p class="mb-3 md:mb-0">&copy; 2025 Infinity Smart Home Systems. All rights reserved.</p>
+                <div class="flex gap-4 md:gap-6">
                     <a href="/privacy-policy.html" class="hover:text-[#cbaf82] transition">Privacy Policy</a>
                     <a href="/terms-conditions.html" class="hover:text-[#cbaf82] transition">Terms & Conditions</a>
                     <a href="/cookies-policy.html" class="hover:text-[#cbaf82] transition">Cookies</a>
@@ -1803,28 +1872,8 @@
             }
         });
 
-        // Process Timeline - Click handler and Scroll Hijacking
-        const processSteps = document.querySelectorAll('.process-step');
-        const processImage = document.getElementById('process-image');
-        const processSection = document.getElementById('process');
-        const processImages = {
-            1: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800', // Introductory Call - keeping same
-            2: 'https://dibudpu2qk.ufs.sh/f/gMLyxahiseXnOn9hwLKZbdG2cj4JyRhki5YsTnSMV8ptU0Iw', // Showroom Visit
-            3: 'https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOzyuFC2jLKR0IxHoSujXsN92C6UbdmwrDt5vp', // Design
-            4: 'https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO9Eztla7L7a4yZkOSwjp6VneHW3fciXINMmRJ', // Permitting
-            5: 'https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO7B6CFwmVU1kR5np8h3MbP6F9WYtLHX4QayIj', // Manufacturing
-            6: 'https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOTQy6eDfH42ClRqOnmzcMUWVaDjYdXkF6oy85', // Installation
-            7: 'https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOGS0qZDJPh6NTurQMxCgR5qE98obA7U4XH2wc'  // Move-in
-        };
-
-        // Preload all images for instant transitions
+        // Preload mode images for instant transitions
         function preloadImages() {
-            // Preload all process images
-            Object.values(processImages).forEach(url => {
-                const img = new Image();
-                img.src = url;
-            });
-
             // Preload all mode images
             Object.values(modeImages).forEach(url => {
                 const img = new Image();
@@ -1835,20 +1884,72 @@
         // Call preload on page load
         preloadImages();
 
-        let currentProcessStep = 1;
-        let isScrollHijacked = false;
-        let scrollAccumulator = 0;
-        const scrollThreshold = 100;
+        // Timeline Scroll Progress Animation
+        const timelineContainer = document.getElementById('timeline-container');
+        const timelineProgress = document.getElementById('timeline-progress');
+        const timelineDots = document.querySelectorAll('.timeline-dot');
 
-        // Typewriter animation variables
-        const typewriterContainer = document.getElementById('typewriter-container');
+        function updateTimelineProgress() {
+            if (!timelineContainer || !timelineProgress) return;
+
+            const containerRect = timelineContainer.getBoundingClientRect();
+            const containerTop = containerRect.top + window.scrollY;
+            const containerHeight = containerRect.height;
+            const scrollTop = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            // Calculate scroll progress through the timeline
+            const scrollStart = containerTop - windowHeight * 0.5;
+            const scrollEnd = containerTop + containerHeight - windowHeight * 0.5;
+            const scrollProgress = (scrollTop - scrollStart) / (scrollEnd - scrollStart);
+
+            // Clamp between 0 and 1
+            const clampedProgress = Math.max(0, Math.min(1, scrollProgress));
+
+            // Update progress line height
+            timelineProgress.style.height = (clampedProgress * 100) + '%';
+
+            // Activate dots based on scroll progress
+            const dotThresholds = [0.05, 0.2, 0.35, 0.5, 0.65, 0.8, 0.95];
+            timelineDots.forEach((dot, index) => {
+                if (clampedProgress >= dotThresholds[index]) {
+                    dot.style.background = '#cbaf82';
+                    dot.style.borderColor = '#cbaf82';
+                    dot.style.transform = 'scale(1.2)';
+                    dot.style.transition = 'all 0.3s ease-out';
+                } else {
+                    dot.style.background = '#e5e7eb';
+                    dot.style.borderColor = '#d1d5db';
+                    dot.style.transform = 'scale(1)';
+                    dot.style.transition = 'all 0.3s ease-out';
+                }
+            });
+        }
+
+        // Update on scroll with throttling for performance
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateTimelineProgress();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Update on load
+        updateTimelineProgress();
+
+        // Typewriter animation for Introductory Call
         const typewriterText = document.getElementById('typewriter-text');
         const typewriterCursor = document.getElementById('typewriter-cursor');
         const typewriterCheck = document.getElementById('typewriter-check');
-        let typewriterTimeout;
         const addressText = "210 S Beverly Drive, Beverly Hills";
 
         function runTypewriter() {
+            if (!typewriterText) return;
+
             typewriterText.textContent = '';
             typewriterCheck.classList.add('hidden');
             typewriterCursor.classList.remove('hidden');
@@ -1858,185 +1959,23 @@
                 if (i < addressText.length) {
                     typewriterText.textContent += addressText.charAt(i);
                     i++;
-                    typewriterTimeout = setTimeout(type, 60);
+                    setTimeout(type, 60);
                 } else {
                     // Show checkmark after typing completes
                     setTimeout(() => {
                         typewriterCursor.classList.add('hidden');
                         typewriterCheck.classList.remove('hidden');
-                        typewriterCheck.style.animation = 'none';
-                        typewriterCheck.offsetHeight; // Trigger reflow
-                        typewriterCheck.style.animation = 'fadeInScale 0.3s ease-out forwards';
+                        // Restart after delay
+                        setTimeout(runTypewriter, 3000);
                     }, 300);
-
-                    // Restart after delay
-                    typewriterTimeout = setTimeout(() => {
-                        if (currentProcessStep === 1) {
-                            runTypewriter();
-                        }
-                    }, 3000);
                 }
             }
             type();
         }
 
-        function setActiveStep(stepNum) {
-            processSteps.forEach(s => s.classList.remove('active'));
-            const activeStep = document.querySelector(`[data-step="${stepNum}"]`);
-            if (activeStep) {
-                activeStep.classList.add('active');
+        // Start typewriter animation
+        runTypewriter();
 
-                // Clear any existing typewriter timeout
-                if (typewriterTimeout) {
-                    clearTimeout(typewriterTimeout);
-                }
-
-                if (stepNum === 1) {
-                    // Show typewriter for step 1
-                    typewriterContainer.classList.remove('hidden');
-                    processImage.classList.add('hidden');
-                    runTypewriter();
-                } else {
-                    // Show image for other steps
-                    typewriterContainer.classList.add('hidden');
-                    processImage.classList.remove('hidden');
-                    processImage.style.opacity = '0';
-                    setTimeout(() => {
-                        processImage.src = processImages[stepNum];
-                        // Adjust object-position for installation (step 6) to show more of the top
-                        if (stepNum === 6) {
-                            processImage.style.objectPosition = 'center top';
-                        } else {
-                            processImage.style.objectPosition = 'center center';
-                        }
-                        processImage.style.opacity = '1';
-                    }, 150);
-                }
-            }
-        }
-
-        processSteps.forEach(step => {
-            step.addEventListener('click', () => {
-                currentProcessStep = parseInt(step.dataset.step);
-                setActiveStep(currentProcessStep);
-            });
-        });
-
-        // Auto-loop animation for process timeline
-        let autoLoopInterval;
-        function startAutoLoop() {
-            autoLoopInterval = setInterval(() => {
-                if (!isScrollHijacked) {
-                    currentProcessStep++;
-                    if (currentProcessStep > 7) currentProcessStep = 1;
-                    setActiveStep(currentProcessStep);
-                }
-            }, 3500); // Change step every 3.5 seconds
-        }
-
-        function stopAutoLoop() {
-            if (autoLoopInterval) {
-                clearInterval(autoLoopInterval);
-            }
-        }
-
-        // Start auto-loop on page load
-        startAutoLoop();
-
-        // Scroll hijacking for process timeline - FULL LOCK
-        let sectionLocked = false;
-        let lastScrollY = window.pageYOffset;
-        let entryDirection = 'down';
-
-        function handleProcessScroll(e) {
-            if (!isScrollHijacked) return;
-
-            e.preventDefault();
-            e.stopPropagation();
-
-            const delta = e.deltaY || e.detail || -e.wheelDelta;
-            scrollAccumulator += delta;
-
-            if (Math.abs(scrollAccumulator) >= scrollThreshold) {
-                if (scrollAccumulator > 0 && currentProcessStep < 7) {
-                    // Scrolling down
-                    currentProcessStep++;
-                    setActiveStep(currentProcessStep);
-                    scrollAccumulator = 0;
-                } else if (scrollAccumulator < 0 && currentProcessStep > 1) {
-                    // Scrolling up
-                    currentProcessStep--;
-                    setActiveStep(currentProcessStep);
-                    scrollAccumulator = 0;
-                } else if (scrollAccumulator > 0 && currentProcessStep === 7) {
-                    // At last step, scrolling down - unlock and allow page scroll
-                    isScrollHijacked = false;
-                    scrollAccumulator = 0;
-                    stopAutoLoop();
-                    return;
-                } else if (scrollAccumulator < 0 && currentProcessStep === 1) {
-                    // At first step, scrolling up - unlock and allow page scroll
-                    isScrollHijacked = false;
-                    scrollAccumulator = 0;
-                    stopAutoLoop();
-                    return;
-                } else {
-                    scrollAccumulator = 0;
-                }
-            }
-        }
-
-        // Lock position tracking
-        let lockedScrollPosition = null;
-        let isApproachingSection = false;
-        let hasTriggered = false;
-
-        // Simple scroll-based trigger - check on every scroll
-        function checkProcessTrigger() {
-            if (hasTriggered) return;
-
-            const processRect = processSection.getBoundingClientRect();
-            const caseStudiesSection = document.getElementById('case-studies');
-            const caseStudiesRect = caseStudiesSection.getBoundingClientRect();
-
-            // Only trigger when:
-            // 1. Process section is entering viewport (within 100px)
-            // 2. Case Studies section is mostly scrolled away (top is above viewport)
-            const processEntering = processRect.top < window.innerHeight - 100;
-            const caseStudiesGone = caseStudiesRect.top < 200; // Most of Case Studies is above viewport
-
-            if (processEntering && caseStudiesGone && !isScrollHijacked) {
-                hasTriggered = true;
-                isScrollHijacked = true;
-                stopAutoLoop();
-                currentProcessStep = 1;
-                setActiveStep(1);
-            }
-        }
-
-        // Check on scroll
-        window.addEventListener('scroll', checkProcessTrigger, { passive: true });
-
-        // Observer to unlock when leaving Process section
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting && isScrollHijacked) {
-                    // Reset when section leaves viewport
-                    isScrollHijacked = false;
-                    hasTriggered = false;
-                    scrollAccumulator = 0;
-                    startAutoLoop();
-                }
-            });
-        }, { threshold: 0 });
-
-        sectionObserver.observe(processSection);
-
-        // Listen to wheel events
-        document.addEventListener('wheel', handleProcessScroll, { passive: false });
-        document.addEventListener('touchmove', handleProcessScroll, { passive: false });
-
-        
         // Flip Cards Animation on Scroll
         const flipCards = document.querySelectorAll('.flip-card');
 
@@ -2070,14 +2009,14 @@
             });
         }
 
-        // Smooth scroll for anchor links
+        // Instant scroll for anchor links (no smooth scrolling to prevent interference)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth',
+                        behavior: 'auto',
                         block: 'start'
                     });
                     // Close mobile menu if open
