@@ -333,7 +333,7 @@
             position: relative;
             width: 100%;
             height: 100%;
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
             transform: scaleX(-1);
         }
@@ -461,12 +461,17 @@
 
         @media (max-width: 768px) {
             .mode-tabs-overlay {
-                padding: 0.3rem 0.4rem;
+                padding: 0.4rem;
                 top: 0.5rem;
+                width: calc(100% - 1rem);
+                max-width: 100%;
             }
             .mode-tab-overlay {
-                padding: 0.3rem 0.5rem;
+                padding: 0.4rem 0.6rem;
                 font-size: 0.65rem;
+            }
+            #mode-image-container {
+                min-height: 400px;
             }
         }
 
@@ -832,9 +837,9 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center overflow-hidden" id="main-content">
+    <section class="relative min-h-[75vh] md:min-h-screen flex items-center overflow-hidden" id="main-content">
         <div class="absolute inset-0 z-0">
-            <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOxTWJl3bLgSvAtfYR2rd497lXUiMGsw0zEup5" alt="Luxury Smart Home" class="w-full h-full object-cover">
+            <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOxTWJl3bLgSvAtfYR2rd497lXUiMGsw0zEup5" alt="Luxury Smart Home" class="w-full h-full object-cover object-center">
             <div class="hero-gradient absolute inset-0"></div>
         </div>
 
@@ -847,35 +852,35 @@
         </div>
     </section>
     <!-- Trust Signals Bar -->
-    <section class="bg-white py-8 md:py-16 border-y border-gray-100">
+    <section class="bg-white py-6 md:py-16 border-y border-gray-100">
         <div class="container mx-auto px-4 md:px-6">
-            <div class="flex flex-wrap justify-center items-center gap-3 md:gap-6 lg:gap-10 text-center">
-                <div class="flex items-center gap-2 md:gap-3 bg-[#F5F3EF] px-3 py-2.5 md:px-6 md:py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <svg class="w-5 h-5 md:w-6 md:h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
-                    <div class="text-left">
-                        <div class="text-lg md:text-2xl font-bold text-[#2C2C2C]">200+</div>
-                        <div class="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide">Projects</div>
+            <div class="grid grid-cols-2 md:flex md:flex-wrap justify-center items-center gap-2 md:gap-6 lg:gap-10">
+                <div class="flex flex-col items-center justify-center bg-[#F5F3EF] px-4 py-3 md:px-6 md:py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-h-[80px] md:min-h-0">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-[#cbaf82] mb-1" fill="currentColor" viewBox="0 0 20 20"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
+                    <div class="text-center">
+                        <div class="text-xl md:text-2xl font-bold text-[#2C2C2C]">200+</div>
+                        <div class="text-[9px] md:text-xs font-medium text-gray-500 uppercase tracking-wide">Projects</div>
                     </div>
                 </div>
-                <div class="flex items-center gap-2 md:gap-3 bg-[#F5F3EF] px-3 py-2.5 md:px-6 md:py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <svg class="w-5 h-5 md:w-6 md:h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-                    <div class="text-left">
-                        <div class="text-lg md:text-2xl font-bold text-[#2C2C2C]">15 Years</div>
-                        <div class="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide">In Business</div>
+                <div class="flex flex-col items-center justify-center bg-[#F5F3EF] px-4 py-3 md:px-6 md:py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-h-[80px] md:min-h-0">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-[#cbaf82] mb-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                    <div class="text-center">
+                        <div class="text-xl md:text-2xl font-bold text-[#2C2C2C] whitespace-nowrap">15 Years</div>
+                        <div class="text-[9px] md:text-xs font-medium text-gray-500 uppercase tracking-wide">In Business</div>
                     </div>
                 </div>
-                <div class="flex items-center gap-2 md:gap-3 bg-[#F5F3EF] px-3 py-2.5 md:px-6 md:py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <svg class="w-5 h-5 md:w-6 md:h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                    <div class="text-left">
-                        <div class="text-sm md:text-lg font-bold text-[#2C2C2C]">CEDIA</div>
-                        <div class="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide">Certified</div>
+                <div class="flex flex-col items-center justify-center bg-[#F5F3EF] px-4 py-3 md:px-6 md:py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-h-[80px] md:min-h-0">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-[#cbaf82] mb-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    <div class="text-center">
+                        <div class="text-xl md:text-lg font-bold text-[#2C2C2C]">CEDIA</div>
+                        <div class="text-[9px] md:text-xs font-medium text-gray-500 uppercase tracking-wide">Certified</div>
                     </div>
                 </div>
-                <div class="flex items-center gap-2 md:gap-3 bg-[#F5F3EF] px-3 py-2.5 md:px-6 md:py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <svg class="w-5 h-5 md:w-6 md:h-6 text-[#cbaf82]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                    <div class="text-left">
-                        <div class="text-sm md:text-lg font-bold text-[#2C2C2C]">2-Year</div>
-                        <div class="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wide">Warranty</div>
+                <div class="flex flex-col items-center justify-center bg-[#F5F3EF] px-4 py-3 md:px-6 md:py-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-h-[80px] md:min-h-0">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-[#cbaf82] mb-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    <div class="text-center">
+                        <div class="text-xl md:text-lg font-bold text-[#2C2C2C] whitespace-nowrap">2-Year</div>
+                        <div class="text-[9px] md:text-xs font-medium text-gray-500 uppercase tracking-wide">Warranty</div>
                     </div>
                 </div>
             </div>
@@ -887,10 +892,8 @@
     <section class="py-12 md:py-24 bg-white" id="features">
         <div class="container mx-auto px-4 md:px-6">
             <div class="text-center mb-8 md:mb-16" data-aos="fade-up">
-                <h2 class="text-2xl md:text-4xl lg:text-5xl font-light mb-4 md:mb-6">
-                    We design custom, architect-grade<br>
-                    <span class="font-semibold">smart home systems</span> that seamlessly<br>
-                    integrate with your lifestyle.
+                <h2 class="text-xl md:text-4xl lg:text-5xl font-light mb-4 md:mb-6">
+                    We design custom, architect-grade <span class="font-semibold">smart home systems</span> that seamlessly integrate with your lifestyle.
                 </h2>
             </div>
 
@@ -898,7 +901,7 @@
                 <div id="mode-image-container" class="relative rounded-lg overflow-hidden shadow-2xl">
                     <!-- Mode tabs overlay on top of image -->
                     <div class="mode-tabs-overlay">
-                        <div class="flex justify-center gap-1">
+                        <div class="flex flex-wrap justify-center gap-1">
                             <button class="mode-tab-overlay active" data-mode="living">Living Room</button>
                             <button class="mode-tab-overlay" data-mode="kitchen">Kitchen</button>
                             <button class="mode-tab-overlay" data-mode="bedroom">Bedroom</button>
@@ -932,7 +935,7 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-semibold mb-4">Trusted Industry Partnerships</h2>
-                <p class="text-gray-600 text-lg">Certified excellence in smart home installation</p>
+                <p class="text-gray-600 text-base md:text-lg">Certified excellence in<br class="md:hidden"> smart home installation</p>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 items-center max-w-6xl mx-auto" data-aos="fade-up" data-aos-delay="200">
@@ -962,14 +965,13 @@
     <section class="py-24 bg-[#F5F3EF]">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-light mb-6">
-                    Designed to blend in,<br>
-                    <span class="font-semibold">naturally stands out.</span>
+                <h2 class="text-2xl md:text-5xl lg:text-6xl font-light mb-6">
+                    Designed to blend in, <span class="font-semibold">naturally stands out.</span>
                 </h2>
             </div>
 
             <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                <div class="before-after-container relative aspect-video rounded-lg overflow-hidden shadow-2xl" id="slider-container">
+                <div class="before-after-container relative aspect-video md:aspect-video min-h-[350px] md:min-h-0 rounded-lg overflow-hidden shadow-2xl" id="slider-container">
                     <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO4ldjqS5RXgOlVJBKwzq6UIdiCyAD8Yxv7k1L" alt="Cinema Room" class="w-full h-full object-cover">
 
                     <div class="after-image" id="after-image">
@@ -978,18 +980,18 @@
 
                     <div class="before-after-slider" id="slider">
                         <div class="slider-button">
-                            <svg class="w-6 h-6 text-[#2C2C2C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 md:w-6 md:h-6 text-[#2C2C2C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
                             </svg>
                         </div>
                     </div>
 
-                    <div class="absolute bottom-8 left-8 bg-white/90 px-6 py-3 rounded-full">
-                        <span class="text-sm font-medium">Living Room</span>
+                    <div class="absolute bottom-3 left-3 md:bottom-8 md:left-8 bg-white/90 px-3 py-1.5 md:px-6 md:py-3 rounded-full">
+                        <span class="text-xs md:text-sm font-medium">Living Room</span>
                     </div>
 
-                    <div class="absolute bottom-8 right-8 bg-white/90 px-6 py-3 rounded-full">
-                        <span class="text-sm font-medium">Cinema Room</span>
+                    <div class="absolute bottom-3 right-3 md:bottom-8 md:right-8 bg-white/90 px-3 py-1.5 md:px-6 md:py-3 rounded-full">
+                        <span class="text-xs md:text-sm font-medium">Cinema Room</span>
                     </div>
                 </div>
             </div>
@@ -1009,8 +1011,8 @@
             <div class="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
                 <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
                     <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800" alt="Seamless Integration" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
-                        <div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center p-8">
+                        <div class="text-center">
                             <h3 class="text-white text-2xl font-semibold mb-2">Hidden Wiring, Perfect Finish</h3>
                             <p class="text-white/90">No visible cables or wall-mounted control panels cluttering your walls. Everything is concealed in ceilings, floors, and custom cabinetry. leaving only clean architecture.</p>
                         </div>
@@ -1019,8 +1021,8 @@
 
                 <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
                     <img loading="lazy" src="https://images.unsplash.com/photo-1556912173-46c336c7fd55?q=80&w=800" alt="Intelligent Automation" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
-                        <div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center p-8">
+                        <div class="text-center">
                             <h3 class="text-white text-2xl font-semibold mb-2">One Tap, Everything Responds</h3>
                             <p class="text-white/90">Press "Good Night" and watch: lights dim, doors lock, thermostats adjust, security arms, and blinds close. all at once. Morning routine reverses it automatically.</p>
                         </div>
@@ -1029,8 +1031,8 @@
 
                 <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
                     <img loading="lazy" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800" alt="Elegant Control" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
-                        <div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center p-8">
+                        <div class="text-center">
                             <h3 class="text-white text-2xl font-semibold mb-2">Voice, Touch, or Phone. Your Choice</h3>
                             <p class="text-white/90">Say "Alexa, movie time" or tap the wall panel. Adjust from your iPhone while away. Same control, three ways. whatever feels natural in the moment.</p>
                         </div>
@@ -1039,8 +1041,8 @@
 
                 <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="400">
                     <img loading="lazy" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800" alt="Future-Proof Design" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
-                        <div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center p-8">
+                        <div class="text-center">
                             <h3 class="text-white text-2xl font-semibold mb-2">Add Rooms Without Rewiring</h3>
                             <p class="text-white/90">Building an extension? Just add new devices to your existing network. No electrician needed, no walls opened. The system expands as your home grows.</p>
                         </div>
@@ -1055,8 +1057,8 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <p class="text-sm uppercase tracking-[0.3em] mb-4 text-[#cbaf82]">Proof, Not Promises</p>
-                <h2 class="text-4xl md:text-5xl font-semibold mb-6">Real Projects, Real Results</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">See how we've transformed homes across South Wales with reliable smart home systems that actually work</p>
+                <h2 class="text-3xl md:text-5xl font-semibold mb-6">Real Projects,<br class="md:hidden"> Real Results</h2>
+                <p class="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">See how we've transformed homes across South Wales with reliable smart home systems that actually work.</p>
             </div>
 
             <div class="max-w-7xl mx-auto space-y-12">
@@ -1067,30 +1069,30 @@
                             <img loading="lazy" src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&h=600&fit=crop" alt="Cardiff Bay Penthouse Cinema" class="w-full h-full object-cover">
                             <div class="absolute top-4 left-4 bg-[#cbaf82] text-white px-4 py-2 rounded-full text-sm font-semibold z-10">£85,000 Project</div>
                         </div>
-                        <div class="p-6 md:p-8 lg:p-12">
-                            <h3 class="text-2xl md:text-3xl font-semibold mb-4">Cardiff Bay Penthouse Cinema</h3>
-                            <div class="flex flex-wrap gap-3 mb-6">
-                                <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Home Theatre</span>
-                                <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Whole-Home Control</span>
-                                <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Multi-Room Audio</span>
+                        <div class="p-4 md:p-8 lg:p-12">
+                            <h3 class="text-xl md:text-3xl font-semibold mb-3 md:mb-4">Cardiff Bay Penthouse Cinema</h3>
+                            <div class="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-6">
+                                <span class="px-2 py-1 md:px-3 md:py-1 bg-[#F5F3EF] rounded-full text-xs md:text-sm">Home Theatre</span>
+                                <span class="px-2 py-1 md:px-3 md:py-1 bg-[#F5F3EF] rounded-full text-xs md:text-sm">Whole-Home Control</span>
+                                <span class="px-2 py-1 md:px-3 md:py-1 bg-[#F5F3EF] rounded-full text-xs md:text-sm">Multi-Room Audio</span>
                             </div>
-                            <div class="space-y-4 text-gray-700 mb-6">
+                            <div class="space-y-3 md:space-y-4 text-sm md:text-base text-gray-700 mb-4 md:mb-6">
                                 <p><strong>The Challenge:</strong> Property developer wanted a dedicated cinema in a penthouse with 25-foot vaulted ceiling - beautiful to look at but terrible for acoustics.</p>
                                 <p><strong>Our Solution:</strong> JVC NX7 4K laser projector on 150" screen, Dolby Atmos 7.2.4 surround with 24 acoustic panels, integrated with Control4 whole-home system. Everything controlled from one remote.</p>
-                                <p class="italic">"When we show guests the cinema, they can't believe it's in a residential building. The sound is better than our local Odeon. Tim's team even trained my wife - she's not technical but now fires up Netflix without me." <strong>- David Chen, Property Developer</strong></p>
+                                <p class="italic text-xs md:text-base">"When we show guests the cinema, they can't believe it's in a residential building. The sound is better than our local Odeon. Tim's team even trained my wife - she's not technical but now fires up Netflix without me." <strong>- David Chen, Property Developer</strong></p>
                             </div>
-                            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-gray-200">
+                            <div class="grid grid-cols-3 gap-2 md:gap-4 pt-4 md:pt-6 border-t border-gray-200">
                                 <div>
-                                    <div class="text-2xl font-semibold text-[#cbaf82]">8 weeks</div>
-                                    <div class="text-sm text-gray-600">Install Time</div>
+                                    <div class="text-lg md:text-2xl font-semibold text-[#cbaf82]">8 weeks</div>
+                                    <div class="text-xs md:text-sm text-gray-600">Install Time</div>
                                 </div>
                                 <div>
-                                    <div class="text-2xl font-semibold text-[#cbaf82]">47</div>
-                                    <div class="text-sm text-gray-600">Devices Integrated</div>
+                                    <div class="text-lg md:text-2xl font-semibold text-[#cbaf82]">47</div>
+                                    <div class="text-xs md:text-sm text-gray-600">Devices Integrated</div>
                                 </div>
                                 <div>
-                                    <div class="text-2xl font-semibold text-[#cbaf82]">2 Year</div>
-                                    <div class="text-sm text-gray-600">Warranty</div>
+                                    <div class="text-lg md:text-2xl font-semibold text-[#cbaf82]">2 Year</div>
+                                    <div class="text-xs md:text-sm text-gray-600">Warranty</div>
                                 </div>
                             </div>
                         </div>
@@ -1101,7 +1103,7 @@
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="grid lg:grid-cols-2 gap-0">
                         <div class="order-2 lg:order-1 p-8 lg:p-12">
-                            <h3 class="text-2xl md:text-3xl font-semibold mb-4">Bristol New Build - Whole Home Automation</h3>
+                            <h3 class="text-xl md:text-3xl font-semibold mb-3 md:mb-4">Bristol New Build - Whole Home Automation</h3>
                             <div class="flex flex-wrap gap-3 mb-6">
                                 <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Whole Home</span>
                                 <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Networking</span>
@@ -1142,8 +1144,8 @@
                             <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop" alt="Newport Retrofit" class="w-full h-full object-cover">
                             <div class="absolute top-4 left-4 bg-[#cbaf82] text-white px-4 py-2 rounded-full text-sm font-semibold">£35,000 Rescue</div>
                         </div>
-                        <div class="p-6 md:p-8 lg:p-12">
-                            <h3 class="text-2xl md:text-3xl font-semibold mb-4">Newport Retrofit - Rescuing Failed Install</h3>
+                        <div class="p-4 md:p-8 lg:p-12">
+                            <h3 class="text-xl md:text-3xl font-semibold mb-3 md:mb-4">Newport Retrofit - Rescuing Failed Install</h3>
                             <div class="flex flex-wrap gap-3 mb-6">
                                 <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">System Rescue</span>
                                 <span class="px-3 py-1 bg-[#F5F3EF] rounded-full text-sm">Diagnostics</span>
@@ -1187,12 +1189,11 @@
     <!-- Process Timeline Section -->
     <section class="py-24 bg-[#F5F3EF]" id="process">
         <div class="container mx-auto px-6 md:px-10">
-            <div class="max-w-7xl mx-auto mb-20 text-center">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-light mb-6 text-gray-900">
-                    A streamlined experience<br>
-                    gives way to <span class="font-semibold">timeless results.</span>
+            <div class="max-w-7xl mx-auto mb-12 md:mb-20 text-center">
+                <h2 class="text-2xl md:text-5xl lg:text-6xl font-light mb-4 md:mb-6 text-gray-900">
+                    A streamlined experience gives way to <span class="font-semibold">timeless results.</span>
                 </h2>
-                <p class="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto">
+                <p class="text-gray-600 text-base md:text-xl max-w-2xl mx-auto">
                     Our proven 7-step process ensures your smart home installation is seamless from start to finish.
                 </p>
             </div>
@@ -1200,7 +1201,7 @@
             <div class="relative max-w-7xl mx-auto pb-20" id="timeline-container">
                 <!-- Timeline Item 1 -->
                 <div class="timeline-item flex justify-start pt-10 md:pt-40 md:gap-10">
-                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[20vh] md:top-[20vh] md:top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
                         <div class="timeline-dot-wrapper h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#F5F3EF] flex items-center justify-center">
                             <div class="timeline-dot h-4 w-4 rounded-full bg-gray-200 border border-gray-300 p-2"></div>
                         </div>
@@ -1208,8 +1209,8 @@
                             Introductory Call
                         </h3>
                     </div>
-                    <div class="relative pl-16 pr-2 md:pl-4 md:pr-4 w-full">
-                        <h3 class="md:hidden block text-xl sm:text-2xl mb-3 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Introductory Call</h3>
+                    <div class="relative pl-14 pr-2 md:pl-4 md:pr-4 w-full">
+                        <h3 class="md:hidden block text-base sm:text-xl mb-2 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-1">Introductory Call</h3>
                         <div class="aspect-[4/3] w-full sm:w-11/12 md:w-3/4 ml-auto overflow-hidden rounded-lg shadow-2xl bg-gray-50">
                             <!-- Typewriter container for step 1 -->
                             <div id="typewriter-container" class="w-full h-full flex flex-col items-center justify-center p-8">
@@ -1237,7 +1238,7 @@
 
                 <!-- Timeline Item 2 -->
                 <div class="timeline-item flex justify-start pt-10 md:pt-40 md:gap-10">
-                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[20vh] md:top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
                         <div class="timeline-dot-wrapper h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#F5F3EF] flex items-center justify-center">
                             <div class="timeline-dot h-4 w-4 rounded-full bg-gray-200 border border-gray-300 p-2"></div>
                         </div>
@@ -1245,15 +1246,15 @@
                             Showroom Visit
                         </h3>
                     </div>
-                    <div class="relative pl-16 pr-2 md:pl-4 md:pr-4 w-full">
-                        <h3 class="md:hidden block text-xl sm:text-2xl mb-3 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Showroom Visit</h3>
+                    <div class="relative pl-14 pr-2 md:pl-4 md:pr-4 w-full">
+                        <h3 class="md:hidden block text-base sm:text-xl mb-2 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Showroom Visit</h3>
                         <img loading="lazy" src="https://dibudpu2qk.ufs.sh/f/gMLyxahiseXnOn9hwLKZbdG2cj4JyRhki5YsTnSMV8ptU0Iw" alt="Showroom" class="rounded-lg object-cover aspect-[4/3] w-full sm:w-11/12 md:w-3/4 ml-auto shadow-2xl">
                     </div>
                 </div>
 
                 <!-- Timeline Item 3 -->
                 <div class="timeline-item flex justify-start pt-10 md:pt-40 md:gap-10">
-                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[20vh] md:top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
                         <div class="timeline-dot-wrapper h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#F5F3EF] flex items-center justify-center">
                             <div class="timeline-dot h-4 w-4 rounded-full bg-gray-200 border border-gray-300 p-2"></div>
                         </div>
@@ -1261,15 +1262,15 @@
                             Design
                         </h3>
                     </div>
-                    <div class="relative pl-16 pr-2 md:pl-4 md:pr-4 w-full">
-                        <h3 class="md:hidden block text-xl sm:text-2xl mb-3 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Design</h3>
+                    <div class="relative pl-14 pr-2 md:pl-4 md:pr-4 w-full">
+                        <h3 class="md:hidden block text-base sm:text-xl mb-2 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Design</h3>
                         <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOzyuFC2jLKR0IxHoSujXsN92C6UbdmwrDt5vp" alt="Design" class="rounded-lg object-cover aspect-[4/3] w-full sm:w-11/12 md:w-3/4 ml-auto shadow-2xl">
                     </div>
                 </div>
 
                 <!-- Timeline Item 4 -->
                 <div class="timeline-item flex justify-start pt-10 md:pt-40 md:gap-10">
-                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[20vh] md:top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
                         <div class="timeline-dot-wrapper h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#F5F3EF] flex items-center justify-center">
                             <div class="timeline-dot h-4 w-4 rounded-full bg-gray-200 border border-gray-300 p-2"></div>
                         </div>
@@ -1277,15 +1278,15 @@
                             Permitting
                         </h3>
                     </div>
-                    <div class="relative pl-16 pr-2 md:pl-4 md:pr-4 w-full">
-                        <h3 class="md:hidden block text-xl sm:text-2xl mb-3 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Permitting</h3>
+                    <div class="relative pl-14 pr-2 md:pl-4 md:pr-4 w-full">
+                        <h3 class="md:hidden block text-base sm:text-xl mb-2 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Permitting</h3>
                         <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO9Eztla7L7a4yZkOSwjp6VneHW3fciXINMmRJ" alt="Permitting" class="rounded-lg object-cover aspect-[4/3] w-full sm:w-11/12 md:w-3/4 ml-auto shadow-2xl">
                     </div>
                 </div>
 
                 <!-- Timeline Item 5 -->
                 <div class="timeline-item flex justify-start pt-10 md:pt-40 md:gap-10">
-                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[20vh] md:top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
                         <div class="timeline-dot-wrapper h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#F5F3EF] flex items-center justify-center">
                             <div class="timeline-dot h-4 w-4 rounded-full bg-gray-200 border border-gray-300 p-2"></div>
                         </div>
@@ -1293,15 +1294,15 @@
                             Manufacturing
                         </h3>
                     </div>
-                    <div class="relative pl-16 pr-2 md:pl-4 md:pr-4 w-full">
-                        <h3 class="md:hidden block text-xl sm:text-2xl mb-3 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Manufacturing</h3>
+                    <div class="relative pl-14 pr-2 md:pl-4 md:pr-4 w-full">
+                        <h3 class="md:hidden block text-base sm:text-xl mb-2 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Manufacturing</h3>
                         <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVO7B6CFwmVU1kR5np8h3MbP6F9WYtLHX4QayIj" alt="Manufacturing" class="rounded-lg object-cover aspect-[4/3] w-full sm:w-11/12 md:w-3/4 ml-auto shadow-2xl">
                     </div>
                 </div>
 
                 <!-- Timeline Item 6 -->
                 <div class="timeline-item flex justify-start pt-10 md:pt-40 md:gap-10">
-                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[20vh] md:top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
                         <div class="timeline-dot-wrapper h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#F5F3EF] flex items-center justify-center">
                             <div class="timeline-dot h-4 w-4 rounded-full bg-gray-200 border border-gray-300 p-2"></div>
                         </div>
@@ -1309,15 +1310,15 @@
                             Installation
                         </h3>
                     </div>
-                    <div class="relative pl-16 pr-2 md:pl-4 md:pr-4 w-full">
-                        <h3 class="md:hidden block text-xl sm:text-2xl mb-3 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Installation</h3>
+                    <div class="relative pl-14 pr-2 md:pl-4 md:pr-4 w-full">
+                        <h3 class="md:hidden block text-base sm:text-xl mb-2 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Installation</h3>
                         <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOTQy6eDfH42ClRqOnmzcMUWVaDjYdXkF6oy85" alt="Installation" class="rounded-lg object-cover aspect-[4/3] w-full sm:w-11/12 md:w-3/4 ml-auto shadow-2xl">
                     </div>
                 </div>
 
                 <!-- Timeline Item 7 -->
                 <div class="timeline-item flex justify-start pt-10 md:pt-40 md:gap-10">
-                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-[20vh] md:top-[45vh] self-start max-w-xs lg:max-w-sm md:w-full">
                         <div class="timeline-dot-wrapper h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#F5F3EF] flex items-center justify-center">
                             <div class="timeline-dot h-4 w-4 rounded-full bg-gray-200 border border-gray-300 p-2"></div>
                         </div>
@@ -1325,8 +1326,8 @@
                             Move-in
                         </h3>
                     </div>
-                    <div class="relative pl-16 pr-2 md:pl-4 md:pr-4 w-full">
-                        <h3 class="md:hidden block text-xl sm:text-2xl mb-3 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Move-in</h3>
+                    <div class="relative pl-14 pr-2 md:pl-4 md:pr-4 w-full">
+                        <h3 class="md:hidden block text-base sm:text-xl mb-2 text-left font-bold bg-gradient-to-r from-[#cbaf82] to-[#d4af37] bg-clip-text text-transparent pb-2 whitespace-nowrap">Move-in</h3>
                         <img loading="lazy" src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOGS0qZDJPh6NTurQMxCgR5qE98obA7U4XH2wc" alt="Move-in" class="rounded-lg object-cover aspect-[4/3] w-full sm:w-11/12 md:w-3/4 ml-auto shadow-2xl">
                     </div>
                 </div>
@@ -1593,11 +1594,11 @@
                 </div>
 
                 <!-- Links Grid -->
-                <div class="md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
                     <!-- Services Column 1 -->
                     <div>
-                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Services</h3>
-                        <ul class="space-y-2 text-sm">
+                        <h3 class="text-xs md:text-sm font-semibold mb-2 md:mb-3 text-[#cbaf82] uppercase tracking-wider">Services</h3>
+                        <ul class="space-y-1.5 md:space-y-2 text-xs md:text-sm">
                             <li><a href="/smart-home-design.html" class="hover:text-[#cbaf82] transition">Smart Home Design</a></li>
                             <li><a href="/home-theatre.html" class="hover:text-[#cbaf82] transition">Home Theatre</a></li>
                             <li><a href="/wifi-networking.html" class="hover:text-[#cbaf82] transition">Wi-Fi & Networking</a></li>
@@ -1607,8 +1608,8 @@
 
                     <!-- Services Column 2 -->
                     <div>
-                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider opacity-0 md:opacity-100">Services Cont.</h3>
-                        <ul class="space-y-2 text-sm">
+                        <h3 class="text-xs md:text-sm font-semibold mb-2 md:mb-3 text-[#cbaf82] uppercase tracking-wider opacity-0 md:opacity-100">Services Cont.</h3>
+                        <ul class="space-y-1.5 md:space-y-2 text-xs md:text-sm">
                             <li><a href="/video-distribution.html" class="hover:text-[#cbaf82] transition">Video Distribution</a></li>
                             <li><a href="/smart-shading.html" class="hover:text-[#cbaf82] transition">Smart Shading</a></li>
                             <li><a href="/security-cctv.html" class="hover:text-[#cbaf82] transition">Security & CCTV</a></li>
@@ -1618,8 +1619,8 @@
 
                     <!-- Company -->
                     <div>
-                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Company</h3>
-                        <ul class="space-y-2 text-sm">
+                        <h3 class="text-xs md:text-sm font-semibold mb-2 md:mb-3 text-[#cbaf82] uppercase tracking-wider">Company</h3>
+                        <ul class="space-y-1.5 md:space-y-2 text-xs md:text-sm">
                             <li><a href="#about" class="hover:text-[#cbaf82] transition">About Us</a></li>
                             <li><a href="/portfolio.html" class="hover:text-[#cbaf82] transition">Portfolio</a></li>
                             <li><a href="#process" class="hover:text-[#cbaf82] transition">Our Process</a></li>
@@ -1628,11 +1629,11 @@
 
                     <!-- Contact -->
                     <div>
-                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Contact</h3>
-                        <ul class="space-y-2 text-sm">
+                        <h3 class="text-xs md:text-sm font-semibold mb-2 md:mb-3 text-[#cbaf82] uppercase tracking-wider">Contact</h3>
+                        <ul class="space-y-1.5 md:space-y-2 text-xs md:text-sm">
                             <li><a href="tel:01443123456" class="hover:text-[#cbaf82] transition">Call Us</a></li>
-                            <li><a href="mailto:hello@infinitysmarthomes.co.uk" class="hover:text-[#cbaf82] transition text-xs">hello@infinitysmarthomes.co.uk</a></li>
-                            <li class="text-gray-400 text-xs">Pontypridd, South Wales</li>
+                            <li><a href="mailto:hello@infinitysmarthomes.co.uk" class="hover:text-[#cbaf82] transition text-[10px] md:text-xs">hello@infinitysmarthomes.co.uk</a></li>
+                            <li class="text-gray-400 text-[10px] md:text-xs">Pontypridd, South Wales</li>
                         </ul>
                     </div>
                 </div>
