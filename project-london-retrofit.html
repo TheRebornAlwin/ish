@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>London Townhouse Retrofit | ISH Audio Visual Case Study</title>
+    <meta name="description" content="A £120,000 smart home retrofit installation featuring Control4, Lutron, and multi-room audio in a historic London townhouse.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- GLightbox for image gallery -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Project",
+      "name": "London Townhouse Retrofit",
+      "description": "Complete smart home retrofit with Control4 automation, Lutron lighting, and Sonos multi-room audio in historic property",
+      "creator": {
+        "@type": "Organization",
+        "name": "ISH Audio Visual"
+      },
+      "budget": {
+        "@type": "PriceSpecification",
+        "price": "120000",
+        "priceCurrency": "GBP"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1"
+      }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0A0A0A;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .breadcrumb {
+            position: absolute;
+            top: 100px;
+            left: 50px;
+            z-index: 20;
+        }
+
+        .breadcrumb a {
+            color: #cbaf82;
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.7;
+        }
+
+        /* Glass Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin: 60px 0;
+        }
+
+        .stat-card {
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(203, 175, 130, 0.2);
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            aspect-ratio: 16/9;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '🔍';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Equipment List */
+        .equipment-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .equipment-list li {
+            padding: 16px;
+            border-left: 3px solid #cbaf82;
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .equipment-list li:hover {
+            background: rgba(203, 175, 130, 0.1);
+        }
+
+        /* Testimonial Card */
+        .testimonial-card {
+            padding: 48px;
+            border-radius: 24px;
+            position: relative;
+            margin: 60px 0;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 40px;
+            font-size: 120px;
+            color: #cbaf82;
+            opacity: 0.2;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Related Projects Grid */
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .related-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            aspect-ratio: 1;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .related-card:hover {
+            transform: scale(1.05);
+        }
+
+        .related-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .related-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 18px 48px;
+            background: linear-gradient(135deg, #cbaf82, #d4c89e);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(203, 175, 130, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(203, 175, 130, 0.5);
+        }
+
+        /* Metrics Chart */
+        .metrics-bar {
+            height: 40px;
+            background: rgba(203, 175, 130, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 12px 0;
+        }
+
+        .metrics-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #cbaf82, #d4c89e);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 16px;
+            font-weight: 600;
+            transition: width 1s ease-out;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #cbaf82, #d4c89e);
+            z-index: 1000;
+            transition: width 0.1s;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 50px;
+            z-index: 100;
+            transition: background 0.3s;
+        }
+
+        nav.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .breadcrumb {
+                top: 80px;
+                left: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-card {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="breadcrumb">
+            <a href="case-studies.html">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=90" alt="London Townhouse Hero" class="hero-image">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <div class="text-6xl md:text-8xl font-bold mb-6">
+                London Townhouse<br>Retrofit
+            </div>
+            <div class="text-2xl md:text-3xl text-[#cbaf82] mb-8">
+                Modernizing heritage with invisible technology
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 text-lg">
+                <span>⭐⭐⭐⭐⭐</span>
+                <span>|</span>
+                <span>£120,000 Investment</span>
+                <span>|</span>
+                <span>12 Weeks Build</span>
+                <span>|</span>
+                <span>120+ Devices</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+            <div>
+                <h2 class="text-5xl font-bold mb-6">The Challenge</h2>
+                <p class="text-xl text-gray-300 leading-relaxed mb-6">
+                    A Grade II listed Georgian townhouse in Kensington presented unique challenges: preserve the historic character while implementing cutting-edge smart home technology throughout five floors.
+                </p>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    The client demanded invisible integration—no visible speakers, no wall-mounted tablets, no exposed wiring. Every modern convenience needed to blend seamlessly with 200-year-old architecture.
+                </p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card glass">
+                    <div class="text-5xl font-bold text-[#cbaf82] mb-2">5</div>
+                    <div class="text-sm text-gray-400">Floors Automated</div>
+                </div>
+                <div class="stat-card glass">
+                    <div class="text-5xl font-bold text-[#cbaf82] mb-2">40</div>
+                    <div class="text-sm text-gray-400">Lutron Zones</div>
+                </div>
+                <div class="stat-card glass">
+                    <div class="text-5xl font-bold text-[#cbaf82] mb-2">18%</div>
+                    <div class="text-sm text-gray-400">Energy Savings</div>
+                </div>
+                <div class="stat-card glass">
+                    <div class="text-5xl font-bold text-[#cbaf82] mb-2">99.9%</div>
+                    <div class="text-sm text-gray-400">Uptime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution Approach -->
+    <section class="max-w-7xl mx-auto px-6 py-20 border-t border-gray-800">
+        <div data-aos="fade-up">
+            <h2 class="text-5xl font-bold mb-8">Invisible Integration</h2>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="glass p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">🏛️</div>
+                    <h3 class="text-2xl font-semibold mb-4">Heritage Compliance</h3>
+                    <p class="text-gray-300">
+                        Worked closely with conservation officers to ensure all installations met Grade II listing requirements.
+                    </p>
+                </div>
+                <div class="glass p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">🔇</div>
+                    <h3 class="text-2xl font-semibold mb-4">Invisible Audio</h3>
+                    <p class="text-gray-300">
+                        Architectural speakers concealed in walls and ceilings, preserving original cornicing and plasterwork.
+                    </p>
+                </div>
+                <div class="glass p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h3 class="text-2xl font-semibold mb-4">App-First Control</h3>
+                    <p class="text-gray-300">
+                        Complete control via smartphone and voice, eliminating wall-mounted panels entirely.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-3xl font-semibold mb-6 text-[#cbaf82]">Automation & Control</h3>
+                    <ul class="equipment-list">
+                        <li><strong>Control4 EA-5</strong> - Central Automation Controller</li>
+                        <li><strong>Lutron HomeWorks QS</strong> - 40-Zone Lighting (Palladiom keypads)</li>
+                        <li><strong>Amazon Alexa Integration</strong> - Voice Control Throughout</li>
+                        <li><strong>Nest Learning Thermostats</strong> - 5-Zone Climate (5 units)</li>
+                        <li><strong>August Smart Locks</strong> - Keyless Entry (3 doors)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-semibold mb-6 text-[#cbaf82]">Audio & Video</h3>
+                    <ul class="equipment-list">
+                        <li><strong>Sonos Architectural</strong> - 12-Zone Multi-Room Audio</li>
+                        <li><strong>KEF Ci Series</strong> - In-Ceiling Speakers (24 units)</li>
+                        <li><strong>Apple TV 4K</strong> - Streaming Devices (5 rooms)</li>
+                        <li><strong>Samsung Frame TV</strong> - Art Mode Displays (4 rooms)</li>
+                        <li><strong>Kaleidescape Strato C</strong> - Movie Server (Cinema Room)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <h3 class="text-3xl font-semibold mb-6 text-[#cbaf82]">Security & Surveillance</h3>
+                <ul class="equipment-list">
+                    <li><strong>Hikvision CCTV</strong> - 10 Cameras (4K ColorVu)</li>
+                    <li><strong>Ring Video Doorbell Pro 2</strong> - Front & Rear Entrances</li>
+                    <li><strong>Texecom Premier Elite</strong> - Wireless Alarm System</li>
+                    <li><strong>Control4 Intercom Anywhere</strong> - Video Intercom</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="max-w-7xl mx-auto px-6 py-20 border-t border-gray-800">
+        <div data-aos="fade-up">
+            <h2 class="text-5xl font-bold mb-8">Gallery</h2>
+            <div class="gallery-grid">
+                <a href="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=90" class="gallery-item glightbox" data-gallery="gallery1">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Living Room">
+                </a>
+                <a href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=90" class="gallery-item glightbox" data-gallery="gallery1">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Cinema Room">
+                </a>
+                <a href="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1920&q=90" class="gallery-item glightbox" data-gallery="gallery1">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" alt="Kitchen Integration">
+                </a>
+                <a href="https://images.unsplash.com/photo-1600607687644-c7a1be7a3a4a?w=1920&q=90" class="gallery-item glightbox" data-gallery="gallery1">
+                    <img src="https://images.unsplash.com/photo-1600607687644-c7a1be7a3a4a?w=800&q=80" alt="Bedroom Suite">
+                </a>
+                <a href="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1920&q=90" class="gallery-item glightbox" data-gallery="gallery1">
+                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80" alt="Lighting Control">
+                </a>
+                <a href="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1920&q=90" class="gallery-item glightbox" data-gallery="gallery1">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80" alt="Equipment Rack">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results & Metrics -->
+    <section class="max-w-7xl mx-auto px-6 py-20 border-t border-gray-800">
+        <div data-aos="fade-up">
+            <h2 class="text-5xl font-bold mb-8">Measurable Results</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Performance Metrics</h3>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span>Energy Efficiency Gain</span>
+                            <span class="text-[#cbaf82]">18% Reduction</span>
+                        </div>
+                        <div class="metrics-bar">
+                            <div class="metrics-fill" style="width: 82%;">82%</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span>System Uptime</span>
+                            <span class="text-[#cbaf82]">99.9%</span>
+                        </div>
+                        <div class="metrics-bar">
+                            <div class="metrics-fill" style="width: 99.9%;">99.9%</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span>Client Satisfaction</span>
+                            <span class="text-[#cbaf82]">100%</span>
+                        </div>
+                        <div class="metrics-bar">
+                            <div class="metrics-fill" style="width: 100%;">100%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Key Achievements</h3>
+                    <div class="space-y-6">
+                        <div class="glass p-6 rounded-xl">
+                            <div class="text-4xl font-bold text-[#cbaf82] mb-2">£12,000</div>
+                            <div class="text-gray-300">Annual energy savings (projected)</div>
+                        </div>
+                        <div class="glass p-6 rounded-xl">
+                            <div class="text-4xl font-bold text-[#cbaf82] mb-2">12 Weeks</div>
+                            <div class="text-gray-300">From design to completion</div>
+                        </div>
+                        <div class="glass p-6 rounded-xl">
+                            <div class="text-4xl font-bold text-[#cbaf82] mb-2">Zero</div>
+                            <div class="text-gray-300">Visible technology disruptions</div>
+                        </div>
+                        <div class="glass p-6 rounded-xl">
+                            <div class="text-4xl font-bold text-[#cbaf82] mb-2">100%</div>
+                            <div class="text-gray-300">Conservation officer approval</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonial -->
+    <section class="max-w-5xl mx-auto px-6 py-20">
+        <div class="testimonial-card glass" data-aos="fade-up">
+            <p class="text-2xl md:text-3xl leading-relaxed mb-8 italic text-gray-300">
+                "We were skeptical that modern technology could be integrated without compromising our home's historic character. ISH proved us spectacularly wrong. The Control4 system is invisible yet omnipresent—controlling everything from lighting to security with a tap on my phone. The energy savings alone will pay for the investment in 10 years."
+            </p>
+            <div class="flex items-center gap-4">
+                <img src="https://i.pravatar.cc/100?img=33" alt="Client" class="w-16 h-16 rounded-full">
+                <div>
+                    <div class="font-semibold text-xl">James & Victoria Pemberton</div>
+                    <div class="text-[#cbaf82]">Kensington Townhouse</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Projects -->
+    <section class="max-w-7xl mx-auto px-6 py-20 border-t border-gray-800">
+        <div data-aos="fade-up">
+            <h2 class="text-5xl font-bold mb-8">Related Projects</h2>
+            <div class="related-grid">
+                <a href="project-cardiff-cinema.html" class="related-card">
+                    <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=800&q=80" alt="Cardiff Cinema">
+                    <div class="related-overlay">
+                        <div class="text-sm text-[#cbaf82] mb-1">£85,000</div>
+                        <div class="text-xl font-semibold">Cardiff Penthouse Cinema</div>
+                    </div>
+                </a>
+                <a href="project-bath-whole-home.html" class="related-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Bath Estate">
+                    <div class="related-overlay">
+                        <div class="text-sm text-[#cbaf82] mb-1">£250,000</div>
+                        <div class="text-xl font-semibold">Bath Georgian Estate</div>
+                    </div>
+                </a>
+                <a href="case-studies.html" class="related-card">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80" alt="All Projects">
+                    <div class="related-overlay">
+                        <div class="text-xl font-semibold">View All Projects →</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="max-w-7xl mx-auto px-6 py-32 text-center">
+        <div data-aos="fade-up">
+            <h2 class="text-5xl md:text-7xl font-bold mb-8">
+                Transform Your<br>Historic Property
+            </h2>
+            <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+                Specialist smart home integration for listed buildings and heritage properties.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="contact.html" class="cta-button">Book Consultation</a>
+                <a href="case-studies.html" class="cta-button" style="background: transparent; border: 2px solid #cbaf82; color: #cbaf82;">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2025 ISH Audio Visual. All rights reserved.</p>
+            <p class="mt-2">Award-winning home cinema and automation specialists</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: false,
+            offset: 50
+        });
+
+        // Initialize GLightbox
+        const lightbox = GLightbox({
+            touchNavigation: true,
+            loop: true,
+            autoplayVideos: true
+        });
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+
+        // Navbar background on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Animate metrics bars on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bars = entry.target.querySelectorAll('.metrics-fill');
+                    bars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('style').match(/width:\s*(\d+\.?\d*)%/)[1] + '%';
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const metricsSection = document.querySelector('.metrics-bar')?.closest('section');
+        if (metricsSection) observer.observe(metricsSection);
+    </script>
+</body>
+</html>

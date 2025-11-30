@@ -97,7 +97,16 @@
             </div>
 
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-4">
+            <div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-black transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden overflow-y-auto">
+            <div class="p-6 space-y-4">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-white text-xl font-semibold">Menu</span>
+                    <button id="mobile-menu-close" class="text-white hover:text-[#cbaf82]" aria-label="Close menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
                 <a href="#about" class="block text-white hover:text-[#cbaf82]">About</a>
                 <a href="#case-studies" class="block text-white hover:text-[#cbaf82]">Case Studies</a>
                 <div>
@@ -118,11 +127,13 @@
                 </div>
                 <button onclick="openContactModal()" class="block w-full text-center btn-gold px-6 py-2 rounded-full">Get Started</button>
             </div>
+            </div>
+        </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+    <section class="relative min-h-screen md:h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOhssCIX1z42mCJODUbTgc6xrKas3LpqWtv5e8" alt="Electrical Installation" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
@@ -163,33 +174,33 @@
     <section class="py-24 bg-[#F5F3EF]" id="features">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-semibold mb-4">Certified Excellence</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">NICEIC approved contractors providing safe, compliant electrical installations.</p>
+                <h2 class="text-4xl md:text-5xl font-semibold text-center md:text-left mb-4">Certified Excellence</h2>
+                <p class="text-xl text-gray-600 text-center md:text-left max-w-3xl mx-auto">NICEIC approved contractors providing safe, compliant electrical installations.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Full Rewiring</h3>
-                    <p class="text-gray-600">Complete electrical rewiring for new builds and renovations with minimal disruption.</p>
+                    <h3 class="text-2xl font-semibold text-center md:text-left mb-4">Full Rewiring</h3>
+                    <p class="text-gray-600 text-center md:text-left">Complete electrical rewiring for new builds and renovations with minimal disruption.</p>
                 </div>
 
                 <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Smart Lighting</h3>
-                    <p class="text-gray-600">Intelligent lighting circuits designed for dimming, scenes, and automation control.</p>
+                    <h3 class="text-2xl font-semibold text-center md:text-left mb-4">Smart Lighting</h3>
+                    <p class="text-gray-600 text-center md:text-left">Intelligent lighting circuits designed for dimming, scenes, and automation control.</p>
                 </div>
 
                 <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Testing & Certification</h3>
-                    <p class="text-gray-600">Comprehensive electrical testing with full certification for insurance and compliance.</p>
+                    <h3 class="text-2xl font-semibold text-center md:text-left mb-4">Testing & Certification</h3>
+                    <p class="text-gray-600 text-center md:text-left">Comprehensive electrical testing with full certification for insurance and compliance.</p>
                 </div>
             </div>
         </div>
@@ -199,37 +210,37 @@
     <section class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-                <div data-aos="fade-right">
+                <div data-aos="fade-up">
                     <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOpkITzUBLkJ7FiWHoe9Pp2XcL1azxjrnYwy8K" alt="Electrical Work" class="rounded-xl shadow-2xl w-full">
                 </div>
-                <div data-aos="fade-left">
-                    <h2 class="text-4xl md:text-5xl font-semibold mb-6">Expert Installation</h2>
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
+                <div data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-semibold text-center md:text-left mb-6">Expert Installation</h2>
+                    <div class="space-y-6 flex flex-col items-center md:items-start">
+                        <div class="flex gap-4 justify-center md:justify-start">
                             <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-xl font-semibold mb-2">Consumer Units</h4>
-                                <p class="text-gray-600">Modern consumer unit upgrades with RCD protection and surge protection</p>
+                                <h4 class="text-xl font-semibold mb-2 text-center md:text-left">Consumer Units</h4>
+                                <p class="text-gray-600 text-center md:text-left">Modern consumer unit upgrades with RCD protection and surge protection</p>
                             </div>
                         </div>
-                        <div class="flex gap-4">
+                        <div class="flex gap-4 justify-center md:justify-start">
                             <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-xl font-semibold mb-2">EV Charging</h4>
-                                <p class="text-gray-600">Electric vehicle charging point installation for home and commercial</p>
+                                <h4 class="text-xl font-semibold mb-2 text-center md:text-left">EV Charging</h4>
+                                <p class="text-gray-600 text-center md:text-left">Electric vehicle charging point installation for home and commercial</p>
                             </div>
                         </div>
-                        <div class="flex gap-4">
+                        <div class="flex gap-4 justify-center md:justify-start">
                             <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-xl font-semibold mb-2">Outdoor Power</h4>
-                                <p class="text-gray-600">Garden lighting, outbuilding supplies, and outdoor socket installations</p>
+                                <h4 class="text-xl font-semibold mb-2 text-center md:text-left">Outdoor Power</h4>
+                                <p class="text-gray-600 text-center md:text-left">Garden lighting, outbuilding supplies, and outdoor socket installations</p>
                             </div>
                         </div>
                     </div>
@@ -244,34 +255,34 @@
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-12" data-aos="fade-up">
-                    <h2 class="text-4xl md:text-5xl font-semibold mb-6">Investment & Pricing</h2>
-                    <p class="text-xl text-gray-600">Transparent pricing for electrical installation & pre-wire</p>
+                    <h2 class="text-4xl md:text-5xl font-semibold text-center md:text-left mb-6">Investment & Pricing</h2>
+                    <p class="text-xl text-gray-600 text-center md:text-left">Transparent pricing for electrical installation & pre-wire</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8 mb-12">
                     <div class="bg-[#F5F3EF] p-8 rounded-xl" data-aos="fade-up">
                         <div class="text-sm uppercase tracking-wider text-[#cbaf82] mb-2">Starting From</div>
                         <div class="text-5xl font-bold text-[#2C2C2C] mb-4">£5,000</div>
-                        <p class="text-gray-600">Basic system installation</p>
+                        <p class="text-gray-600 text-center md:text-left">Basic system installation</p>
                     </div>
                     <div class="bg-[#F5F3EF] p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
                         <div class="text-sm uppercase tracking-wider text-[#cbaf82] mb-2">Full Systems</div>
                         <div class="text-3xl font-bold text-[#2C2C2C] mb-4">£15,000+ for full smart home electrical infrastructure</div>
-                        <p class="text-gray-600">Complete professional installation</p>
+                        <p class="text-gray-600 text-center md:text-left">Complete professional installation</p>
                     </div>
                 </div>
 
                 <div class="bg-white border-2 border-[#cbaf82] rounded-xl p-8" data-aos="fade-up">
-                    <h3 class="text-2xl font-semibold mb-4">Who Needs This?</h3>
+                    <h3 class="text-2xl font-semibold text-center md:text-left mb-4">Who Needs This?</h3>
                     <p class="text-gray-700 mb-6">New builds needing pre-wire, renovations adding smart systems, homes needing proper circuits/containment for automation</p>
 
-                    <h3 class="text-2xl font-semibold mb-4 mt-8">Technology We Use</h3>
+                    <h3 class="text-2xl font-semibold text-center md:text-left mb-4 mt-8">Technology We Use</h3>
                     <p class="text-gray-700 mb-6">NICEIC certified in-house electricians, proper containment, surge protection, smart distribution boards, 18th Edition compliant</p>
 
-                    <h3 class="text-2xl font-semibold mb-4 mt-8">Real Example</h3>
+                    <h3 class="text-2xl font-semibold text-center md:text-left mb-4 mt-8">Real Example</h3>
                     <p class="text-gray-700 mb-6">New build in Gloucester - full pre-wire for smart home (data to every room, ceiling speaker cutouts, equipment closet setup, surge protection)</p>
 
-                    <h3 class="text-2xl font-semibold mb-4 mt-8">Our Approach</h3>
+                    <h3 class="text-2xl font-semibold text-center md:text-left mb-4 mt-8">Our Approach</h3>
                     <p class="text-gray-700">We're NICEIC certified, work with your builder's schedule, provide test certificates, install to 18th edition regs, coordinate AV/network/lighting trades.</p>
                 </div>
             </div>
@@ -283,26 +294,54 @@
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12" data-aos="fade-up">
-                    <h2 class="text-4xl md:text-5xl font-semibold mb-6">Frequently Asked Questions</h2>
-                    <p class="text-xl text-gray-600">Everything you need to know about electrical installation & pre-wire</p>
+                    <h2 class="text-4xl md:text-5xl font-semibold text-center md:text-left mb-6">Frequently Asked Questions</h2>
+                    <p class="text-xl text-gray-600 text-center md:text-left">Everything you need to know about electrical installation & pre-wire</p>
                 </div>
 
-                <div class="space-y-6">
-                    <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="0">
-                        <h3 class="text-xl font-semibold mb-3 text-[#2C2C2C]">Why do I need a specialist electrician for smart homes?</h3>
-                        <p class="text-gray-700">Standard sparkies don't understand low-voltage wiring, network cabling, or equipment rack layouts. We coordinate all trades.</p>
+                <div class="space-y-6 flex flex-col items-center md:items-start">
+                    <div class="faq-item bg-white rounded-xl shadow-sm overflow-hidden" data-aos="fade-up">
+                        <button class="faq-question w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 transition-colors" aria-expanded="false">
+                            <h3 class="text-xl font-semibold text-[#2C2C2C] pr-4">Why do I need a specialist electrician for smart homes?</h3>
+                            <svg class="faq-arrow w-6 h-6 text-[#cbaf82] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden overflow-hidden transition-all duration-300" style="max-height: 0px;">
+                            <p class="text-gray-700 px-6 pb-6">Standard sparkies don't understand low-voltage wiring, network cabling, or equipment rack layouts. We coordinate all trades.</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                        <h3 class="text-xl font-semibold mb-3 text-[#2C2C2C]">What's included in pre-wire?</h3>
-                        <p class="text-gray-700">CAT6 to every room, speaker wire to ceiling, conduit for future, equipment closet wiring, surge protection, labeled cables.</p>
+                    <div class="faq-item bg-white rounded-xl shadow-sm overflow-hidden" data-aos="fade-up">
+                        <button class="faq-question w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 transition-colors" aria-expanded="false">
+                            <h3 class="text-xl font-semibold text-[#2C2C2C] pr-4">What's included in pre-wire?</h3>
+                            <svg class="faq-arrow w-6 h-6 text-[#cbaf82] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden overflow-hidden transition-all duration-300" style="max-height: 0px;">
+                            <p class="text-gray-700 px-6 pb-6">CAT6 to every room, speaker wire to ceiling, conduit for future, equipment closet wiring, surge protection, labeled cables.</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="text-xl font-semibold mb-3 text-[#2C2C2C]">Can you work with our existing electrician?</h3>
-                        <p class="text-gray-700">Yes - we provide plans, they do rough-in, we do low-voltage/final connections. Or we handle everything in-house.</p>
+                    <div class="faq-item bg-white rounded-xl shadow-sm overflow-hidden" data-aos="fade-up">
+                        <button class="faq-question w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 transition-colors" aria-expanded="false">
+                            <h3 class="text-xl font-semibold text-[#2C2C2C] pr-4">Can you work with our existing electrician?</h3>
+                            <svg class="faq-arrow w-6 h-6 text-[#cbaf82] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden overflow-hidden transition-all duration-300" style="max-height: 0px;">
+                            <p class="text-gray-700 px-6 pb-6">Yes - we provide plans, they do rough-in, we do low-voltage/final connections. Or we handle everything in-house.</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
-                        <h3 class="text-xl font-semibold mb-3 text-[#2C2C2C]">What certifications do you have?</h3>
-                        <p class="text-gray-700">NICEIC certified (electrical), CEDIA certified (AV), 18th Edition trained. Fully insured with £10M public liability.</p>
+                    <div class="faq-item bg-white rounded-xl shadow-sm overflow-hidden" data-aos="fade-up">
+                        <button class="faq-question w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 transition-colors" aria-expanded="false">
+                            <h3 class="text-xl font-semibold text-[#2C2C2C] pr-4">What certifications do you have?</h3>
+                            <svg class="faq-arrow w-6 h-6 text-[#cbaf82] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden overflow-hidden transition-all duration-300" style="max-height: 0px;">
+                            <p class="text-gray-700 px-6 pb-6">NICEIC certified (electrical), CEDIA certified (AV), 18th Edition trained. Fully insured with £10M public liability.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -314,7 +353,7 @@
         </div>
     </section>
 <!-- CTA Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background-image: url('https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOuA8BZCWWkc8ILa9EYiRKV5vndO1PTjb6gwN7'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <section class="relative min-h-screen md:h-screen flex items-center justify-center overflow-hidden" style="background-image: url('https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOuA8BZCWWkc8ILa9EYiRKV5vndO1PTjb6gwN7'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="absolute inset-0 bg-black/50"></div>
 
         <div class="relative z-10 text-center text-white px-6 max-w-3xl" data-aos="zoom-in">
@@ -332,26 +371,26 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#2C2C2C] text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between gap-8 mb-8">
+    <footer class="bg-black text-white py-6 md:py-12">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between gap-4 md:gap-8 mb-4 md:mb-8">
                 <!-- Logo & Brand -->
                 <div class="md:w-1/4">
-                    <div class="flex items-center gap-3 mb-4">
-                        <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-10">
+                    <div class="flex items-center justify-center md:justify-start gap-2 md:gap-3 mb-3 md:mb-4">
+                        <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-7 md:h-10">
                         <div>
-                            <div class="text-xl font-bold">INFINITY</div>
-                            <div class="text-xs text-gray-400">Smart Home Systems</div>
+                            <div class="text-base md:text-xl font-bold">INFINITY</div>
+                            <div class="text-[10px] md:text-xs text-gray-400">Smart Home Systems</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Links Grid -->
-                <div class="md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     <!-- Services Column 1 -->
                     <div>
-                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Services</h3>
-                        <ul class="space-y-2 text-sm">
+                        <h3 class="text-[10px] md:text-sm font-semibold mb-1.5 md:mb-3 text-[#cbaf82] uppercase tracking-wider">Services</h3>
+                        <ul class="space-y-1 md:space-y-2 text-[10px] md:text-sm">
                             <li><a href="/smart-home-design.html" class="hover:text-[#cbaf82] transition">Smart Home Design</a></li>
                             <li><a href="/home-theatre.html" class="hover:text-[#cbaf82] transition">Home Theatre</a></li>
                             <li><a href="/wifi-networking.html" class="hover:text-[#cbaf82] transition">Wi-Fi & Networking</a></li>
@@ -361,8 +400,8 @@
 
                     <!-- Services Column 2 -->
                     <div>
-                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider opacity-0 md:opacity-100">.</h3>
-                        <ul class="space-y-2 text-sm">
+                        <h3 class="text-[10px] md:text-sm font-semibold mb-1.5 md:mb-3 text-[#cbaf82] uppercase tracking-wider opacity-0 md:opacity-100">Services Cont.</h3>
+                        <ul class="space-y-1 md:space-y-2 text-[10px] md:text-sm">
                             <li><a href="/video-distribution.html" class="hover:text-[#cbaf82] transition">Video Distribution</a></li>
                             <li><a href="/smart-shading.html" class="hover:text-[#cbaf82] transition">Smart Shading</a></li>
                             <li><a href="/security-cctv.html" class="hover:text-[#cbaf82] transition">Security & CCTV</a></li>
@@ -372,34 +411,39 @@
 
                     <!-- Company -->
                     <div>
-                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Company</h3>
-                        <ul class="space-y-2 text-sm">
+                        <h3 class="text-[10px] md:text-sm font-semibold mb-1.5 md:mb-3 text-[#cbaf82] uppercase tracking-wider">Company</h3>
+                        <ul class="space-y-1 md:space-y-2 text-[10px] md:text-sm">
                             <li><a href="#about" class="hover:text-[#cbaf82] transition">About Us</a></li>
-                            <li><a href="/case-studies.html" class="hover:text-[#cbaf82] transition">Case Studies</a></li>
+                            <li><a href="/portfolio.html" class="hover:text-[#cbaf82] transition">Portfolio</a></li>
                             <li><a href="#process" class="hover:text-[#cbaf82] transition">Our Process</a></li>
                         </ul>
                     </div>
 
                     <!-- Contact -->
                     <div>
-                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Contact</h3>
-                        <ul class="space-y-2 text-sm">
-                            <li><a href="tel:01443123456" class="hover:text-[#cbaf82] transition">01443 123456</a></li>
-                            <li><a href="mailto:hello@infinitysmarthomes.co.uk" class="hover:text-[#cbaf82] transition text-xs">hello@infinitysmarthomes.co.uk</a></li>
-                            <li class="text-gray-400 text-xs">Pontypridd, South Wales</li>
+                        <h3 class="text-[10px] md:text-sm font-semibold mb-1.5 md:mb-3 text-[#cbaf82] uppercase tracking-wider">Contact</h3>
+                        <ul class="space-y-1 md:space-y-2 text-[10px] md:text-sm">
+                            <li><a href="tel:01443123456" class="hover:text-[#cbaf82] transition">Call Us</a></li>
+                            <li><a href="mailto:hello@infinitysmarthomes.co.uk" class="hover:text-[#cbaf82] transition break-all">hello@infinitysmarthomes.co.uk</a></li>
+                            <li class="text-gray-400">Pontypridd, South Wales</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <!-- Bottom Row: Copyright and Legal on same line -->
-            <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-                <p>&copy; 2025 Infinity Smart Home Systems. All rights reserved.</p>
-                <div class="flex gap-6 mt-4 md:mt-0">
-                    <a href="/privacy-policy.html" class="hover:text-[#cbaf82] transition">Privacy Policy</a>
-                    <a href="/terms-conditions.html" class="hover:text-[#cbaf82] transition">Terms & Conditions</a>
+            <div class="border-t border-gray-700 pt-3 md:pt-6 flex flex-col md:flex-row justify-between items-center text-[10px] md:text-sm text-gray-400 gap-2 md:gap-0">
+                <p class="text-center md:text-left">&copy; 2025 Infinity Smart Home Systems. All rights reserved.</p>
+                <div class="flex flex-wrap justify-center gap-2 md:gap-6">
+                    <a href="/privacy-policy.html" class="hover:text-[#cbaf82] transition">Privacy</a>
+                    <a href="/terms-conditions.html" class="hover:text-[#cbaf82] transition">Terms</a>
                     <a href="/cookies-policy.html" class="hover:text-[#cbaf82] transition">Cookies</a>
                 </div>
+            </div>
+
+            <!-- Triple Ten Digits Branding -->
+            <div class="text-center mt-3 md:mt-6 text-[10px] md:text-xs text-gray-500">
+                <p>Website by <a href="mailto:alwin@tripletendigits.com" class="text-[#cbaf82] hover:text-[#d4af37] transition">Triple Ten Digits</a></p>
             </div>
         </div>
     </footer>
@@ -408,8 +452,31 @@
     <script>
         AOS.init({ duration: 800, once: false, offset: 50 });
         window.addEventListener('load', () => { document.body.style.opacity = '1'; });
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        // Mobile menu slide-in from right
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+            });
+        }
+
+        if (mobileMenuClose && mobileMenu) {
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+            });
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mobileMenu && !mobileMenu.contains(e.target) && !mobileMenuBtn?.contains(e.target)) {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+            }
         });
         // Mobile services toggle
         const mobileServicesToggle = document.getElementById('mobile-services-toggle');
@@ -420,6 +487,62 @@
                 mobileServicesToggle.querySelector('svg').classList.toggle('rotate-180');
             });
         }
+    </script>
+
+    <script>
+    // Header transparency on scroll
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('main-header');
+        if (window.scrollY > 50) {
+            header.classList.remove('header-transparent');
+            header.classList.add('bg-black');
+        } else {
+            header.classList.add('header-transparent');
+            header.classList.remove('bg-black');
+        }
+    });
+    </script>
+
+    <script>
+    // FAQ Collapsible functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const arrow = item.querySelector('.faq-arrow');
+
+            if (question && answer && arrow) {
+                question.addEventListener('click', function() {
+                    const isOpen = !answer.classList.contains('hidden');
+
+                    if (isOpen) {
+                        // Close
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        setTimeout(() => {
+                            answer.style.maxHeight = '0px';
+                        }, 10);
+                        setTimeout(() => {
+                            answer.classList.add('hidden');
+                        }, 300);
+                        arrow.style.transform = 'rotate(0deg)';
+                    } else {
+                        // Open
+                        answer.classList.remove('hidden');
+                        answer.style.maxHeight = '0px';
+                        setTimeout(() => {
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                        }, 10);
+                        setTimeout(() => {
+                            answer.style.maxHeight = 'none';
+                        }, 300);
+                        arrow.style.transform = 'rotate(180deg)';
+                    }
+                });
+            }
+        });
+    });
     </script>
 </body>
 </html>

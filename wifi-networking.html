@@ -97,7 +97,16 @@
             </div>
 
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-4">
+            <div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-black transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden overflow-y-auto">
+            <div class="p-6 space-y-4">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-white text-xl font-semibold">Menu</span>
+                    <button id="mobile-menu-close" class="text-white hover:text-[#cbaf82]" aria-label="Close menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
                 <a href="#about" class="block text-white hover:text-[#cbaf82]">About</a>
                 <a href="#case-studies" class="block text-white hover:text-[#cbaf82]">Case Studies</a>
                 <div>
@@ -118,11 +127,13 @@
                 </div>
                 <button onclick="openContactModal()" class="block w-full text-center btn-gold px-6 py-2 rounded-full">Get Started</button>
             </div>
+            </div>
+        </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+    <section class="relative min-h-screen md:h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOm3wlNf3cbUnfSVystplRTLejEYHdJP5hW7K1" alt="Wi-Fi & Networking" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-black/50"></div>
@@ -163,33 +174,33 @@
     <section class="py-24 bg-[#F5F3EF]" id="features">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-semibold mb-4">Enterprise-Grade Networks</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Commercial-quality networking infrastructure designed for modern smart homes.</p>
+                <h2 class="text-4xl md:text-5xl font-semibold text-center md:text-left mb-4">Enterprise-Grade Networks</h2>
+                <p class="text-xl text-gray-600 text-center md:text-left max-w-3xl mx-auto">Commercial-quality networking infrastructure designed for modern smart homes.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Mesh Wi-Fi Systems</h3>
-                    <p class="text-gray-600">Seamless roaming throughout your property with zero dead zones and automatic band steering.</p>
+                    <h3 class="text-2xl font-semibold text-center md:text-left mb-4">Mesh Wi-Fi Systems</h3>
+                    <p class="text-gray-600 text-center md:text-left">Seamless roaming throughout your property with zero dead zones and automatic band steering.</p>
                 </div>
 
                 <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Network Security</h3>
-                    <p class="text-gray-600">Advanced threat protection, VLAN segmentation, and encrypted traffic for peace of mind.</p>
+                    <h3 class="text-2xl font-semibold text-center md:text-left mb-4">Network Security</h3>
+                    <p class="text-gray-600 text-center md:text-left">Advanced threat protection, VLAN segmentation, and encrypted traffic for peace of mind.</p>
                 </div>
 
                 <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Remote Management</h3>
-                    <p class="text-gray-600">Monitor and manage your network from anywhere with real-time analytics and alerts.</p>
+                    <h3 class="text-2xl font-semibold text-center md:text-left mb-4">Remote Management</h3>
+                    <p class="text-gray-600 text-center md:text-left">Monitor and manage your network from anywhere with real-time analytics and alerts.</p>
                 </div>
             </div>
         </div>
@@ -199,39 +210,39 @@
     <section class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-                <div data-aos="fade-left">
-                    <h2 class="text-4xl md:text-5xl font-semibold mb-6">Always Connected</h2>
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
+                <div data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-semibold text-center md:text-left mb-6">Always Connected</h2>
+                    <div class="space-y-6 flex flex-col items-center md:items-start">
+                        <div class="flex gap-4 justify-center md:justify-start">
                             <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-xl font-semibold mb-2">Structured Cabling</h4>
-                                <p class="text-gray-600">Cat6a and fiber optic infrastructure for future-proof connectivity</p>
+                                <h4 class="text-xl font-semibold mb-2 text-center md:text-left">Structured Cabling</h4>
+                                <p class="text-gray-600 text-center md:text-left">Cat6a and fiber optic infrastructure for future-proof connectivity</p>
                             </div>
                         </div>
-                        <div class="flex gap-4">
+                        <div class="flex gap-4 justify-center md:justify-start">
                             <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-xl font-semibold mb-2">QoS Optimization</h4>
-                                <p class="text-gray-600">Prioritized bandwidth for streaming, gaming, and video calls</p>
+                                <h4 class="text-xl font-semibold mb-2 text-center md:text-left">QoS Optimization</h4>
+                                <p class="text-gray-600 text-center md:text-left">Prioritized bandwidth for streaming, gaming, and video calls</p>
                             </div>
                         </div>
-                        <div class="flex gap-4">
+                        <div class="flex gap-4 justify-center md:justify-start">
                             <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#cbaf82] to-[#ede9df] rounded-full flex items-center justify-center">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div>
-                                <h4 class="text-xl font-semibold mb-2">Outdoor Coverage</h4>
-                                <p class="text-gray-600">Extended Wi-Fi to pools, gardens, and guest houses</p>
+                                <h4 class="text-xl font-semibold mb-2 text-center md:text-left">Outdoor Coverage</h4>
+                                <p class="text-gray-600 text-center md:text-left">Extended Wi-Fi to pools, gardens, and guest houses</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div data-aos="fade-right">
+                <div data-aos="fade-up">
                     <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOKPfXsrlS3BycgGDizlVpa9N24AbXkjwtq7ZO" alt="Network Infrastructure" class="rounded-xl shadow-2xl w-full">
                 </div>
             </div>
@@ -244,34 +255,34 @@
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-12" data-aos="fade-up">
-                    <h2 class="text-4xl md:text-5xl font-semibold mb-6">Investment & Pricing</h2>
-                    <p class="text-xl text-gray-600">Transparent pricing for enterprise wifi & networking</p>
+                    <h2 class="text-4xl md:text-5xl font-semibold text-center md:text-left mb-6">Investment & Pricing</h2>
+                    <p class="text-xl text-gray-600 text-center md:text-left">Transparent pricing for enterprise wifi & networking</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8 mb-12">
                     <div class="bg-[#F5F3EF] p-8 rounded-xl" data-aos="fade-up">
                         <div class="text-sm uppercase tracking-wider text-[#cbaf82] mb-2">Starting From</div>
                         <div class="text-5xl font-bold text-[#2C2C2C] mb-4">£3,000</div>
-                        <p class="text-gray-600">Basic system installation</p>
+                        <p class="text-gray-600 text-center md:text-left">Basic system installation</p>
                     </div>
                     <div class="bg-[#F5F3EF] p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
                         <div class="text-sm uppercase tracking-wider text-[#cbaf82] mb-2">Full Systems</div>
                         <div class="text-3xl font-bold text-[#2C2C2C] mb-4">£8,000+ for large properties with outdoor coverage and 10Gb backbone</div>
-                        <p class="text-gray-600">Complete professional installation</p>
+                        <p class="text-gray-600 text-center md:text-left">Complete professional installation</p>
                     </div>
                 </div>
 
                 <div class="bg-white border-2 border-[#cbaf82] rounded-xl p-8" data-aos="fade-up">
-                    <h3 class="text-2xl font-semibold mb-4">Who Needs This?</h3>
+                    <h3 class="text-2xl font-semibold text-center md:text-left mb-4">Who Needs This?</h3>
                     <p class="text-gray-700 mb-6">Anyone with dead zones, dropouts, buffering, or 50+ connected devices (smart homes need robust enterprise-grade WiFi)</p>
 
-                    <h3 class="text-2xl font-semibold mb-4 mt-8">Technology We Use</h3>
+                    <h3 class="text-2xl font-semibold text-center md:text-left mb-4 mt-8">Technology We Use</h3>
                     <p class="text-gray-700 mb-6">Ubiquiti UniFi, Ruckus, Cisco Meraki - enterprise access points, managed switches, VLAN segmentation for security</p>
 
-                    <h3 class="text-2xl font-semibold mb-4 mt-8">Real Example</h3>
+                    <h3 class="text-2xl font-semibold text-center md:text-left mb-4 mt-8">Real Example</h3>
                     <p class="text-gray-700 mb-6">6-bed new build in Newport - 12 UniFi access points, wired backhaul, separate VLANs for IoT/guests/security, 10Gb backbone for 4K streaming</p>
 
-                    <h3 class="text-2xl font-semibold mb-4 mt-8">Our Approach</h3>
+                    <h3 class="text-2xl font-semibold text-center md:text-left mb-4 mt-8">Our Approach</h3>
                     <p class="text-gray-700">We site-survey with heat mapping, install wired backhaul (no mesh drop-offs), configure VLANs for security, provide ongoing cloud monitoring.</p>
                 </div>
             </div>
@@ -283,26 +294,54 @@
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12" data-aos="fade-up">
-                    <h2 class="text-4xl md:text-5xl font-semibold mb-6">Frequently Asked Questions</h2>
-                    <p class="text-xl text-gray-600">Everything you need to know about enterprise wifi & networking</p>
+                    <h2 class="text-4xl md:text-5xl font-semibold text-center md:text-left mb-6">Frequently Asked Questions</h2>
+                    <p class="text-xl text-gray-600 text-center md:text-left">Everything you need to know about enterprise wifi & networking</p>
                 </div>
 
-                <div class="space-y-6">
-                    <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="0">
-                        <h3 class="text-xl font-semibold mb-3 text-[#2C2C2C]">Why not just use BT/Sky router?</h3>
-                        <p class="text-gray-700">Consumer routers fail with 30+ devices. Smart homes have 50-100+ devices. You need enterprise gear that won't crash.</p>
+                <div class="space-y-6 flex flex-col items-center md:items-start">
+                    <div class="faq-item bg-white rounded-xl shadow-sm overflow-hidden" data-aos="fade-up">
+                        <button class="faq-question w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 transition-colors" aria-expanded="false">
+                            <h3 class="text-xl font-semibold text-[#2C2C2C] pr-4">Why not just use BT/Sky router?</h3>
+                            <svg class="faq-arrow w-6 h-6 text-[#cbaf82] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden overflow-hidden transition-all duration-300" style="max-height: 0px;">
+                            <p class="text-gray-700 px-6 pb-6">Consumer routers fail with 30+ devices. Smart homes have 50-100+ devices. You need enterprise gear that won't crash.</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                        <h3 class="text-xl font-semibold mb-3 text-[#2C2C2C]">What's a VLAN and why do I need it?</h3>
-                        <p class="text-gray-700">Separates IoT devices (security risk) from your main network. If smart bulb gets hacked, they can't access your laptop.</p>
+                    <div class="faq-item bg-white rounded-xl shadow-sm overflow-hidden" data-aos="fade-up">
+                        <button class="faq-question w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 transition-colors" aria-expanded="false">
+                            <h3 class="text-xl font-semibold text-[#2C2C2C] pr-4">What's a VLAN and why do I need it?</h3>
+                            <svg class="faq-arrow w-6 h-6 text-[#cbaf82] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden overflow-hidden transition-all duration-300" style="max-height: 0px;">
+                            <p class="text-gray-700 px-6 pb-6">Separates IoT devices (security risk) from your main network. If smart bulb gets hacked, they can't access your laptop.</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="text-xl font-semibold mb-3 text-[#2C2C2C]">How many access points do I need?</h3>
-                        <p class="text-gray-700">1 per 800-1000 sq ft for solid coverage. Thick walls, concrete, or outdoor areas need more. We survey first.</p>
+                    <div class="faq-item bg-white rounded-xl shadow-sm overflow-hidden" data-aos="fade-up">
+                        <button class="faq-question w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 transition-colors" aria-expanded="false">
+                            <h3 class="text-xl font-semibold text-[#2C2C2C] pr-4">How many access points do I need?</h3>
+                            <svg class="faq-arrow w-6 h-6 text-[#cbaf82] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden overflow-hidden transition-all duration-300" style="max-height: 0px;">
+                            <p class="text-gray-700 px-6 pb-6">1 per 800-1000 sq ft for solid coverage. Thick walls, concrete, or outdoor areas need more. We survey first.</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
-                        <h3 class="text-xl font-semibold mb-3 text-[#2C2C2C]">Can you fix existing WiFi issues?</h3>
-                        <p class="text-gray-700">Yes - we diagnose (usually too few APs, wrong placement, or interference), then upgrade to enterprise system.</p>
+                    <div class="faq-item bg-white rounded-xl shadow-sm overflow-hidden" data-aos="fade-up">
+                        <button class="faq-question w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 transition-colors" aria-expanded="false">
+                            <h3 class="text-xl font-semibold text-[#2C2C2C] pr-4">Can you fix existing WiFi issues?</h3>
+                            <svg class="faq-arrow w-6 h-6 text-[#cbaf82] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden overflow-hidden transition-all duration-300" style="max-height: 0px;">
+                            <p class="text-gray-700 px-6 pb-6">Yes - we diagnose (usually too few APs, wrong placement, or interference), then upgrade to enterprise system.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -314,7 +353,7 @@
         </div>
     </section>
 <!-- CTA Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background-image: url('https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOhuWTmF1z42mCJODUbTgc6xrKas3LpqWtv5e8'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <section class="relative min-h-screen md:h-screen flex items-center justify-center overflow-hidden" style="background-image: url('https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOhuWTmF1z42mCJODUbTgc6xrKas3LpqWtv5e8'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="absolute inset-0 bg-black/50"></div>
 
         <div class="relative z-10 text-center text-white px-6 max-w-3xl" data-aos="zoom-in">
@@ -332,26 +371,26 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#2C2C2C] text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between gap-8 mb-8">
+    <footer class="bg-black text-white py-6 md:py-12">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between gap-4 md:gap-8 mb-4 md:mb-8">
                 <!-- Logo & Brand -->
                 <div class="md:w-1/4">
-                    <div class="flex items-center gap-3 mb-4">
-                        <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-10">
+                    <div class="flex items-center justify-center md:justify-start gap-2 md:gap-3 mb-3 md:mb-4">
+                        <img src="https://36ic4d16sm.ufs.sh/f/BSQ067hngJVOArm0FBoZCvLMxPuzw0UrnksoAQDtBdae1ipZ" alt="Infinity Smart Home Systems" class="h-7 md:h-10">
                         <div>
-                            <div class="text-xl font-bold">INFINITY</div>
-                            <div class="text-xs text-gray-400">Smart Home Systems</div>
+                            <div class="text-base md:text-xl font-bold">INFINITY</div>
+                            <div class="text-[10px] md:text-xs text-gray-400">Smart Home Systems</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Links Grid -->
-                <div class="md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     <!-- Services Column 1 -->
                     <div>
-                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Services</h3>
-                        <ul class="space-y-2 text-sm">
+                        <h3 class="text-[10px] md:text-sm font-semibold mb-1.5 md:mb-3 text-[#cbaf82] uppercase tracking-wider">Services</h3>
+                        <ul class="space-y-1 md:space-y-2 text-[10px] md:text-sm">
                             <li><a href="/smart-home-design.html" class="hover:text-[#cbaf82] transition">Smart Home Design</a></li>
                             <li><a href="/home-theatre.html" class="hover:text-[#cbaf82] transition">Home Theatre</a></li>
                             <li><a href="/wifi-networking.html" class="hover:text-[#cbaf82] transition">Wi-Fi & Networking</a></li>
@@ -361,8 +400,8 @@
 
                     <!-- Services Column 2 -->
                     <div>
-                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider opacity-0 md:opacity-100">.</h3>
-                        <ul class="space-y-2 text-sm">
+                        <h3 class="text-[10px] md:text-sm font-semibold mb-1.5 md:mb-3 text-[#cbaf82] uppercase tracking-wider opacity-0 md:opacity-100">Services Cont.</h3>
+                        <ul class="space-y-1 md:space-y-2 text-[10px] md:text-sm">
                             <li><a href="/video-distribution.html" class="hover:text-[#cbaf82] transition">Video Distribution</a></li>
                             <li><a href="/smart-shading.html" class="hover:text-[#cbaf82] transition">Smart Shading</a></li>
                             <li><a href="/security-cctv.html" class="hover:text-[#cbaf82] transition">Security & CCTV</a></li>
@@ -372,34 +411,39 @@
 
                     <!-- Company -->
                     <div>
-                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Company</h3>
-                        <ul class="space-y-2 text-sm">
+                        <h3 class="text-[10px] md:text-sm font-semibold mb-1.5 md:mb-3 text-[#cbaf82] uppercase tracking-wider">Company</h3>
+                        <ul class="space-y-1 md:space-y-2 text-[10px] md:text-sm">
                             <li><a href="#about" class="hover:text-[#cbaf82] transition">About Us</a></li>
-                            <li><a href="/case-studies.html" class="hover:text-[#cbaf82] transition">Case Studies</a></li>
+                            <li><a href="/portfolio.html" class="hover:text-[#cbaf82] transition">Portfolio</a></li>
                             <li><a href="#process" class="hover:text-[#cbaf82] transition">Our Process</a></li>
                         </ul>
                     </div>
 
                     <!-- Contact -->
                     <div>
-                        <h3 class="text-sm font-semibold mb-3 text-[#cbaf82] uppercase tracking-wider">Contact</h3>
-                        <ul class="space-y-2 text-sm">
-                            <li><a href="tel:01443123456" class="hover:text-[#cbaf82] transition">01443 123456</a></li>
-                            <li><a href="mailto:hello@infinitysmarthomes.co.uk" class="hover:text-[#cbaf82] transition text-xs">hello@infinitysmarthomes.co.uk</a></li>
-                            <li class="text-gray-400 text-xs">Pontypridd, South Wales</li>
+                        <h3 class="text-[10px] md:text-sm font-semibold mb-1.5 md:mb-3 text-[#cbaf82] uppercase tracking-wider">Contact</h3>
+                        <ul class="space-y-1 md:space-y-2 text-[10px] md:text-sm">
+                            <li><a href="tel:01443123456" class="hover:text-[#cbaf82] transition">Call Us</a></li>
+                            <li><a href="mailto:hello@infinitysmarthomes.co.uk" class="hover:text-[#cbaf82] transition break-all">hello@infinitysmarthomes.co.uk</a></li>
+                            <li class="text-gray-400">Pontypridd, South Wales</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <!-- Bottom Row: Copyright and Legal on same line -->
-            <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-                <p>&copy; 2025 Infinity Smart Home Systems. All rights reserved.</p>
-                <div class="flex gap-6 mt-4 md:mt-0">
-                    <a href="/privacy-policy.html" class="hover:text-[#cbaf82] transition">Privacy Policy</a>
-                    <a href="/terms-conditions.html" class="hover:text-[#cbaf82] transition">Terms & Conditions</a>
+            <div class="border-t border-gray-700 pt-3 md:pt-6 flex flex-col md:flex-row justify-between items-center text-[10px] md:text-sm text-gray-400 gap-2 md:gap-0">
+                <p class="text-center md:text-left">&copy; 2025 Infinity Smart Home Systems. All rights reserved.</p>
+                <div class="flex flex-wrap justify-center gap-2 md:gap-6">
+                    <a href="/privacy-policy.html" class="hover:text-[#cbaf82] transition">Privacy</a>
+                    <a href="/terms-conditions.html" class="hover:text-[#cbaf82] transition">Terms</a>
                     <a href="/cookies-policy.html" class="hover:text-[#cbaf82] transition">Cookies</a>
                 </div>
+            </div>
+
+            <!-- Triple Ten Digits Branding -->
+            <div class="text-center mt-3 md:mt-6 text-[10px] md:text-xs text-gray-500">
+                <p>Website by <a href="mailto:alwin@tripletendigits.com" class="text-[#cbaf82] hover:text-[#d4af37] transition">Triple Ten Digits</a></p>
             </div>
         </div>
     </footer>
@@ -408,8 +452,31 @@
     <script>
         AOS.init({ duration: 800, once: false, offset: 50 });
         window.addEventListener('load', () => { document.body.style.opacity = '1'; });
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        // Mobile menu slide-in from right
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+            });
+        }
+
+        if (mobileMenuClose && mobileMenu) {
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+            });
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mobileMenu && !mobileMenu.contains(e.target) && !mobileMenuBtn?.contains(e.target)) {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+            }
         });
 
         // Mobile services toggle
@@ -421,6 +488,62 @@
                 mobileServicesToggle.querySelector('svg').classList.toggle('rotate-180');
             });
         }
+    </script>
+
+    <script>
+    // Header transparency on scroll
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('main-header');
+        if (window.scrollY > 50) {
+            header.classList.remove('header-transparent');
+            header.classList.add('bg-black');
+        } else {
+            header.classList.add('header-transparent');
+            header.classList.remove('bg-black');
+        }
+    });
+    </script>
+
+    <script>
+    // FAQ Collapsible functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const arrow = item.querySelector('.faq-arrow');
+
+            if (question && answer && arrow) {
+                question.addEventListener('click', function() {
+                    const isOpen = !answer.classList.contains('hidden');
+
+                    if (isOpen) {
+                        // Close
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        setTimeout(() => {
+                            answer.style.maxHeight = '0px';
+                        }, 10);
+                        setTimeout(() => {
+                            answer.classList.add('hidden');
+                        }, 300);
+                        arrow.style.transform = 'rotate(0deg)';
+                    } else {
+                        // Open
+                        answer.classList.remove('hidden');
+                        answer.style.maxHeight = '0px';
+                        setTimeout(() => {
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                        }, 10);
+                        setTimeout(() => {
+                            answer.style.maxHeight = 'none';
+                        }, 300);
+                        arrow.style.transform = 'rotate(180deg)';
+                    }
+                });
+            }
+        });
+    });
     </script>
 </body>
 </html>
