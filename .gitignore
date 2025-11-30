@@ -1,19 +1,37 @@
-# Dependencies
+# Test and verification scripts
+test-*.js
+verify-*.js
+analyze-*.js
+diagnose-*.js
+check-*.js
+find-*.js
+extract-*.js
+fetch-*.js
+live-*.js
+realistic-*.js
+
+# Build artifacts and bundles
+bundle-*.js
+buildcover-*.js
+cover-*.js
+all-page-scripts.js
+
+# Analysis and test results
+*-analysis.json
+*-test.json
+test-results/
+
+# Temporary HTML files
+pinned-section.html
+buildcover-full.html
+
+# Node modules and dependencies
 node_modules/
-
-# Testing
-test-screenshots/
-test-report.json
-
-# Python
-__pycache__/
-*.py[cod]
-*.so
-.Python
-
-# Package files
 package-lock.json
 
-# Misc
-.DS_Store
-*.log
+# Test outputs
+test-report.json
+test-screenshots/
+
+# Additional test scripts
+final-scroll-test.js
