@@ -35,3 +35,8 @@ test-screenshots/
 
 # Additional test scripts
 final-scroll-test.js
+
+# Timeline fix scripts (temporary)
+fix-timeline-*.js
+*.backup
+timeline-mobile-test.png
